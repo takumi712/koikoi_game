@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>socket.io chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="h_left">
+        KOIKOI
+      </div>
+      <div class="h_right">
+        s
+      </div>
+    </div>
+  </header>
+  <div class="contents">
+    <div class="game_space">
+      <img class="fuda" src="image/1-1.png" alt="">
+    </div>
+    <div class="chat">
+        <div class="chat_top">
+          <h1>chat</h1>
+          <p id="name"></p>
+          <form id="name_form" action="#">
+            <p>
+              名前を入力してください
+            </p>
+            <input id="input_name" autocomplete="off" /><button>決定</button>
+          </form>
+        </div>
+        <form id="message_form" action="#" style="display: none;">
+          <input id="input_msg" autocomplete="off" /><button>Send</button>
+        </form>
+        <ul id="messages"></ul>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>

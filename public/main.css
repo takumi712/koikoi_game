@@ -1,0 +1,86 @@
+body{
+    padding-top: 40px;
+    background: rgb(35, 42, 46);
+}
+p,textarea{
+    padding: 0;
+    margin: 0;
+}
+h1{
+    color: rgb(192, 192, 192);
+    padding-right: 30px;
+    margin: 5px;
+}
+.chat_top{
+    display: flex;
+    align-items: center;
+    border: solid 1px #ffffffff;
+}
+.chat{
+    border: solid 1px #ffffffff;
+    width: 330px;
+}
+.header{
+    display: flex;
+}
+header{
+    height: 50px;
+    position: fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    background: rgb(30, 36, 39);
+    z-index:99;
+}
+.h_left{
+    font-size: 30px;
+    color: rgb(199, 50, 38);
+    padding: 0 20px 0 20px;
+}
+p{
+    color: #ffffffff;
+}
+#messages{
+    list-style: none;
+    color: #ffffffff;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 5px;
+}
+.contents{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+.fuda{
+    height: 130px;
+    width: 80px;
+    animation: rotate 2s infinite;
+}
+@keyframes rotate {
+    0% {
+        width: 80px;
+        filter: none;
+    }
+    25%{
+        filter: none;
+        width: 0px;
+        padding-left: 40px;
+        
+    }
+    26%{
+        filter: brightness(0) invert(0);
+    }
+    50%{
+        width: 80px;
+        padding: 0;
+    }
+    75%{
+        filter: brightness(0) invert(0);
+        width: 0px;
+        padding-left: 40px;
+    }
+    76%{
+        filter: none;
+    }
+}
