@@ -9,8 +9,8 @@ app.use(express.static('public'));
 app.get('/' , function(req, res){
     res.sendFile(__dirname+'/index.html');
 });
-app.get('/a' , function(req, res){
-    res.sendFile(__dirname+'/a.html');
+app.get('/rules' , function(req, res){
+    res.sendFile(__dirname+'/rules.html');
 });
 
 io.on('connection',function(socket){
