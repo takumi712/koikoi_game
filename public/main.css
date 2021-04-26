@@ -84,3 +84,53 @@ p{
         filter: none;
     }
 }
+.content{
+    margin: 0 auto;
+    padding: 5px;
+    position: fixed;
+    top:0;
+    right: 0;
+    z-index: 999;
+}
+.modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.modal__bg{
+    background: rgba(0,0,0,0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+.modal__content{
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+}
+.yaku{
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #000;
+    align-items: center;
+}
+.yaku_images{
+    display: flex;
+    width: 70%;
+}
+.yaku_image{
+    height: 130px;
+    width: 80px;
+    margin: 5px;
+}
+.yaku_moji{
+    color: #000;
+    width: 30%;
+}
