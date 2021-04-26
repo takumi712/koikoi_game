@@ -128,6 +128,7 @@ p{
 .yaku_image{
     height: 130px;
     width: 80px;
+    margin: 5px;
 }
 .yaku_moji{
     color: #000;
