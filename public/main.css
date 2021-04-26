@@ -114,3 +114,13 @@ p{
     transform: translate(-50%,-50%);
     width: 60%;
 }
+.yaku{
+    display: flex;
+}
+.yaku_images{
+    display: flex;
+}
+.yaku_image{
+    height: 130px;
+    width: 80px;
+}
