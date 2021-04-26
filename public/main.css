@@ -116,14 +116,20 @@ p{
 }
 .yaku{
     display: flex;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #000;
+    align-items: center;
 }
 .yaku_images{
     display: flex;
+    width: 70%;
 }
 .yaku_image{
     height: 130px;
     width: 80px;
 }
-.yaku_iro{
+.yaku_moji{
     color: #000;
+    width: 30%;
 }
