@@ -25,6 +25,18 @@ header{
 .page_mode {
     display:none;
 }
+.page_select {
+    display:none;
+}
+.page_maching {
+    display:none;
+}
+.page_game {
+    display:none;
+}
+.page_result {
+    display:none;
+}
 canvas{
   display: block;
   margin-left: auto;
