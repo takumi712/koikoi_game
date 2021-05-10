@@ -16,31 +16,38 @@ h1{
     border-bottom: solid 1px rgb(199, 50, 38);
 }
 .chat{
-    border: solid 1px rgb(199, 50, 38);
+    border-radius: 5px;
+    border: solid 1px #858585;
     width: 330px;
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.1);
 }
 .chat p{
     color:#000;
 }
 .header{
     display: flex;
+    justify-content: space-between;
 }
 header{
+    border-bottom: solid 1px #858585;
     height: 50px;
     position: fixed;
     top:0px;
     left:0px;
     width: 100%;
     z-index:97;
-    border-bottom: solid 2px rgb(199, 50, 38);
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.1);
 }
 .h_left{
     font-size: 30px;
     color: rgb(199, 50, 38);
-    padding: 0 20px 0 20px;
+    margin: 0 20px 0 20px;
+    font-family: 'Shippori Mincho B1', serif;
+    border-bottom: solid 1px rgb(199, 50, 38);
 }
-p{
-    color: #ffffffff;
+.h_right{
+    display: flex;
+    align-items: center;
 }
 #messages{
     list-style: none;
@@ -87,16 +94,14 @@ p{
     }
 }
 .js-modal-open{
-    margin: 0 auto;
+    margin-right: 10px;
+    height: 25px;
+    color: #fff;
     padding: 5px;
-    position: fixed;
-    top:3px;
-    right: 4px;
     border-radius: 3px;
     background-color: rgb(185, 48, 48);
     cursor: pointer;
     z-index: 98;
-    transition: all 0.1;
     font-family: 'Shippori Mincho B1', serif;
 }
 .js-modal-open:hover{
