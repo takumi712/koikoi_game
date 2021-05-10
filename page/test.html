@@ -9,16 +9,59 @@
 function SelectPage( page ) {
     var elementPage1 = document.getElementById( "page_title" );
     var elementPage2 = document.getElementById( "page_mode" );
- 
+	var elementPage3 = document.getElementById( "page_select" );
+	var elementPage4 = document.getElementById( "page_maching" );
+	var elementPage5 = document.getElementById( "page_game" );
+	var elementPage6 = document.getElementById( "page_result" );
     switch( page ) {
     case 1:
         elementPage1.style.display = 'block';
         elementPage2.style.display = 'none';
+		elementPage3.style.display = 'none';
+        elementPage4.style.display = 'none';
+		elementPage5.style.display = 'none';
+        elementPage6.style.display = 'none';
         break;
  
-    case 2:
+	case 2:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'block';
+		elementPage3.style.display = 'none';
+        elementPage4.style.display = 'none';
+		elementPage5.style.display = 'none';
+        elementPage6.style.display = 'none';
+        break;
+	case 3:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'none';
+		elementPage3.style.display = 'block';
+        elementPage4.style.display = 'none';
+		elementPage5.style.display = 'none';
+        elementPage6.style.display = 'none';
+        break;
+	case 4:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'none';
+		elementPage3.style.display = 'none';
+        elementPage4.style.display = 'block';
+		elementPage5.style.display = 'none';
+        elementPage6.style.display = 'none';
+        break;
+	case 5:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'none';
+		elementPage3.style.display = 'none';
+        elementPage4.style.display = 'none';
+		elementPage5.style.display = 'block';
+        elementPage6.style.display = 'none';
+        break;
+	case 6:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'none';
+		elementPage3.style.display = 'none';
+        elementPage4.style.display = 'none';
+		elementPage5.style.display = 'none';
+        elementPage6.style.display = 'block';
         break;
     }
 };
