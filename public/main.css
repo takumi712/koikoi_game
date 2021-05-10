@@ -1,24 +1,26 @@
 body{
     padding-top: 40px;
-    background: rgb(35, 42, 46);
 }
 p,textarea{
     padding: 0;
     margin: 0;
 }
 h1{
-    color: rgb(192, 192, 192);
+    color: rgb(199, 50, 38);
     padding-right: 30px;
     margin: 5px;
 }
 .chat_top{
     display: flex;
     align-items: center;
-    border: solid 1px #ffffffff;
+    border-bottom: solid 1px rgb(199, 50, 38);
 }
 .chat{
-    border: solid 1px #ffffffff;
+    border: solid 1px rgb(199, 50, 38);
     width: 330px;
+}
+.chat p{
+    color:#000;
 }
 .header{
     display: flex;
@@ -29,8 +31,8 @@ header{
     top:0px;
     left:0px;
     width: 100%;
-    background: rgb(30, 36, 39);
-    z-index:99;
+    z-index:97;
+    border-bottom: solid 2px rgb(199, 50, 38);
 }
 .h_left{
     font-size: 30px;
@@ -42,7 +44,7 @@ p{
 }
 #messages{
     list-style: none;
-    color: #ffffffff;
+    color: rgb(199, 50, 38);
     display: flex;
     flex-direction: column-reverse;
     padding: 5px;
@@ -84,25 +86,56 @@ p{
         filter: none;
     }
 }
-.content{
+.js-modal-open{
     margin: 0 auto;
     padding: 5px;
     position: fixed;
-    top:0;
-    right: 0;
-    z-index: 999;
+    top:3px;
+    right: 4px;
+    border-radius: 3px;
+    background-color: rgb(185, 48, 48);
+    cursor: pointer;
+    z-index: 98;
+    transition: all 0.1;
+    font-family: 'Shippori Mincho B1', serif;
+}
+.js-modal-open:hover{
+    color: rgb(185, 48, 48);
+    background-color: #fff;
+    border: solid 1px rgb(185, 48, 48);
+}
+.js-modal-open:active{
+    transform: scale(0.9,0.9);
+}
+.js-modal-close-btn{
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    top:3px;
+    right: 3px;
+    background-color: rgb(185, 48, 48);
+    color:#fff;
+    cursor: pointer;
+    border-radius: 50%;
+    font-family: 'Shippori Mincho B1', serif;
 }
 .modal{
     display: none;
     height: 100vh;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
+    z-index: 98;
 }
 .modal__bg{
     background: rgba(0,0,0,0.8);
     height: 100vh;
     position: absolute;
+    top:0;
+    left: 0;
     width: 100%;
 }
 .modal__content{
@@ -113,24 +146,34 @@ p{
     top: 50%;
     transform: translate(-50%,-50%);
     width: 60%;
+    height: 60%;
+    overflow-y:scroll;
+    border-radius: 10px;
 }
 .yaku{
     display: flex;
-    padding: 5px;
     margin: 5px;
     border: 1px solid #000;
     align-items: center;
 }
 .yaku_images{
+    padding: 5px;
+    box-sizing: border-box;
     display: flex;
+    flex-wrap: wrap;
     width: 70%;
 }
 .yaku_image{
-    height: 130px;
-    width: 80px;
-    margin: 5px;
+    height: 26%;
+    width: 20%;
+    padding: 5px;
+    box-sizing: border-box;
 }
 .yaku_moji{
     color: #000;
     width: 30%;
+    padding: 5px;
+    font-size: 30px;
+    box-sizing: border-box;
+    font-family: 'Shippori Mincho B1', serif;
 }
