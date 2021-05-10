@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>こいこい</title>
+    
+	<link rel="stylesheet" type="text/css" href="main.css">
+<script type="text/javascript" language="javascript">
+
+function SelectPage( page ) {
+    var elementPage1 = document.getElementById( "page_title" );
+    var elementPage2 = document.getElementById( "page_mode" );
+ 
+    switch( page ) {
+    case 1:
+        elementPage1.style.display = 'block';
+        elementPage2.style.display = 'none';
+        break;
+ 
+    case 2:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'block';
+        break;
+    }
+};
+// -->
+</script>
+</head>
+<body>
+	<header>
+		<div class="header">
+			<div class="h_left">
+				KOIKOI
+			</div>
+		</div>
+	</header>
+
+
+	<div id='page_title' class='page_title'>
+        <div class='mode_title'>
+            <label>こいこい</label>
+        </div>
+        <div class='user_name'>
+            <p>名前を入れてね<input type="text" name="name"></p>
+        </div>
+        <div class='start_button'>
+            <button type='button'onclick="SelectPage(2)">START</button>
+        </div>
+    </div>
+
+
+	<div id='page_mode' class='page_mode'>
+		<div class='mode_title'>
+			<label>モード選択</label>
+		</div>
+		<div class='mode_kaisu'>
+			回数
+			<select name='mode_combo_kaisu'>
+				<option value='m_12'>12ヵ月</option>
+				<option value='m_6'>6ヵ月</option>
+				<option value='m_3'>3ヵ月</option>
+				<option value='m_1'>1ヵ月</option>
+			</select>
+		</div>
+		<div class='mode_button'>
+			<div class='mode_button_cpu'>
+				<button type='button'>対CPU戦</button>
+			</div>
+			<div class='mode_button_pc'>
+				<button type='button'>対人戦</button>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
+

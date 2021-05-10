@@ -19,6 +19,12 @@ header{
     color: rgb(199, 50, 38);
     padding: 10px 10px;
 }
+.page_title {
+    display:block;
+}
+.page_mode {
+    display:none;
+}
 canvas{
   display: block;
   margin-left: auto;
