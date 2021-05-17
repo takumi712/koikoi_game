@@ -1,41 +1,59 @@
 body{
-    padding-top: 40px;
-    background: rgb(35, 42, 46);
+  padding-top: 40px;
+  background: rgb(135, 142, 146);
 }
 .header{
-    display: flex;
+  display: flex;
 }
 header{
-    height: 50px;
-    position: fixed;
-    top:0px;
-    left:0px;
-    width: 100%;
-    background: rgb(30, 36, 39);
-    z-index:99;
+  height: 50px;
+  position: fixed;
+  top:0px;
+  left:0px;
+  width: 100%;
+  background: rgb(30, 36, 39);
+  z-index:99;
 }
 .h_left{
-    font-size: 30px;
-    color: rgb(199, 50, 38);
-    padding: 10px 10px;
+  font-size: 30px;
+  color: rgb(199, 50, 38);
+  padding: 10px 10px;
 }
 .page_title {
-    display:block;
+  display:block;
+}
+#sikaku{
+  position: absolute;
+  display: block;
+  margin-top:50px;
+  background-color: rgb(255,255,255);
+  width: 80vmax;
+  height: 45vmax;
+  border: solid 2px blue;
+  margin-left: auto;
+  margin-right: auto;
+}
+img.title_img{
+  position: absolute;
+  width: 80vmax;
+  height: 45vmax;
+  margin-top:52px;
+  margin-left: 2px;
 }
 .page_mode {
-    display:none;
+  display:none;
 }
 .page_select {
-    display:none;
+  display:none;
 }
 .page_maching {
-    display:none;
+  display:none;
 }
 .page_game {
-    display:none;
+  display:none;
 }
 .page_result {
-    display:none;
+  display:none;
 }
 canvas{
   display: block;
