@@ -1,0 +1,43 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+html{
+    padding: 0;
+    margin: 0;
+}
+.home{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/image/koikoi.png);
+    background-size: cover;
+    background-position: center;
+}
+.circle{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: 60px;
+    top:60px;
+    background-color: rgb(209, 55, 55);
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+}
+h1{
+    font-size: 70px;
+    padding: 0 10px;
+}
+.start_game_btn{
+    font-size: 20px;
+    height:10px;
+    line-height: 10px;
+    background-color: #ffffffff;
+    padding: 20px;
+    border-radius: 30px;
+    text-decoration:none;
+}
+
+a:visited { color: #000000 }

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>socket.io chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript" language="javascript">
+        function SelectPage( page ) {
+        var elementPage1 = document.getElementById( "page_title" );
+        var elementPage2 = document.getElementById( "page_mode" );
+        var elementPage3 = document.getElementById( "page_select" );
+        var elementPage4 = document.getElementById( "page_maching" );
+        var elementPage5 = document.getElementById( "page_game" );
+        var elementPage6 = document.getElementById( "page_result" );
+        switch( page ) {
+            case 1:
+                elementPage1.style.display = 'block';
+                elementPage2.style.display = 'none';
+                elementPage3.style.display = 'none';
+                elementPage4.style.display = 'none';
+                elementPage5.style.display = 'none';
+                elementPage6.style.display = 'none';
+                break;
+                case 2:
+                    elementPage1.style.display = 'none';
+                    elementPage2.style.display = 'block';
+                    elementPage3.style.display = 'none';
+                    elementPage4.style.display = 'none';
+                    elementPage5.style.display = 'none';
+                    elementPage6.style.display = 'none';
+                    break;
+                    case 3:
+                        elementPage1.style.display = 'none';
+                        elementPage2.style.display = 'none';
+                        elementPage3.style.display = 'block';
+                        elementPage4.style.display = 'none';
+                        elementPage5.style.display = 'none';
+                        elementPage6.style.display = 'none';
+                        break;
+                        case 4:
+                            elementPage1.style.display = 'none';
+                            elementPage2.style.display = 'none';
+                            elementPage3.style.display = 'none';
+                            elementPage4.style.display = 'block';
+                            elementPage5.style.display = 'none';
+                            elementPage6.style.display = 'none';
+                            break;
+                            case 5:
+                                elementPage1.style.display = 'none';
+                                elementPage2.style.display = 'none';
+                                elementPage3.style.display = 'none';
+                                elementPage4.style.display = 'none';
+                                elementPage5.style.display = 'block';
+                                elementPage6.style.display = 'none';
+                                break;
+                                case 6:
+                                    elementPage1.style.display = 'none';
+                                    elementPage2.style.display = 'none';
+                                    elementPage3.style.display = 'none';
+                                    elementPage4.style.display = 'none';
+                                    elementPage5.style.display = 'none';
+                                    elementPage6.style.display = 'block';
+                                    break;
+                                }
+                            };
+    </script>
+    </head>
+    <body>
+        <header>
+            <div class="header">
+              <div class="h_left">
+                こいこい
+              </div>
+              <div class="h_right">
+                <span class="js-modal-open">役一覧</span>
+              </div>
+            </div>
+        </header>
+        <div id='page_title' class='page_title'>
+            <div class='mode_title'>
+                <label>こいこい</label>
+            </div>
+            <div class='user_name'>
+                <p>名前を入れてね<input type="text" name="name"></p>
+            </div>
+            <div class='start_button'>
+                <button type='button'onclick="SelectPage(2)">START</button>
+            </div>
+        </div>
+
+
+        <div id='page_mode' class='page_mode'>
+            <div class='mode_title'>
+                <label>モード選択</label>
+            </div>
+            <div class='mode_kaisu'>
+                回数
+                <select name='mode_combo_kaisu'>
+                    <option value='m_12'>12ヵ月</option>
+                    <option value='m_6'>6ヵ月</option>
+                    <option value='m_3'>3ヵ月</option>
+                    <option value='m_1'>1ヵ月</option>
+                </select>
+            </div>
+            <div class='mode_button'>
+                <div class='mode_button_cpu'>
+                    <input type='button' value="対CPU戦">
+                </div>
+                <div class='mode_button_pc'>
+                    <input type='button' value="対人戦" onclick="SelectPage(3)">
+                </div>
+            </div>
+        </div>
+
+
+        <div id="page_select" class='page_select'>
+            <div class="textl">
+                対人戦準備
+            </div>
+            <div class="room_name_area">
+                <div class="textm">
+                    部屋名
+                </div>
+                <input type="text">
+            </div>
+            <div class="select_button">
+                <button>作る</button>
+                <button>入る</button>
+            </div>
+        </div>
+</body>
+</html>
