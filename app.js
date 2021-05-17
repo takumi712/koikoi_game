@@ -7,13 +7,10 @@ const PORT = process.env.PORT || 7000;
 app.use(express.static('public'));
 
 app.get('/' , function(req, res){
-    res.sendFile(__dirname+'/index.html');
+    res.sendFile(__dirname+'/home.html');
 });
 app.get('/game' , function(req, res){
-    res.sendFile(__dirname+'/test.html');
-});
-app.get('/rules' , function(req, res){
-    res.sendFile(__dirname+'/rules.html');
+    res.sendFile(__dirname+'/game.html');
 });
 
 io.on('connection',function(socket){

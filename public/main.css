@@ -38,9 +38,6 @@ h1{
 header{
     border-bottom:solid 1px #858585;
     height: 50px;
-    /* position: fixed;
-    top:0px;
-    left:0px; */
     width: 96vw;
     z-index:97;
     box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.1);
@@ -189,4 +186,31 @@ header{
     font-size: 30px;
     box-sizing: border-box;
     font-family: 'Shippori Mincho B1', serif;
+}
+.page_title {
+    display:block;
+}
+.page_mode {
+    display:none;
+}
+.page_select {
+    display:none;
+}
+.page_maching {
+    display:none;
+}
+.page_game {
+    display:none;
+}
+.page_result {
+    display:none;
+}
+canvas{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:50px;
+  background-color:white;
+  width:90%;
+  height:75%;
 }
