@@ -1,31 +1,39 @@
-const cardList = [
-    [1-1,1-3,14-1,14-2],
-    [2-2,2-3,2-41,2-42],
-    [3-1,3-3,3-41,3-42],
-    [4-2,4-3,4-41,4-42],
-    [5-2,5-3,5-41,5-42],
-    [6-2,6-3,6-41,6-42],
-    [7-2,7-3,7-41,7-42],
-    [8-1,8-3,8-41,8-42],
-    [9-2,93,941,942],
-    [10-2,10-3,10-41,10-42],
-    [11-1,12-3,11-41,11-42],
-    [12-1,1241,12-42,12-42]
-  ];
-class Deck {
-    start_shuffle(options = {}) {
-        this._deck = [...cardList];
-        //山札シャッフル
-        this._deck.sort((a, b) => Math.random() - 0.5);
-    }
-    deal(num) {
-        return this._deck.splice(0, num);
-    }
+newDeck = [11,12,13,14,21,22,23,24,31,32,33,34,41,42,43,44,51,52,53,54,61,62,63,64,71,72,73,74,81,82,83,84,91,92,93,94,101,102,103,104,111,112,113,114,121,122,123,124];
+
+console.log("山札確認", newDeck);
+
+m_hands = []
+e_hands = []
+field =[]
+
+while (m_hands.length < 8) {
+    n = newDeck.length;
+    k = Math.floor(Math.random() * n);
+  
+    m_hands.push(newDeck[k]);
+    newDeck.splice(k, 1);
 }
-(function startGame() {
-    //敵と自分の手札と場札を生成
-    const deck = new Deck();
-    var m_hands = deck.deal(8);
-    var e_hands = deck.deal(8);
-    var filed = deck.deal(8);
-  })();
+
+console.log("自手札！", m_hands);
+
+while (e_hands.length < 8) {
+    n = newDeck.length;
+    k = Math.floor(Math.random() * n);
+  
+    e_hands.push(newDeck[k]);
+    newDeck.splice(k, 1);
+}
+
+console.log("敵手札！", e_hands);
+
+while (field.length < 8) {
+    n = newDeck.length;
+    k = Math.floor(Math.random() * n);
+  
+    field.push(newDeck[k]);
+    newDeck.splice(k, 1);
+}
+
+console.log("場札！", field);
+
+console.log("山札再確認", newDeck);
