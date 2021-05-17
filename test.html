@@ -75,59 +75,62 @@ function SelectPage( page ) {
 
 
 	<div id='page_title' class='page_title'>
-        <div id="sikaku"></div>
-        <img src="public\image\koikoi.png" class="title_img">
-        <div class='mode_title'>
-            <label>こいこい</label>
-        </div>
-        <div class='user_name'>
-            <p>名前を入れてね<input type="text" name="name"></p>
-        </div>
-        <div class='start_button'>
-            <button type='button'onclick="SelectPage(2)">START</button>
+        <div id="sikaku">
+            <img src="public\image\koikoi.png" class="title_img">
+            <div class="mode_title">
+                <label>こいこい</label>
+            </div>
+            <div class='user_name'>
+                <p>名前を入れてね<input type="text" name="name"></p>
+            </div>
+            <div class='start_button'>
+                <button type='button'onclick="SelectPage(2)">START</button>
+            </div>
         </div>
     </div>
 
 
 	<div id='page_mode' class='page_mode'>
-        <div id="sikaku"></div>
-		<div class='mode_title'>
-			<label>モード選択</label>
-		</div>
-		<div class='mode_kaisu'>
-			回数
-			<select name='mode_combo_kaisu'>
-				<option value='m_12'>12ヵ月</option>
-				<option value='m_6'>6ヵ月</option>
-				<option value='m_3'>3ヵ月</option>
-				<option value='m_1'>1ヵ月</option>
-			</select>
-		</div>
-		<div class='mode_button'>
-			<div class='mode_button_cpu'>
-				<input type='button' value="対CPU戦">
-			</div>
-			<div class='mode_button_pc'>
-				<input type='button' value="対人戦" onclick="SelectPage(3)">
-			</div>
-		</div>
+        <div id="sikaku">
+    		<div class='mode_title'>
+    			<label>モード選択</label>
+    		</div>
+    		<div class='mode_kaisu'>
+    			回数
+    			<select name='mode_combo_kaisu'>
+    				<option value='m_12'>12ヵ月</option>
+    				<option value='m_6'>6ヵ月</option>
+    				<option value='m_3'>3ヵ月</option>
+    				<option value='m_1'>1ヵ月</option>
+    			</select>
+    		</div>
+    		<div class='mode_button'>
+    			<div class='mode_button_cpu'>
+    				<input type='button' value="対CPU戦">
+    			</div>
+    			<div class='mode_button_pc'>
+    				<input type='button' value="対人戦" onclick="SelectPage(3)">
+    			</div>
+    		</div>
+        </div>
 	</div>
 
 
 	<div id="page_select" class='page_select'>
-        <div id="sikaku"></div>
-        <div class="textl">
-            対人戦準備
-        </div>
-        <div class="room_name_area">
-            <div class="textm">
-                部屋名
+        <div id="sikaku">
+            <div class="textl">
+                対人戦準備
             </div>
-            <input type="text">
-        </div>
-        <div class="select_button">
-            <button>作る</button>
-            <button>入る</button>
+            <div class="room_name_area">
+                <div class="textm">
+                    部屋名
+                </div>
+                <input type="text">
+            </div>
+            <div class="select_button">
+                <button>作る</button>
+                <button>入る</button>
+            </div>
         </div>
     </div>
 

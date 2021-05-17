@@ -2,6 +2,17 @@ body{
   padding-top: 40px;
   background: rgb(135, 142, 146);
 }
+#sikaku{
+  position: absolute;
+  display: block;
+  margin-top:50px;
+  background-color: rgb(255,255,255);
+  width: 80vmax;
+  height: 45vmax;
+  border: solid 2px blue;
+  margin-left: auto;
+  margin-right: auto;
+}
 .header{
   display: flex;
 }
@@ -19,27 +30,42 @@ header{
   color: rgb(199, 50, 38);
   padding: 10px 10px;
 }
+
 .page_title {
   display:block;
 }
-#sikaku{
-  position: absolute;
-  display: block;
-  margin-top:50px;
-  background-color: rgb(255,255,255);
-  width: 80vmax;
-  height: 45vmax;
-  border: solid 2px blue;
-  margin-left: auto;
-  margin-right: auto;
+.title_img{
+  background-color: rgba(0,0,255,0.1);
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
-img.title_img{
+.page_title .mode_title{
   position: absolute;
-  width: 80vmax;
-  height: 45vmax;
-  margin-top:52px;
-  margin-left: 2px;
+  font-family: "游ゴシック";
+  font-weight: bold;
+  font-size: 10vmax;
+  top: 0vmax;
+  right: 2vmax;
+  color: rgb(255,80,80); 
 }
+
+.page_title .user_name{
+  position: absolute;
+  top:12vmax;
+  right: 2vmax;
+  
+}
+.page_title button{
+  position: absolute;
+  top:18vmax;
+  right: 2vmax;
+  
+}
+
+
+
+
 .page_mode {
   display:none;
 }
