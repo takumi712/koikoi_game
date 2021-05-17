@@ -9,6 +9,9 @@ app.use(express.static('public'));
 app.get('/' , function(req, res){
     res.sendFile(__dirname+'/index.html');
 });
+app.get('/game' , function(req, res){
+    res.sendFile(__dirname+'/test.html');
+});
 app.get('/rules' , function(req, res){
     res.sendFile(__dirname+'/rules.html');
 });
