@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const section = document.querySelector('.a');
+    const section = document.querySelector('.fallen_leves_area');
   
     const createPetal = () => {
       const petalEl = document.createElement('span');
