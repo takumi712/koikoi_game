@@ -56,8 +56,6 @@ a:visited { color: rgb(209, 55, 55) }
     height: 100vh;
     overflow: hidden; 
 }
-  
-  /* 桜の花びらのスタイル */
 .petal {
     position: absolute;
     /* background-color: #ffc0cb;

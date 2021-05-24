@@ -1,8 +1,6 @@
 html{
-    border: 2vw solid #1a1a1a;
-    box-sizing: border-box;
-    min-width: 100vw;
-    min-height: 100vh;
+    padding: 0;
+    margin: 0;
 }
 body{
     padding: 0;
@@ -38,7 +36,7 @@ h1{
 header{
     border-bottom:solid 1px #858585;
     height: 50px;
-    width: 96vw;
+    width: 100vw;
     z-index:97;
     box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.1);
 }
@@ -53,50 +51,6 @@ header{
     margin-right: 10px;
     display: flex;
     align-items: center;
-}
-#messages{
-    list-style: none;
-    color: rgb(199, 50, 38);
-    display: flex;
-    flex-direction: column-reverse;
-    padding: 5px;
-}
-.contents{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
-}
-.fuda{
-    height: 130px;
-    width: 80px;
-    animation: rotate 2s infinite;
-}
-@keyframes rotate {
-    0% {
-        width: 80px;
-        filter: none;
-    }
-    25%{
-        filter: none;
-        width: 0px;
-        padding-left: 40px;
-        
-    }
-    26%{
-        filter: brightness(0) invert(0);
-    }
-    50%{
-        width: 80px;
-        padding: 0;
-    }
-    75%{
-        filter: brightness(0) invert(0);
-        width: 0px;
-        padding-left: 40px;
-    }
-    76%{
-        filter: none;
-    }
 }
 .js-modal-open{
     margin-right: 10px;
@@ -187,30 +141,93 @@ header{
     box-sizing: border-box;
     font-family: 'Shippori Mincho B1', serif;
 }
+
 .page_title {
     display:block;
-}
-.page_mode {
+  }
+  .title_img{
+    background-color: #FFAB5E;
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  .page_title .mode_title{
+    position: absolute;
+    font-family: "游ゴシック";
+    font-weight: bold;
+    font-size: 10vmax;
+    top: 0vmax;
+    right: 2vmax;
+    color: #C73226;
+  }
+  
+  .page_title .user_name{
+    position: absolute;
+    top:12vmax;
+    right: 3vmax; 
+    font-size:2vmax;
+    color: #C73226;
+  }
+  
+  
+  
+  .start_button{
+    position: absolute;
+    top:18vmax;
+    right: 3vmax;
+  }
+  .start_button button{
+    background:#C73226;
+    font-size:2.5vmax;
+    color:#FFFFFF;
+    padding: 0.8vmax;
+    border:0.5vmax solid #C73226;
+    border-radius:3vmax;
+    -webkit-border-radius:3vmax;
+    -moz-border-radius:3vmax;
+    transition: all 0.5s ease;
+  }
+  
+  .start_button button:hover{
+    background:#FFFFFF;
+    color:#C73226;
+    box-shadow:none;
+  }
+  
+  
+  .page_mode {
     display:none;
-}
-.page_select {
+  }
+  .page_select {
     display:none;
-}
-.page_maching {
+  }
+  .page_maching {
     display:none;
-}
-.page_game {
+  }
+  .page_game {
     display:none;
-}
-.page_result {
+  }
+  .page_result {
     display:none;
-}
-canvas{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top:50px;
-  background-color:white;
-  width:90%;
-  height:75%;
-}
+  }
+  canvas{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:50px;
+    background-color:white;
+    width:90%;
+    height:75%;
+  }
+
+#sikaku{
+    position: absolute;
+    display: block;
+    margin-top:50px;
+    background-color: rgb(255,255,255);
+    width: 80vmax;
+    height: 45vmax;
+    border: solid 2px blue;
+    margin-left: auto;
+    margin-right: auto;
+  }
