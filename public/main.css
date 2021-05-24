@@ -142,16 +142,18 @@ header{
     font-family: 'Shippori Mincho B1', serif;
 }
 
+
+
 .page_title {
     display:block;
-  }
-  .title_img{
+}
+.title_img{
     background-color: #FFAB5E;
     position: relative;
     width: 100%;
     height: 100%;
-  }
-  .page_title .mode_title{
+}
+.page_title .mode_title{
     position: absolute;
     font-family: "游ゴシック";
     font-weight: bold;
@@ -159,24 +161,28 @@ header{
     top: 0vmax;
     right: 2vmax;
     color: #C73226;
-  }
+}
   
-  .page_title .user_name{
+.page_title .user_name{
     position: absolute;
     top:12vmax;
     right: 3vmax; 
     font-size:2vmax;
     color: #C73226;
-  }
-  
-  
-  
-  .start_button{
+}
+.page_title .user_name input{
+  font-size:2.5vmax;
+  font-weight: bold;
+  border-radius:3vmax;
+  -webkit-border-radius:3vmax;
+  -moz-border-radius:3vmax;
+}
+.page_title .start_button{
     position: absolute;
     top:18vmax;
     right: 3vmax;
-  }
-  .start_button button{
+}
+.page_title .start_button button{
     background:#C73226;
     font-size:2.5vmax;
     color:#FFFFFF;
@@ -186,31 +192,138 @@ header{
     -webkit-border-radius:3vmax;
     -moz-border-radius:3vmax;
     transition: all 0.5s ease;
-  }
+}
   
-  .start_button button:hover{
+.page_title .start_button button:hover{
     background:#FFFFFF;
     color:#C73226;
     box-shadow:none;
-  }
-  
-  
+}
+
+
   .page_mode {
+  display:none;
+}
+.page_mode .card{
+  position: absolute;
+  top: 13vmax;
+  left: 5vmax;
+  width: 16vmax;
+  height: 26vmax;
+  animation: flip 3s linear infinite;
+  transform-style: preserve-3d;
+}
+@keyframes flip {
+  0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+.page_mode .card_0_img,.page_mode .card_1_img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+}
+.page_mode .card_0_img{
+  transform: rotateY(180deg);
+}
+
+.page_mode #sikaku{
+  background-color: #FFAB5E;
+}
+.page_mode .mode_title{
+  position: absolute;
+  font-family: "游ゴシック";
+  font-weight: bold;
+  font-size: 5vmax;
+  top: 2vmax;
+  left: 1vmax;
+  color: #C73226;
+}
+.page_mode button{
+  position: absolute;
+  background:#C73226;
+  top: 2vmax;
+  right: 2vmax;
+  font-size:2.5vmax;
+  color:#FFFFFF;
+  padding: 1vmax;
+  padding-right:1.7vmax; 
+  padding-left:1.7vmax;
+  border:0.5vmax solid #C73226;
+  border-radius:5vmax;
+  -webkit-border-radius:5vmax;
+  -moz-border-radius:5vmax;
+  transition: all 0.5s ease;
+}
+.page_mode button:hover{
+  background:#FFFFFF;
+  color:#C73226;
+  box-shadow:none;
+}
+.page_mode .mode_kaisu{
+  position: absolute;
+  top: 20vmax;
+  left: 30vmax;
+  font-size:2.5vmax;
+}
+.page_mode .mode_kaisu select{
+  font-size:2.5vmax;
+}
+
+.page_mode .mode_button input{
+  background:#C73226;
+  font-size:2.5vmax;
+  width: 20vmax;
+  color:#FFFFFF;
+  padding: 1vmax;
+  border:0.5vmax solid #C73226;
+  border-radius:5vmax;
+  -webkit-border-radius:5vmax;
+  -moz-border-radius:5vmax;
+  transition: all 0.5s ease;
+}
+.page_mode .mode_button input:hover{
+  background:#FFFFFF;
+  color:#C73226;
+  box-shadow:none;
+}
+
+.page_mode .mode_button .mode_button_cpu{
+  position: absolute;
+  padding-right: 3vmax;
+  top: 33vmax;
+  left: 54vmax;
+}
+.page_mode .mode_button .mode_button_pc{
+  position: absolute;
+  top: 33vmax;
+  left: 29vmax;
+}
+
+
+.page_select {
     display:none;
-  }
-  .page_select {
+}
+
+
+.page_maching {
     display:none;
-  }
-  .page_maching {
+}
+
+
+.page_game {
     display:none;
-  }
-  .page_game {
-    display:none;
-  }
+}
+
+
   .page_result {
     display:none;
-  }
-  canvas{
+}
+
+
+canvas{
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -218,7 +331,7 @@ header{
     background-color:white;
     width:90%;
     height:75%;
-  }
+}
 
 #sikaku{
     position: absolute;
@@ -230,4 +343,4 @@ header{
     border: solid 2px blue;
     margin-left: auto;
     margin-right: auto;
-  }
+}

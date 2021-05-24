@@ -107,29 +107,36 @@ $(function(){
 
 
 	<div id='page_mode' class='page_mode'>
-        <div id="sikaku">
-    		<div class='mode_title'>
-    			<label>モード選択</label>
-    		</div>
-    		<div class='mode_kaisu'>
-    			回数
-    			<select name='mode_combo_kaisu'>
-    				<option value='m_12'>12ヵ月</option>
-    				<option value='m_6'>6ヵ月</option>
-    				<option value='m_3'>3ヵ月</option>
-    				<option value='m_1'>1ヵ月</option>
-    			</select>
-    		</div>
-    		<div class='mode_button'>
-    			<div class='mode_button_cpu'>
-    				<input type='button' value="対CPU戦">
-    			</div>
-    			<div class='mode_button_pc'>
-    				<input type='button' value="対人戦" onclick="SelectPage(3)">
-    			</div>
-    		</div>
+    <div id="sikaku">
+      <div class='back_button'>
+        <button type='button'onclick="SelectPage(1)">↺</button>
+      </div>
+      <div class='mode_title'>
+        <label>モード選択</label>
+      </div>
+      <div class="card">
+          <img src="public/image/1-1.png" class="card_1_img">
+          <img src="public/image/0.png" class="card_0_img">
+      </div>
+      <div class='mode_kaisu'>
+        回数
+        <select name='mode_combo_kaisu'>
+          <option value='m_12'>12ヵ月</option>
+          <option value='m_6'>6ヵ月</option>
+          <option value='m_3'>3ヵ月</option>
+          <option value='m_1'>1ヵ月</option>
+        </select>
+      </div>
+      <div class='mode_button'>
+        <div class='mode_button_cpu'>
+          <input type='button' value="対CPU戦">
         </div>
-	</div>
+        <div class='mode_button_pc'>
+          <input type='button' value="対人戦" onclick="SelectPage(3)">
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 	<div id="page_select" class='page_select'>
