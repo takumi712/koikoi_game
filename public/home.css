@@ -32,6 +32,8 @@ html{
 h1{
     font-size: 70px;
     padding: 0 10px;
+    color: #ffffffff;
+    font-family: 'Shippori Mincho B1', serif;
 }
 .start_game_btn{
     font-size: 20px;
@@ -41,9 +43,10 @@ h1{
     padding: 20px;
     border-radius: 30px;
     text-decoration:none;
+    color: rgb(209, 55, 55);
 }
 
-a:visited { color: #000000 }
+a:visited { color: rgb(209, 55, 55) }
 
 .fallen_leves_area{
     position: fixed;
