@@ -19,8 +19,8 @@ function onClick(e) {
     var y = e.clientY - canvas.offsetTop;
     console.log("x:", x, "y:", y);
 }
-const canvas_game = document.getElementById("canvas_game");
-const ctx = canvas_game.getContext("2d");
+var canvas = document.getElementById("canvas_game");
+	var ctx = canvas.getContext('2d');
 canvas.addEventListener('click', onClick, false);
 
 const chara = [];
