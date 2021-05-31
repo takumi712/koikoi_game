@@ -18,8 +18,8 @@ $(function(){
         socketio.emit('message', name + " < " + txt);
         $('#input_msg').val('');
         return false;
-        });
-        socketio.on('message',function(msg){
+    });
+    socketio.on('message',function(msg){
         $('#messages').append($('<li>').text(msg));
     });
 });

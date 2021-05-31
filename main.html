@@ -65,16 +65,6 @@ function SelectPage( page ) {
         break;
     }
 };
-$(function(){
-    $('.js-modal-open').on('click',function(){
-        $('.js-modal').fadeIn();
-        return false;
-    });
-    $('.js-modal-close').on('click',function(){
-        $('.js-modal').fadeOut();
-        return false;
-    });
-});
 </script>
 </head>
 <body>
@@ -97,10 +87,10 @@ $(function(){
                 <label>こいこい</label>
             </div>
             <div class='user_name'>
-                <p>名前を入れてね<input type="text" name="name"></p>
+                <p>名前を入れてね<input type="text" name="name" id="name_txt"></p>
             </div>
             <div class='start_button'>
-                <button type='button'onclick="SelectPage(2)">START</button>
+                <button type='button'onclick="SelectPage(2);check()">START</button>
             </div>
         </div>
     </div>
