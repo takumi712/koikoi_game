@@ -2,6 +2,7 @@ var socketio = io();
 
 $(function(){
     var name = 'nonename';
+    var month = 0;
     $('#name_form').submit(function(){
         name = $('#input_name').val();
         $('#input_name').val('');
@@ -21,6 +22,33 @@ $(function(){
     });
     socketio.on('message',function(msg){
         $('#messages').append($('<li>').text(msg));
+    });
+    // page1
+    $('#start_btn').on('click',function(){
+        name = $('#name_txt').val();
+        document.getElementById("show_name").textContent = name;
+        console.log(name);
+        return false;
+    });
+    // page2
+    $('#mode_btn_pc').on('click',function(){
+        color1 = document.form1.mode_combo_kaisu;
+        num = color1.selectedIndex;
+        if (num == 0){
+            month = 12;
+        }
+        else if( num == 1){
+            month = 6;   
+        }
+        else if( num == 2){
+            month = 3;   
+        }
+        else if( num == 3){
+            month = 1;   
+        }
+        document.getElementById("show_name").textContent = month;
+        console.log(num);
+        return false;
     });
 });
 $(function(){
