@@ -20,7 +20,7 @@ function onClick(e) {
     console.log("x:", x, "y:", y);
 }
 var canvas = document.getElementById("canvas_game");
-	var ctx = canvas.getContext('2d');
+var ctx = canvas.getContext("2d");
 canvas.addEventListener('click', onClick, false);
 
 const chara = [];
