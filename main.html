@@ -18,53 +18,63 @@ function SelectPage( page ) {
     case 1:
         elementPage1.style.display = 'block';
         elementPage2.style.display = 'none';
-		elementPage3.style.display = 'none';
+		    elementPage3.style.display = 'none';
         elementPage4.style.display = 'none';
-		elementPage5.style.display = 'none';
+		    elementPage5.style.display = 'none';
         elementPage6.style.display = 'none';
         break;
 	case 2:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'block';
-		elementPage3.style.display = 'none';
+		    elementPage3.style.display = 'none';
         elementPage4.style.display = 'none';
-		elementPage5.style.display = 'none';
+		    elementPage5.style.display = 'none';
         elementPage6.style.display = 'none';
         break;
 	case 3:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'none';
-		elementPage3.style.display = 'block';
+		    elementPage3.style.display = 'block';
         elementPage4.style.display = 'none';
-		elementPage5.style.display = 'none';
+		    elementPage5.style.display = 'none';
         elementPage6.style.display = 'none';
         break;
 	case 4:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'none';
-		elementPage3.style.display = 'none';
+		    elementPage3.style.display = 'none';
         elementPage4.style.display = 'block';
-		elementPage5.style.display = 'none';
+		    elementPage5.style.display = 'none';
         elementPage6.style.display = 'none';
         break;
 	case 5:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'none';
-		elementPage3.style.display = 'none';
+		    elementPage3.style.display = 'none';
         elementPage4.style.display = 'none';
-		elementPage5.style.display = 'block';
+		    elementPage5.style.display = 'block';
         elementPage6.style.display = 'none';
         break;
 	case 6:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'none';
-		elementPage3.style.display = 'none';
+		    elementPage3.style.display = 'none';
         elementPage4.style.display = 'none';
-		elementPage5.style.display = 'none';
+		    elementPage5.style.display = 'none';
         elementPage6.style.display = 'block';
         break;
     }
 };
+$(function(){
+    $('.js-modal-open').on('click',function(){
+        $('.js-modal').fadeIn();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    });
+});
 </script>
 </head>
 <body>
@@ -84,13 +94,13 @@ function SelectPage( page ) {
         <div id="sikaku">
             <img src="/image/koikoi_home.png" class="title_img">
             <div class="mode_title">
-                <label>こいこい</label>
+              <label>こいこい</label>
             </div>
             <div class='user_name'>
-                <p>名前を入れてね<input type="text" name="name" id="name_txt"></p>
+              <p>名前を入れてね<input type="text" name="name"></p>
             </div>
             <div class='start_button'>
-                <button type='button'onclick="SelectPage(2);check()">START</button>
+              <button type='button'onclick="SelectPage(2)">START</button>
             </div>
         </div>
     </div>
@@ -141,11 +151,66 @@ function SelectPage( page ) {
                 <input type="text">
             </div>
             <div class="select_button">
-                <button>作る</button>
-                <button>入る</button>
+                <button type='button'onclick="SelectPage(4)">作る</button>
+                <button type='button'onclick="SelectPage(4)">入る</button>
             </div>
         </div>
     </div>
+
+
+    <div id='page_maching' class='page_maching'>
+      <div id="sikaku">
+        <div class='maching_title'>
+          <label>マッチング</label>
+        </div>
+        <div class='roomName'>
+          <label>部屋名「</label>
+          <label id="maching_roomname">roomName</label>
+          <label>」</label>
+        </div>
+        <div class='name1'>
+          <label id="player1">player1</label>
+        </div>
+        <div class='versus'>
+          <label>VS</label>
+        </div>
+        <div class='name2'>
+          <label id="player2">player2</label>
+        </div>
+        <button type='button'onclick="SelectPage(5)">gameへ</button>
+      </div>
+    </div>
+
+
+    <div id='page_game' class='page_game'>
+        <div id="sikaku">
+            <div class="gama_canvas">
+              <canvas></canvas>
+            </div>
+        </div>
+        <button type='button'onclick="SelectPage(6)">resultへ</button>
+    </div>
+
+    <div id='page_game' class='page_game'>
+      <div id="sikaku">
+        <div class='result_title'>
+          <label>対戦結果</label>
+        </div>
+        <div class='game_result'>
+          <label id="player_win">player</label>
+          <label>の勝ち</label>
+        </div>
+        
+        <div class="rusult_button_continue">
+          <button type='button'onclick="SelectPage(4)">もう一度</button>
+        </div>
+        <div class="rusult_button_title">
+          <button type='button'onclick="SelectPage(1)">タイトルへ</button>
+        </div>
+      </div>
+    </div>
+
+
     <div class="modal js-modal">
         <div class="modal__bg js-modal-close"></div>
         <div class="modal__content">

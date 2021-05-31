@@ -329,8 +329,8 @@ canvas{
     margin-right: auto;
     margin-top:50px;
     background-color:white;
-    width:90%;
-    height:75%;
+    width:auto;
+    height:auto;
 }
 
 #sikaku{
