@@ -19,10 +19,10 @@ function onClick(e) {
     var y = e.clientY - canvas.offsetTop;
     console.log("x:", x, "y:", y);
 }
-canvas.addEventListener('click', onClick, false);
 const canvas_game = document.querySelector("#canvas_game");
 const ctx = canvas_game.getContext("2d");
-  
+canvas.addEventListener('click', onClick, false);
+
 const chara = [];
 chara[0].src="/image/1-1.png";
 chara[1].src="/image/1-3.png";
