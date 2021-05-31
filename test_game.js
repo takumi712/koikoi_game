@@ -8,8 +8,15 @@ e_hands = []
 field =[]
 m_yaku=[]
 e_yaku=[]
-
-
+m_point=0;
+e_point=0;
+function onClick(e) {
+    console.log("click");
+    var x = e.clientX - canvas.offsetLeft;
+    var y = e.clientY - canvas.offsetTop;
+    console.log("x:", x, "y:", y);
+}
+canvas.addEventListener('click', onClick, false);
 while (m_hands.length < 8) {
     n = newDeck.length;//山札の枚数
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
@@ -215,8 +222,10 @@ function m_yaku_check(){
         kasu_p=tan.length-9;
     }
     kei=gokou_p+tane_p+inosika_p+tan_p+aka_p+ao_p+kasu_p;
-    if(kei!=0){
+    if(kei!=m_point){
+        m_point=kei;
         //koikoi or agari
+        //if(koikoi){return 1}else{return 0}
     }
 }
 function e_yaku_check(){
@@ -329,47 +338,19 @@ function e_yaku_check(){
         kasu_p=tan.length-9;
     }
     kei=gokou_p+tane_p+inosika_p+tan_p+aka_p+ao_p+kasu_p;
-    if(kei!=0){
+    if(kei!=e_point){
+        e_point=kei;
         //koikoi or agari
+        //if(koikoi){return 1}else{return 0}
     }
 }
-//1turn
-m_turn();
-m_yaku_check();
-e_turn();
-e_yaku_check();
-//2turn
-m_turn();
-m_yaku_check();
-e_turn();
-e_yaku_check();
-//3turn
-m_turn();
-m_yaku_check();
-e_turn();
-e_yaku_check();
-//4turn
-m_turn();
-m_yaku_check();
-e_turn();
-e_yaku_check();
-//5turn
-m_turn();
-m_yaku_check();
-e_turn();
-e_yaku_check();
-//6turn
-m_turn();
-m_yaku_check();
-e_turn();
-e_yaku_check();
-//7turn
-m_turn();
-m_yaku_check();
-e_turn();
-e_yaku_check();
-//8turn
-m_turn();
-m_yaku_check();
-e_turn();
-e_yaku_check();
+l=0;
+while(c==0&&l<8){
+    m_turn();
+    c=m_yaku_check();
+    e_turn();
+    c=e_yaku_check();
+    l++;
+}
+console.log(m_point,e_point);
+
