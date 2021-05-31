@@ -4,8 +4,11 @@ newDeck = [11,13,14,15,22,23,24,25,31,33,34,35,42,43,44,45,52,53,54,55,62,63,64,
 console.log("山札確認", newDeck);
 
 m_hands = []
+m_number = []
 e_hands = []
+e_number = []
 field =[]
+field_number = []
 m_yaku=[]
 e_yaku=[]
 m_point=0;
@@ -79,30 +82,34 @@ while (m_hands.length < 8) {
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
   
     m_hands.push(newDeck[k]);//札を増やす
+    m_number.push(k);
     newDeck.splice(k, 1);//山札から減らす
 }
 console.log("自手札！", m_hands);
+ctx.drawImage(chara[m_number[0]], 1200, 0, 80, 130);
 
 while (e_hands.length < 8) {
     n = newDeck.length;
     k = Math.floor(Math.random() * n);
   
     e_hands.push(newDeck[k]);
+    e_number.push(k);
     newDeck.splice(k, 1);
 }
 
 console.log("敵手札！", e_hands);
-
+ctx.drawImage(chara[m_number[0]], 0, 0, 80, 130);
 while (field.length < 8) {
     n = newDeck.length;
     k = Math.floor(Math.random() * n);
   
     field.push(newDeck[k]);
+    field_number.push(k);
     newDeck.splice(k, 1);
 }
 
 console.log("場札！", field);
-
+ctx.drawImage(chara[m_number[0]], 600, 0, 80, 130);
 console.log("山札再確認", newDeck);
 function m_turn(){
     //出す手札の番号をもらう処理を書く(pに入れる)
