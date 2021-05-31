@@ -84,6 +84,7 @@ $(function(){
             こいこい
           </div>
           <div class="h_right">
+            <div id="show_name"></div>
             <span class="js-modal-open">役一覧</span>
           </div>
         </div>
@@ -97,10 +98,10 @@ $(function(){
               <label>こいこい</label>
             </div>
             <div class='user_name'>
-              <p>名前を入れてね<input type="text" name="name"></p>
+              <p>名前を入れてね<input type="text" name="name" id="name_txt"></p>
             </div>
             <div class='start_button'>
-              <button type='button'onclick="SelectPage(2)">START</button>
+              <button id="start_btn"type='button'onclick="SelectPage(2)">START</button>
             </div>
         </div>
     </div>
@@ -120,19 +121,21 @@ $(function(){
       </div>
       <div class='mode_kaisu'>
         回数
-        <select name='mode_combo_kaisu'>
-          <option value='m_12'>12ヵ月</option>
-          <option value='m_6'>6ヵ月</option>
-          <option value='m_3'>3ヵ月</option>
-          <option value='m_1'>1ヵ月</option>
-        </select>
+        <form name="form1">
+          <select name='mode_combo_kaisu'>
+            <option value='m_12'>12ヵ月</option>
+            <option value='m_6'>6ヵ月</option>
+            <option value='m_3'>3ヵ月</option>
+            <option value='m_1'>1ヵ月</option>
+          </select>
+        </form>
       </div>
       <div class='mode_button'>
         <div class='mode_button_cpu'>
           <input type='button' value="対CPU戦" onclick="SelectPage(4)">
         </div>
         <div class='mode_button_pc'>
-          <input type='button' value="対人戦" onclick="SelectPage(3)">
+          <input id="mode_btn_pc"type='button' value="対人戦" onclick="SelectPage(3)">
         </div>
       </div>
     </div>
