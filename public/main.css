@@ -264,12 +264,19 @@ header{
 }
 .page_mode .mode_kaisu{
   position: absolute;
-  top: 20vmax;
+  top: 12vmax;
   left: 30vmax;
-  font-size:2.5vmax;
+  font-size:4vmax;
+  font-weight: bold;
+  color:#C73226;
 }
 .page_mode .mode_kaisu select{
-  font-size:2.5vmax;
+  font-size:4vmax;
+  font-weight: bold;
+  border-color: #C73226;
+  border-width: 0.5vmax;
+  -webkit-border-radius:3vmax;
+  -moz-border-radius:3vmax;
 }
 
 .page_mode .mode_button input{
@@ -303,9 +310,114 @@ header{
 }
 
 
+
+
 .page_select {
     display:none;
 }
+.page_select #sikaku{
+    background-color: #FFAB5E;
+}
+.page_select .mode_title{
+  position: absolute;
+  font-family: "游ゴシック";
+  font-weight: bold;
+  font-size: 5vmax;
+  top: 2vmax;
+  left: 1vmax;
+  color: #C73226;
+}
+.page_select button{
+  background:#C73226;
+  font-size:2.5vmax;
+  color:#FFFFFF;
+  border:0.5vmax solid #C73226;
+  border-radius:5vmax;
+  -webkit-border-radius:5vmax;
+  -moz-border-radius:5vmax;
+  transition: all 0.5s ease;
+}
+.page_select button:hover{
+  background:#FFFFFF;
+  color:#C73226;
+  box-shadow:none;
+}
+.back_button button{
+  position: absolute;
+  top: 2vmax;
+  right: 2vmax;
+  padding: 1vmax;
+  padding-right:1.7vmax; 
+  padding-left:1.7vmax;
+}
+.page_select .room_name_area{
+  position: absolute;
+  color: #AA44AA;
+  font-weight: bold;
+  top: 10vmax;
+  left: 10vmax;
+  font-size:4vmax;
+  
+}
+.page_select .room_name_area input{
+  font-size:4vmax;
+  -webkit-border-radius:5vmax;
+  -moz-border-radius:5vmax;  
+}
+
+
+.page_select .card1{
+  position: absolute;
+  top: 30vmax;
+  left: 5vmax;
+  width: 8vmax;
+  height: 13vmax;
+  animation: flip 3s linear infinite;
+  transform-style: preserve-3d;
+  transform: rotateY(90deg);
+}
+.page_select .card2{
+  position: absolute;
+  top: 30vmax;
+  left: 25vmax;
+  width: 8vmax;
+  height: 13vmax;
+  animation: flip 3s linear infinite;
+  transform-style: preserve-3d;
+  transform: rotateY(180deg);
+}
+.page_select .card3{
+  position: absolute;
+  top: 30vmax;
+  right: 25vmax;
+  width: 8vmax;
+  height: 13vmax;
+  animation: flip 3s linear infinite;
+  transform-style: preserve-3d;
+  transform: rotateY(270deg);
+}
+.page_select .card4{
+  position: absolute;
+  top: 30vmax;
+  right: 5vmax;
+  width: 8vmax;
+  height: 13vmax;
+  animation: flip 3s linear infinite;
+  transform-style: preserve-3d;
+}
+.page_select .card_0_img,.page_select .card_1_img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+}
+.page_select .card_0_img{
+  transform: rotateY(180deg);
+}
+
+
 
 
 .page_maching {
