@@ -23,9 +23,10 @@ var canvas = document.getElementById("canvas_game");
 var ctx = canvas.getContext("2d");
 canvas.addEventListener('click', onClick, false);
 
-const chara = [];
-chara[0]="/image/1-1.png";
-chara[1]="/image/1-3.png";
+chara = [];
+chara[0] = new Image();
+chara[0].src="/image/1-1.png";
+//chara[1]="/image/1-3.png";
 // chara[2].src="/image/1-41.png";
 // chara[3].src="/image/1-42.png";
 // chara[4].src="/image/2-2.png";
