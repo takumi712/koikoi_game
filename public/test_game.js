@@ -13,6 +13,8 @@ m_yaku=[]
 e_yaku=[]
 m_point=0;
 e_point=0;
+c=0;
+l=0;
 function onClick(e) {
     console.log("click");
     var x = e.clientX - canvas.offsetLeft;
@@ -24,56 +26,58 @@ var ctx = canvas.getContext("2d");
 canvas.addEventListener('click', onClick, false);
 
 chara = [];
-chara[0] = new Image();
+for(i=0;i<49;i++){
+    chara[i] = new Image();
+}
 chara[0].src="/image/1-1.png";
-//chara[1]="/image/1-3.png";
-// chara[2].src="/image/1-41.png";
-// chara[3].src="/image/1-42.png";
-// chara[4].src="/image/2-2.png";
-// chara[5].src="/image/2-3.png";
-// chara[6].src="/image/2-41.png";
-// chara[7].src="/image/2-42.png";
-// chara[8].src="/image/3-1.png";
-// chara[9].src="/image/3-3.png";
-// chara[10].src="/image/3-41.png";
-// chara[11].src="/image/3-42.png";
-// chara[12].src="/image/4-2.png";
-// chara[13].src="/image/4-3.png";
-// chara[14].src="/image/4-41.png";
-// chara[15].src="/image/4-42.png";
-// chara[16].src="/image/5-2.png";
-// chara[17].src="/image/5-3.png";
-// chara[18].src="/image/5-41.png";
-// chara[19].src="/image/5-42.png";
-// chara[20].src="/image/6-2.png";
-// chara[21].src="/image/6-3.png";
-// chara[22].src="/image/6-41.png";
-// chara[23].src="/image/6-42.png";
-// chara[24].src="/image/7-2.png";
-// chara[25].src="/image/7-3.png";
-// chara[26].src="/image/7-41.png";
-// chara[27].src="/image/7-42.png";
-// chara[28].src="/image/8-1.png";
-// chara[29].src="/image/8-2.png";
-// chara[30].src="/image/8-41.png";
-// chara[31].src="/image/8-42.png";
-// chara[32].src="/image/9-2.png";
-// chara[33].src="/image/9-3.png";
-// chara[34].src="/image/9-41.png";
-// chara[35].src="/image/9-42.png";
-// chara[36].src="/image/10-2.png";
-// chara[37].src="/image/10-3.png";
-// chara[38].src="/image/10-41.png";
-// chara[39].src="/image/10-42.png";
-// chara[40].src="/image/11-1.png";
-// chara[41].src="/image/11-2.png";
-// chara[42].src="/image/11-3.png";
-// chara[43].src="/image/11-44.png";
-// chara[44].src="/image/12-1.png";
-// chara[45].src="/image/12-41.png";
-// chara[46].src="/image/12-42.png";
-// chara[47].src="/image/12-43.png";
-// chara[48].src="/image/0.png";
+chara[1].src="/image/1-3.png";
+chara[2].src="/image/1-41.png";
+chara[3].src="/image/1-42.png";
+chara[4].src="/image/2-2.png";
+chara[5].src="/image/2-3.png";
+chara[6].src="/image/2-41.png";
+chara[7].src="/image/2-42.png";
+chara[8].src="/image/3-1.png";
+chara[9].src="/image/3-3.png";
+chara[10].src="/image/3-41.png";
+chara[11].src="/image/3-42.png";
+chara[12].src="/image/4-2.png";
+chara[13].src="/image/4-3.png";
+chara[14].src="/image/4-41.png";
+chara[15].src="/image/4-42.png";
+chara[16].src="/image/5-2.png";
+chara[17].src="/image/5-3.png";
+chara[18].src="/image/5-41.png";
+chara[19].src="/image/5-42.png";
+chara[20].src="/image/6-2.png";
+chara[21].src="/image/6-3.png";
+chara[22].src="/image/6-41.png";
+chara[23].src="/image/6-42.png";
+chara[24].src="/image/7-2.png";
+chara[25].src="/image/7-3.png";
+chara[26].src="/image/7-41.png";
+chara[27].src="/image/7-42.png";
+chara[28].src="/image/8-1.png";
+chara[29].src="/image/8-2.png";
+chara[30].src="/image/8-41.png";
+chara[31].src="/image/8-42.png";
+chara[32].src="/image/9-2.png";
+chara[33].src="/image/9-3.png";
+chara[34].src="/image/9-41.png";
+chara[35].src="/image/9-42.png";
+chara[36].src="/image/10-2.png";
+chara[37].src="/image/10-3.png";
+chara[38].src="/image/10-41.png";
+chara[39].src="/image/10-42.png";
+chara[40].src="/image/11-1.png";
+chara[41].src="/image/11-2.png";
+chara[42].src="/image/11-3.png";
+chara[43].src="/image/11-4.png";
+chara[44].src="/image/12-1.png";
+chara[45].src="/image/12-41.png";
+chara[46].src="/image/12-42.png";
+chara[47].src="/image/12-43.png";
+chara[48].src="/image/0.png";
 ctx.drawImage(chara[0], 1200, 0, 80, 130);
 // chara.onload = ()=>{
 //     ctx.drawImage(chara, 0, 0, 230, 340);  // ★ここを変更★
@@ -87,7 +91,7 @@ while (m_hands.length < 8) {
     newDeck.splice(k, 1);//山札から減らす
 }
 console.log("自手札！", m_hands);
-ctx.drawImage(chara[m_number[0]], 1200, 0, 80, 130);
+ctx.drawImage(chara[m_number[0]], 0, 590, 80, 130);
 
 while (e_hands.length < 8) {
     n = newDeck.length;
@@ -99,7 +103,7 @@ while (e_hands.length < 8) {
 }
 
 console.log("敵手札！", e_hands);
-ctx.drawImage(chara[m_number[0]], 0, 0, 80, 130);
+ctx.drawImage(chara[e_number[0]], 0, 0, 80, 130);
 while (field.length < 8) {
     n = newDeck.length;
     k = Math.floor(Math.random() * n);
@@ -110,7 +114,7 @@ while (field.length < 8) {
 }
 
 console.log("場札！", field);
-ctx.drawImage(chara[m_number[0]], 600, 0, 80, 130);
+ctx.drawImage(chara[m_number[0]], 0, 300, 80, 130);
 console.log("山札再確認", newDeck);
 function m_turn(){
     //出す手札の番号をもらう処理を書く(pに入れる)
@@ -118,31 +122,69 @@ function m_turn(){
     m_hands.splice(p, 1);
 
     f=field.length;
-    check=0;
+    check=[];
     check_card=[3];
     //場札の数だけ繰り返す
+    step=0;
+
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
         if(field[step]/10==pick/10){
-            check_card[check]=field[step];
-            check++;
+            check_card[check.length]=field[step];
+            check[check.length]=step;
         }
     }
 
     //0だったら場札を増やすのみ
-    if(check==0){
+    if(check.length==0){
         field.push(pick);
     }
-    //0だったら場札を増やすのみ
-    else if(check==1){
+    //1だったらとる
+    else if(check.length==1){
         m_yaku.push(check_card[0]);
         m_yaku.push(pick);
+        field.splice(check[0], 1);
     }
-    else if(check>=2){
+    else if(check.length>=2){
         //出す手札の番号をもらう処理を書く(pに入れる)
         m_yaku.push(check_card[p]);
         m_yaku.push(pick);
-    }    
+        field.splice(check[p],1)
+    }
+    //山札処理
+    k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
+    newDeck.splice(k, 1);//山札から減らす
+    f=field.length;
+    check=[];
+    check_card=[3];
+    //場札の数だけ繰り返す
+    step=0;
+
+    for(step=0;step<f;step++){
+        //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
+        if(field[step]/10==k/10){
+            check_card[check.length]=field[step];
+            check[check.length]=step;
+        }
+    }
+
+    //0だったら場札を増やすのみ
+    if(check.length==0){
+        field.push(k);
+    }
+    //1だったらとる
+    else if(check.length==1){
+        m_yaku.push(check_card[0]);
+        m_yaku.push(k);
+        field.splice(check[0], 1);
+    }
+    else if(check.length>=2){
+        //出す手札の番号をもらう処理を書く(pに入れる)
+        m_yaku.push(check_card[p]);
+        m_yaku.push(k);
+        field.splice(check[p],1)
+    }
+
 }
 function e_turn(){
     //出す手札の番号をもらう処理を書く(pに入れる)
@@ -150,31 +192,68 @@ function e_turn(){
     e_hands.splice(p, 1);
 
     f=field.length;
-    check=0;
+    check=[];
     check_card=[3];
     //場札の数だけ繰り返す
+    step=0;
+
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
         if(field[step]/10==pick/10){
-            check_card[check]=field[step];
-            check++;
+            check_card[check.length]=field[step];
+            check[check.length]=step;
         }
     }
 
     //0だったら場札を増やすのみ
-    if(check==0){
+    if(check.length==0){
         field.push(pick);
     }
-    //0だったら場札を増やすのみ
-    else if(check==1){
+    //1だったらとる
+    else if(check.length==1){
         e_yaku.push(check_card[0]);
         e_yaku.push(pick);
+        field.splice(check[0], 1);
     }
-    else if(check>=2){
+    else if(check.length>=2){
         //出す手札の番号をもらう処理を書く(pに入れる)
         e_yaku.push(check_card[p]);
         e_yaku.push(pick);
-    }    
+        field.splice(check[p],1)
+    }
+    //山札処理
+    k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
+    newDeck.splice(k, 1);//山札から減らす
+    f=field.length;
+    check=[];
+    check_card=[3];
+    //場札の数だけ繰り返す
+    step=0;
+
+    for(step=0;step<f;step++){
+        //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
+        if(field[step]/10==k/10){
+            check_card[check.length]=field[step];
+            check[check.length]=step;
+        }
+    }
+
+    //0だったら場札を増やすのみ
+    if(check.length==0){
+        field.push(k);
+    }
+    //1だったらとる
+    else if(check.length==1){
+        e_yaku.push(check_card[0]);
+        e_yaku.push(k);
+        field.splice(check[0], 1);
+    }
+    else if(check.length>=2){
+        //出す手札の番号をもらう処理を書く(pに入れる)
+        e_yaku.push(check_card[p]);
+        e_yaku.push(k);
+        field.splice(check[p],1)
+    } 
 }
 function m_yaku_check(){
     gokou=[]
@@ -408,7 +487,6 @@ function e_yaku_check(){
         //if(koikoi){return 1}else{return 0}
     }
 }
-l=0;
 while(c==0&&l<8){
     m_turn();
     c=m_yaku_check();
