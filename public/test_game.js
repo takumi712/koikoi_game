@@ -1,14 +1,15 @@
-newDeck = [11,13,14,15,22,23,24,25,31,33,34,35,42,43,44,45,52,53,54,55,62,63,64,65,72,73,74,75,81,82,84,85,92,93,94,95,102,103,104,105,111,112,114,115,121,124,125,126];
+Deck = [11,13,14,15,22,23,24,25,31,33,34,35,42,43,44,45,52,53,54,55,62,63,64,65,72,73,74,75,81,82,84,85,92,93,94,95,102,103,104,105,111,112,114,115,121,124,125,126];
 //10で割った時に同じ商かどうかで判定、余りの値で役を判定
 //一の桁が1:20点札,2:10点札,3:5点札,4<=:1点札
-console.log("山札確認", newDeck);
+img_Deck = []
+var i;
+for(i=0;i<49;i++){
+    img_Deck[i] = i;
+}
 
 m_hands = []
-m_number = []
 e_hands = []
-e_number = []
 field =[]
-field_number = []
 m_yaku=[]
 e_yaku=[]
 m_point=0;
@@ -21,6 +22,7 @@ function onClick(e) {
     var y = e.clientY - canvas.offsetTop;
     console.log("x:", x, "y:", y);
 }
+    
 var canvas = document.getElementById("canvas_game");
 var ctx = canvas.getContext("2d");
 canvas.addEventListener('click', onClick, false);
@@ -29,96 +31,96 @@ chara = [];
 for(i=0;i<49;i++){
     chara[i] = new Image();
 }
-chara[0].src="/image/1-1.png";
-chara[1].src="/image/1-3.png";
-chara[2].src="/image/1-41.png";
-chara[3].src="/image/1-42.png";
-chara[4].src="/image/2-2.png";
-chara[5].src="/image/2-3.png";
-chara[6].src="/image/2-41.png";
-chara[7].src="/image/2-42.png";
-chara[8].src="/image/3-1.png";
-chara[9].src="/image/3-3.png";
-chara[10].src="/image/3-41.png";
-chara[11].src="/image/3-42.png";
-chara[12].src="/image/4-2.png";
-chara[13].src="/image/4-3.png";
-chara[14].src="/image/4-41.png";
-chara[15].src="/image/4-42.png";
-chara[16].src="/image/5-2.png";
-chara[17].src="/image/5-3.png";
-chara[18].src="/image/5-41.png";
-chara[19].src="/image/5-42.png";
-chara[20].src="/image/6-2.png";
-chara[21].src="/image/6-3.png";
-chara[22].src="/image/6-41.png";
-chara[23].src="/image/6-42.png";
-chara[24].src="/image/7-2.png";
-chara[25].src="/image/7-3.png";
-chara[26].src="/image/7-41.png";
-chara[27].src="/image/7-42.png";
-chara[28].src="/image/8-1.png";
-chara[29].src="/image/8-2.png";
-chara[30].src="/image/8-41.png";
-chara[31].src="/image/8-42.png";
-chara[32].src="/image/9-2.png";
-chara[33].src="/image/9-3.png";
-chara[34].src="/image/9-41.png";
-chara[35].src="/image/9-42.png";
-chara[36].src="/image/10-2.png";
-chara[37].src="/image/10-3.png";
-chara[38].src="/image/10-41.png";
-chara[39].src="/image/10-42.png";
-chara[40].src="/image/11-1.png";
-chara[41].src="/image/11-2.png";
-chara[42].src="/image/11-3.png";
-chara[43].src="/image/11-4.png";
-chara[44].src="/image/12-1.png";
-chara[45].src="/image/12-41.png";
-chara[46].src="/image/12-42.png";
-chara[47].src="/image/12-43.png";
-chara[48].src="/image/0.png";
-ctx.drawImage(chara[0], 1200, 0, 80, 130);
-// chara.onload = ()=>{
-//     ctx.drawImage(chara, 0, 0, 230, 340);  // ★ここを変更★
-// };
+chara[0].src="image/1-1.png";
+chara[1].src="image/1-3.png";
+chara[2].src="image/1-41.png";
+chara[3].src="image/1-42.png";
+chara[4].src="image/2-2.png";
+chara[5].src="image/2-3.png";
+chara[6].src="image/2-41.png";
+chara[7].src="image/2-42.png";
+chara[8].src="image/3-1.png";
+chara[9].src="image/3-3.png";
+chara[10].src="image/3-41.png";
+chara[11].src="image/3-42.png";
+chara[12].src="image/4-2.png";
+chara[13].src="image/4-3.png";
+chara[14].src="image/4-41.png";
+chara[15].src="image/4-42.png";
+chara[16].src="image/5-2.png";
+chara[17].src="image/5-3.png";
+chara[18].src="image/5-41.png";
+chara[19].src="image/5-42.png";
+chara[20].src="image/6-2.png";
+chara[21].src="image/6-3.png";
+chara[22].src="image/6-41.png";
+chara[23].src="image/6-42.png";
+chara[24].src="image/7-2.png";
+chara[25].src="image/7-3.png";
+chara[26].src="image/7-41.png";
+chara[27].src="image/7-42.png";
+chara[28].src="image/8-1.png";
+chara[29].src="image/8-2.png";
+chara[30].src="image/8-41.png";
+chara[31].src="image/8-42.png";
+chara[32].src="image/9-2.png";
+chara[33].src="image/9-3.png";
+chara[34].src="image/9-41.png";
+chara[35].src="image/9-42.png";
+chara[36].src="image/10-2.png";
+chara[37].src="image/10-3.png";
+chara[38].src="image/10-41.png";
+chara[39].src="image/10-42.png";
+chara[40].src="image/11-1.png";
+chara[41].src="image/11-2.png";
+chara[42].src="image/11-3.png";
+chara[43].src="image/11-4.png";
+chara[44].src="image/12-1.png";
+chara[45].src="image/12-41.png";
+chara[46].src="image/12-42.png";
+chara[47].src="image/12-43.png";
+chara[48].src="image/0.png";
+chara[0].onload = ()=>{
+ctx.drawImage(chara[0], 0, 0, 80, 130);
+};
+//手札配布
 while (m_hands.length < 8) {
-    n = newDeck.length;//山札の枚数
+    n = img_Deck.length;//山札の枚数
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
   
-    m_hands.push(newDeck[k]);//札を増やす
-    m_number.push(k);
-    newDeck.splice(k, 1);//山札から減らす
+    m_hands.push(img_Deck[k]);//札を増やす
+    img_Deck.splice(k, 1);//山札から減らす
 }
-console.log("自手札！", m_hands);
-ctx.drawImage(chara[m_number[0]], 0, 590, 80, 130);
-
+console.log("自手札！", Deck[m_hands[0]], Deck[m_hands[1]], Deck[m_hands[2]], Deck[m_hands[3]]);
+chara[m_hands[0]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[0]], 1200, 590, 80, 130);
+};
 while (e_hands.length < 8) {
-    n = newDeck.length;
+    n = img_Deck.length;
     k = Math.floor(Math.random() * n);
   
-    e_hands.push(newDeck[k]);
-    e_number.push(k);
-    newDeck.splice(k, 1);
+    e_hands.push(img_Deck[k]);
+    img_Deck.splice(k, 1);
 }
 
-console.log("敵手札！", e_hands);
-ctx.drawImage(chara[e_number[0]], 0, 0, 80, 130);
+console.log("敵手札！", Deck[e_hands[0]], Deck[e_hands[1]], Deck[e_hands[3]], Deck[e_hands[4]]);
+chara[e_hands[0]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[0]], 1200, 0, 80, 130);
+};
+
 while (field.length < 8) {
-    n = newDeck.length;
+    n = img_Deck.length;
     k = Math.floor(Math.random() * n);
   
-    field.push(newDeck[k]);
-    field_number.push(k);
-    newDeck.splice(k, 1);
+    field.push(img_Deck[k]);
+    img_Deck.splice(k, 1);
 }
 
-console.log("場札！", field);
-ctx.drawImage(chara[m_number[0]], 0, 300, 80, 130);
-console.log("山札再確認", newDeck);
+console.log("場札！", Deck[field[0]], Deck[field[1]], Deck[field[2]], Deck[field[3]]);
+console.log("山札再確認", Deck[img_Deck[0]], Deck[img_Deck[1]], Deck[img_Deck[2]], Deck[img_Deck[3]]);
 function m_turn(){
     //出す手札の番号をもらう処理を書く(pに入れる)
-    pick=m_hands[p];
+    pick=Deck[m_hands[p]];
     m_hands.splice(p, 1);
 
     f=field.length;
@@ -188,7 +190,7 @@ function m_turn(){
 }
 function e_turn(){
     //出す手札の番号をもらう処理を書く(pに入れる)
-    pick=e_hands[p];
+    pick=Deck[e_hands[p]];
     e_hands.splice(p, 1);
 
     f=field.length;
