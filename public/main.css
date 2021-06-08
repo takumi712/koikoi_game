@@ -350,16 +350,31 @@ header{
   padding-right:1.7vmax; 
   padding-left:1.7vmax;
 }
-.page_select .room_name_area{
+.page_select .button_create button{
   position: absolute;
-  color: #AA44AA;
+  top: 30vmax;
+  left: 20vmax;
+  padding: 1vmax 5vmax;
+}
+.page_select .button_enter button{
+  position: absolute;
+  top: 30vmax;
+  right: 20vmax;
+  padding: 1vmax 5vmax;
+}
+.page_select .room_name_area label{
+  position: absolute;
+  color: #AA00AA;
   font-weight: bold;
-  top: 10vmax;
-  left: 10vmax;
-  font-size:4vmax;
+  top: 13vmax;
+  left: 32.5vmax;
+  font-size:5vmax;
   
 }
 .page_select .room_name_area input{
+  position: absolute;
+  top: 23vmax;
+  left: 15vmax;
   font-size:4vmax;
   -webkit-border-radius:5vmax;
   -moz-border-radius:5vmax;  
@@ -378,8 +393,8 @@ header{
 }
 .page_select .card2{
   position: absolute;
-  top: 30vmax;
-  left: 25vmax;
+  top: 15vmax;
+  left: 5vmax;
   width: 8vmax;
   height: 13vmax;
   animation: flip 3s linear infinite;
@@ -388,8 +403,8 @@ header{
 }
 .page_select .card3{
   position: absolute;
-  top: 30vmax;
-  right: 25vmax;
+  top: 15vmax;
+  right: 5vmax;
   width: 8vmax;
   height: 13vmax;
   animation: flip 3s linear infinite;

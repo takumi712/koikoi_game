@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>こいこい</title>
+	<link rel="stylesheet" type="text/css" href="main.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&display=swap" rel="stylesheet">
+<script type="text/javascript" language="javascript">
+function SelectPage( page ) {
+    var elementPage1 = document.getElementById( "page_title" );
+    var elementPage2 = document.getElementById( "page_mode" );
+	var elementPage3 = document.getElementById( "page_select" );
+	var elementPage4 = document.getElementById( "page_maching" );
+	var elementPage5 = document.getElementById( "page_game" );
+	var elementPage6 = document.getElementById( "page_result" );
+    switch( page ) {
+    case 1:
+        elementPage1.style.display = 'block';
+        elementPage2.style.display = 'none';
+		    elementPage3.style.display = 'none';
+        elementPage4.style.display = 'none';
+		    elementPage5.style.display = 'none';
+        elementPage6.style.display = 'none';
+        break;
+	case 2:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'block';
+		    elementPage3.style.display = 'none';
+        elementPage4.style.display = 'none';
+		    elementPage5.style.display = 'none';
+        elementPage6.style.display = 'none';
+        break;
+	case 3:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'none';
+		    elementPage3.style.display = 'block';
+        elementPage4.style.display = 'none';
+		    elementPage5.style.display = 'none';
+        elementPage6.style.display = 'none';
+        break;
+	case 4:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'none';
+		    elementPage3.style.display = 'none';
+        elementPage4.style.display = 'block';
+		    elementPage5.style.display = 'none';
+        elementPage6.style.display = 'none';
+        break;
+	case 5:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'none';
+		    elementPage3.style.display = 'none';
+        elementPage4.style.display = 'none';
+		    elementPage5.style.display = 'block';
+        elementPage6.style.display = 'none';
+        break;
+	case 6:
+        elementPage1.style.display = 'none';
+        elementPage2.style.display = 'none';
+		    elementPage3.style.display = 'none';
+        elementPage4.style.display = 'none';
+		    elementPage5.style.display = 'none';
+        elementPage6.style.display = 'block';
+        break;
+    }
+};
+$(function(){
+    $('.js-modal-open').on('click',function(){
+        $('.js-modal').fadeIn();
+        return false;
+    });
+    $('.js-modal-close').on('click',function(){
+        $('.js-modal').fadeOut();
+        return false;
+    });
+});
+</script>
+</head>
+<body>
+	<header>
+        <div class="header">
+          <div class="h_left">
+            こいこい
+          </div>
+          <div class="h_right">
+            <div id="show_name"></div>
+            <span class="js-modal-open">役一覧</span>
+          </div>
+        </div>
+    </header>
+
+
+	<div id='page_title' class='page_title'>
+    <div id="sikaku">
+        <img src="image/koikoi_home.png" class="title_img">
+        <div class="mode_title">
+          <label>こいこい</label>
+        </div>
+        <div class='user_name'>
+          <p>名前を入れてね<input type="text" name="name" id="name_txt"></p>
+        </div>
+        <div class='start_button'>
+          <button id="start_btn"type='button'onclick="SelectPage(2)">START</button>
+        </div>
+    </div>
+  </div>
+
+
+	<div id='page_mode' class='page_mode'>
+    <div id="sikaku">
+      <div class='back_button'>
+        <button type='button'onclick="SelectPage(1)">↺</button>
+      </div>
+      <div class='mode_title'>
+        <label>モード選択</label>
+      </div>
+      <div class="card">
+          <img src="image/1-1.png" class="card_1_img">
+          <img src="image/0.png" class="card_0_img">
+      </div>
+      <div class='mode_kaisu'>
+        回数
+        <form name="form1">
+          <select name='mode_combo_kaisu'>
+            <option value='m_12'>12ヵ月</option>
+            <option value='m_6'>6ヵ月</option>
+            <option value='m_3'>3ヵ月</option>
+            <option value='m_1'>1ヵ月</option>
+          </select>
+        </form>
+      </div>
+      <div class='mode_button'>
+        <div class='mode_button_cpu'>
+          <input type='button' value="対CPU戦" onclick="SelectPage(4)">
+        </div>
+        <div class='mode_button_pc'>
+          <input id="mode_btn_pc"type='button' value="対人戦" onclick="SelectPage(3)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+	<div id="page_select" class='page_select'>
+        <div id="sikaku">
+          <div class='back_button'>
+            <button type='button'onclick="SelectPage(2)">↺</button>
+          </div>
+            <div class="mode_title">
+                対人戦準備
+            </div>
+            <div class="room_name_area">
+                <div class="textm">
+                    <label>部屋名</label>
+                </div>
+                <input type="text">
+            </div>
+            <div class="select_button">
+              <div class="button_create">
+                <button type='button'onclick="SelectPage(4)">作る</button>
+              </div>
+              <div class="button_enter">
+                <button type='button'onclick="SelectPage(4)">入る</button>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card1">
+                <img src="image/11-1.png" class="card_1_img">
+                <img src="image/0.png" class="card_0_img">
+              </div>
+              <div class="card2">
+                <img src="image/8-1.png" class="card_1_img">
+                <img src="image/0.png" class="card_0_img">
+              </div>
+              <div class="card3">
+                <img src="image/9-2.png" class="card_1_img">
+                <img src="image/0.png" class="card_0_img">
+              </div>
+              <div class="card4">
+                <img src="image/3-1.png" class="card_1_img">
+                <img src="image/0.png" class="card_0_img">
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div id='page_maching' class='page_maching'>
+      <div id="sikaku">
+        <div class='maching_title'>
+          <label>マッチング</label>
+          <label class='ten'>.</label>
+          <label class='ten'>.</label>
+          <label class='ten'>.</label>
+        </div>
+        <div class='roomName'>
+          <label>部屋名「</label>
+          <label id="maching_roomname">roomName</label>
+          <label>」</label>
+        </div>
+        <div class='name1'>
+          <label id="player1">player1</label>
+        </div>
+        <div class='versus'>
+          <label>VS</label>
+        </div>
+        <div class='name2'>
+          <label id="player2">player2</label>
+        </div>
+        <button type='button'onclick="SelectPage(5)">gameへ</button>
+      </div>
+    </div>
+
+
+    <div id='page_game' class='page_game'>
+
+        <div id="sikaku">
+            <canvas id="canvas_game" width="1280" height="720"></canvas>
+        </div>
+        <button type='button'onclick="SelectPage(6)">resultへ</button>
+    </div>
+
+    <div id='page_result' class='page_result'>
+      <div id="sikaku">
+        <div class='result_title'>
+          <label>対戦結果</label>
+        </div>
+        <div class='game_result'>
+          <label id="player_win">player</label>
+          <label>の勝ち</label>
+        </div>
+        <div class="sc_py1">
+          <ul id="score_py1">
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+            <li>12</li>
+          </ul>
+        </div>
+        <div class="sc_py2">
+          <ul id="score_py2">
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+            <li>0</li>
+          </ul>
+        </div>
+        <div class="line">
+          <hr>
+        </div>
+        <div class="final_score_py1">
+          <label>144</label>
+        </div>
+        <div class="final_score_py2">
+          <label>0</label>
+        </div>
+        <div class="rusult_button_continue">
+          <button type='button'onclick="SelectPage(4)">もう一度</button>
+        </div>
+        <div class="rusult_button_title">
+          <button type='button'onclick="SelectPage(1)">タイトルへ</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal js-modal">
+        <div class="modal__bg js-modal-close"></div>
+        <div class="modal__content">
+          <span class="js-modal-close js-modal-close-btn">閉</span>
+          <div class="yaku">
+            <p class="yaku_moji">五光(10点)</p>
+              <div class="yaku_images">
+                <img class="yaku_image" src="image/1-1.png" alt="turu">
+                <img class="yaku_image" src="image/3-1.png" alt="maku">
+                <img class="yaku_image" src="image/8-1.png" alt="tuki">
+                <img class="yaku_image" src="image/11-1.png" alt="ono">
+                <img class="yaku_image" src="image/12-1.png" alt="houou">
+              </div>
+          </div>
+          <div class="yaku">
+            <p class="yaku_moji">四光(8点※雨入りは7点)</p>
+              <div class="yaku_images">
+                <img class="yaku_image" src="image/1-1.png" alt="turu">
+                <img class="yaku_image" src="image/3-1.png" alt="maku">
+                <img class="yaku_image" src="image/8-1.png" alt="tuki">
+                <img class="yaku_image" src="image/12-1.png" alt="houou">
+              </div>
+          </div>
+          <div class="yaku">
+            <p class="yaku_moji">三光(5点※雨不可)</p>
+              <div class="yaku_images">
+                <img class="yaku_image" src="image/1-1.png" alt="turu">
+                <img class="yaku_image" src="image/3-1.png" alt="maku">
+                <img class="yaku_image" src="image/8-1.png" alt="tuki">
+              </div>
+          </div>
+          <div class="yaku">
+            <p class="yaku_moji">猪鹿蝶(5点)</p>
+              <div class="yaku_images">
+                <img class="yaku_image" src="image/6-2.png" alt="tyou">
+                <img class="yaku_image" src="image/7-2.png" alt="inosisi">
+                <img class="yaku_image" src="image/10-2.png" alt="sika">
+              </div>
+          </div>
+          <div class="yaku">
+            <p class="yaku_moji">赤短(5点)</p>
+              <div class="yaku_images">
+                <img class="yaku_image" src="image/1-3.png" alt="matutan">
+                <img class="yaku_image" src="image/2-3.png" alt="umetan">
+                <img class="yaku_image" src="image/3-3.png" alt="sakuratan">
+              </div>
+          </div>
+          <div class="yaku">
+            <p class="yaku_moji">青短(5点)</p>
+              <div class="yaku_images">
+                <img class="yaku_image" src="image/6-3.png" alt="botantan">
+                <img class="yaku_image" src="image/9-3.png" alt="kikutan">
+                <img class="yaku_image" src="image/10-3.png" alt="momijitan">
+              </div>
+          </div>
+          <div class="yaku">
+            <p class="yaku_moji">タネ(1点)</p>
+              <div class="yaku_images">
+                <img class="yaku_image" src="image/2-2.png" alt="uguisu">
+                <img class="yaku_image" src="image/4-2.png" alt="hototogisu">
+                <img class="yaku_image" src="image/5-2.png" alt="yatuhasi">
+                <img class="yaku_image" src="image/6-2.png" alt="tyou">
+                <img class="yaku_image" src="image/9-2.png" alt="sakazuki">
+              </div>
+          </div>
+          <div class="yaku">
+            <p class="yaku_moji">タン(1点)</p>
+              <div class="yaku_images">
+                <img class="yaku_image" src="image/1-3.png" alt="matutan">
+                <img class="yaku_image" src="image/4-3.png" alt="hujitan">
+                <img class="yaku_image" src="image/5-3.png" alt="ayametan">
+                <img class="yaku_image" src="image/6-3.png" alt="botantan">
+                <img class="yaku_image" src="image/9-3.png" alt="kikutan">
+              </div>
+          </div>
+          <div class="yaku">
+            <p class="yaku_moji">カス(1点)</p>
+              <div class="yaku_images">
+                <img class="yaku_image" src="image/1-41.png" alt="matukasu">
+                <img class="yaku_image" src="image/2-41.png" alt="umekasu">
+                <img class="yaku_image" src="image/3-41.png" alt="sakurakasu">
+                <img class="yaku_image" src="image/4-41.png" alt="hujikasu">
+                <img class="yaku_image" src="image/5-41.png" alt="ayamekasu">
+                <img class="yaku_image" src="image/6-41.png" alt="botankasu">
+                <img class="yaku_image" src="image/7-41.png" alt="hagigikasu">
+                <img class="yaku_image" src="image/8-41.png" alt="susukikasu">
+                <img class="yaku_image" src="image/9-41.png" alt="kikukasu">
+                <img class="yaku_image" src="image/10-41.png" alt="momijikasu">
+              </div>
+          </div>
+        </div><!--modal__inner-->
+      </div><!--modal-->
+    <script src="index.js"></script>
+</body>
+<script type="text/javascript" src="test_game.js"></script>
+</html>
+
