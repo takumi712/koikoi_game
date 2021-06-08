@@ -368,8 +368,7 @@ header{
   font-weight: bold;
   top: 13vmax;
   left: 32.5vmax;
-  font-size:5vmax;
-  
+  font-size:5vmax;  
 }
 .page_select .room_name_area input{
   position: absolute;
@@ -379,8 +378,6 @@ header{
   -webkit-border-radius:5vmax;
   -moz-border-radius:5vmax;  
 }
-
-
 .page_select .card1{
   position: absolute;
   top: 30vmax;
@@ -390,6 +387,7 @@ header{
   animation: flip 3s linear infinite;
   transform-style: preserve-3d;
   transform: rotateY(90deg);
+  animation
 }
 .page_select .card2{
   position: absolute;
@@ -398,6 +396,7 @@ header{
   width: 8vmax;
   height: 13vmax;
   animation: flip 3s linear infinite;
+  animation-delay: -1.5s;
   transform-style: preserve-3d;
   transform: rotateY(180deg);
 }
@@ -418,6 +417,7 @@ header{
   width: 8vmax;
   height: 13vmax;
   animation: flip 3s linear infinite;
+  animation-delay: -1.5s;
   transform-style: preserve-3d;
 }
 .page_select .card_0_img,.page_select .card_1_img{
@@ -440,14 +440,23 @@ header{
 }
 
 
+
+
+
+
 .page_game {
     display:none;
 }
 
 
+
+
+
   .page_result {
     display:none;
 }
+
+
 
 
 canvas{
