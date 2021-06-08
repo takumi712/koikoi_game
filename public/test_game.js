@@ -31,6 +31,7 @@ chara = [];
 for(i=0;i<49;i++){
     chara[i] = new Image();
 }
+
 chara[0].src="image/1-1.png";
 chara[1].src="image/1-3.png";
 chara[2].src="image/1-41.png";
@@ -80,9 +81,10 @@ chara[45].src="image/12-41.png";
 chara[46].src="image/12-42.png";
 chara[47].src="image/12-43.png";
 chara[48].src="image/0.png";
-chara[0].onload = ()=>{
-ctx.drawImage(chara[0], 0, 0, 80, 130);
+chara[48].onload = ()=>{
+    ctx.drawImage(chara[48], 1180, 295, 80, 130);
 };
+
 //手札配布
 while (m_hands.length < 8) {
     n = img_Deck.length;//山札の枚数
@@ -92,9 +94,14 @@ while (m_hands.length < 8) {
     img_Deck.splice(k, 1);//山札から減らす
 }
 console.log("自手札！", Deck[m_hands[0]], Deck[m_hands[1]], Deck[m_hands[2]], Deck[m_hands[3]]);
-chara[m_hands[0]].onload = ()=>{
-    ctx.drawImage(chara[m_hands[0]], 1200, 590, 80, 130);
-};
+for(i=0;i<8;i++){
+    x=250+i*100;
+    console.log(x);
+    y=m_hands[i];
+    chara[y].onload = ()=>{
+        ctx.drawImage(chara[y], x, 590, 80, 130);
+    };
+}
 while (e_hands.length < 8) {
     n = img_Deck.length;
     k = Math.floor(Math.random() * n);
