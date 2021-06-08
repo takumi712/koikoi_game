@@ -3,7 +3,7 @@ Deck = [11,13,14,15,22,23,24,25,31,33,34,35,42,43,44,45,52,53,54,55,62,63,64,65,
 //一の桁が1:20点札,2:10点札,3:5点札,4<=:1点札
 img_Deck = []
 var i;
-for(i=0;i<49;i++){
+for(i=0;i<48;i++){
     img_Deck[i] = i;
 }
 
@@ -93,15 +93,35 @@ while (m_hands.length < 8) {
     m_hands.push(img_Deck[k]);//札を増やす
     img_Deck.splice(k, 1);//山札から減らす
 }
-console.log("自手札！", Deck[m_hands[0]], Deck[m_hands[1]], Deck[m_hands[2]], Deck[m_hands[3]]);
+console.log("自手札！");
 for(i=0;i<8;i++){
-    x=250+i*100;
-    console.log(x);
-    y=m_hands[i];
-    chara[y].onload = ()=>{
-        ctx.drawImage(chara[y], x, 590, 80, 130);
-    };
+    console.log(Deck[m_hands[i]]);
 }
+chara[m_hands[0]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[0]], 250, 590, 80, 130);
+};
+chara[m_hands[1]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[1]], 350, 590, 80, 130);
+};
+chara[m_hands[2]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[2]], 450, 590, 80, 130);
+};
+chara[m_hands[3]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[3]], 550, 590, 80, 130);
+};
+chara[m_hands[4]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[4]], 650, 590, 80, 130);
+};
+chara[m_hands[5]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[5]], 750, 590, 80, 130);
+};
+chara[m_hands[6]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[6]], 850, 590, 80, 130);
+};
+chara[m_hands[7]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[7]], 950, 590, 80, 130);
+};
+
 while (e_hands.length < 8) {
     n = img_Deck.length;
     k = Math.floor(Math.random() * n);
@@ -110,20 +130,87 @@ while (e_hands.length < 8) {
     img_Deck.splice(k, 1);
 }
 
-console.log("敵手札！", Deck[e_hands[0]], Deck[e_hands[1]], Deck[e_hands[3]], Deck[e_hands[4]]);
+console.log("敵手札！");
+for(i=0;i<8;i++){
+    console.log(Deck[e_hands[i]]);
+}
 chara[e_hands[0]].onload = ()=>{
-    ctx.drawImage(chara[e_hands[0]], 1200, 0, 80, 130);
+    ctx.drawImage(chara[e_hands[0]], 250, 0, 80, 130);
+};
+chara[e_hands[1]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[1]], 350, 0, 80, 130);
+};
+chara[e_hands[2]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[2]], 450, 0, 80, 130);
+};
+chara[e_hands[3]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[3]], 550, 0, 80, 130);
+};
+chara[e_hands[4]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[4]], 650, 0, 80, 130);
+};
+chara[e_hands[5]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[5]], 750, 0, 80, 130);
+};
+chara[e_hands[6]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[6]], 850, 0, 80, 130);
+};
+chara[e_hands[7]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[7]], 950, 0, 80, 130);
 };
 
-while (field.length < 8) {
-    n = img_Deck.length;
-    k = Math.floor(Math.random() * n);
-  
-    field.push(img_Deck[k]);
-    img_Deck.splice(k, 1);
+function bahudaseisaku(){
+    while (field.length < 8) {
+        n = img_Deck.length;
+        k = Math.floor(Math.random() * n);
+    
+        field.push(img_Deck[k]);
+        img_Deck.splice(k, 1);
+    }
+    tuki_check=[0,0,0,0,0,0,0,0,0,0,0,0];
+    for(i=0;i<8;i++){
+        x=Deck[field[i]]/10
+        tuki_check[x]++;
+        if(tuki_check[x]==3){
+            for(j=0;j<8;j++){
+                img_Deck.push(field[j]);
+                field.splice(0,1);
+            }
+            console.log("場札再制作！");
+            bahudaseisaku();
+        }
+    }
 }
+bahudaseisaku();
+console.log("場札！");
+for(i=0;i<8;i++){
+    console.log(Deck[field[i]]);
+}
+chara[field[0]].onload = ()=>{
+    ctx.drawImage(chara[field[0]], 200, 210, 80, 130);
+};
+chara[field[1]].onload = ()=>{
+    ctx.drawImage(chara[field[1]], 360, 210, 80, 130);
+};
+chara[field[2]].onload = ()=>{
+    ctx.drawImage(chara[field[2]], 520, 210, 80, 130);
+};
+chara[field[3]].onload = ()=>{
+    ctx.drawImage(chara[field[3]], 680, 210, 80, 130);
+};
+chara[field[4]].onload = ()=>{
+    ctx.drawImage(chara[field[4]], 840, 210, 80, 130);
+};
+chara[field[5]].onload = ()=>{
+    ctx.drawImage(chara[field[5]], 1000, 210, 80, 130);
+};
+chara[field[6]].onload = ()=>{
+    ctx.drawImage(chara[field[6]], 200, 380, 80, 130);
+};
+chara[field[7]].onload = ()=>{
+    ctx.drawImage(chara[field[7]], 360, 380, 80, 130);
+};
 
-console.log("場札！", Deck[field[0]], Deck[field[1]], Deck[field[2]], Deck[field[3]]);
 console.log("山札再確認", Deck[img_Deck[0]], Deck[img_Deck[1]], Deck[img_Deck[2]], Deck[img_Deck[3]]);
 function m_turn(){
     //出す手札の番号をもらう処理を書く(pに入れる)
