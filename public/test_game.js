@@ -195,8 +195,6 @@ function bahudaseisaku(){
     while (field.length < 8) {
         n = img_Deck.length;
         k = Math.floor(Math.random() * n);
-        console.log("k確認",k);
-        console.log(field.length);
         field.push(img_Deck[k]);
         img_Deck.splice(k, 1);
     }
