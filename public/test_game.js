@@ -86,13 +86,45 @@ chara[48].onload = ()=>{
 };
 
 //手札配布
-while (m_hands.length < 8) {
-    n = img_Deck.length;//山札の枚数
-    k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
-  
-    m_hands.push(img_Deck[k]);//札を増やす
-    img_Deck.splice(k, 1);//山札から減らす
+function jihudaseisaku(){
+    while (m_hands.length < 8) {
+        n = img_Deck.length;//山札の枚数
+        k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
+    
+        m_hands.push(img_Deck[k]);//札を増やす
+        img_Deck.splice(k, 1);//山札から減らす
+    }
+    tuki_check=[0,0,0,0,0,0,0,0,0,0,0,0,0];
+    for(i=0;i<8;i++){
+        x = Deck[m_hands[i]]/10|0;
+        tuki_check[x] += 1;
+        if(tuki_check[x]==4){
+            for(j=0;j<8;j++){
+                img_Deck.push(m_hands[j]);
+            }
+            m_hands.splice(0,8);
+            console.log("手四で自札再制作！");
+            jihudaseisaku();
+        }
+        if(tuki_check[x]==2){
+            kuttuki=0;
+            for(k=0;k<13;k++){
+                if(tuki_check[k]==2){
+                    kuttuki++;
+                    if(kuttuki==4){
+                        for(j=0;j<8;j++){
+                            img_Deck.push(m_hands[j]);
+                        }
+                        m_hands.splice(0,8);
+                        console.log("くっつきで自札再制作！");
+                        jihudaseisaku();
+                    }
+                }
+            }
+        }  
+    }
 }
+jihudaseisaku();
 console.log("自手札！");
 for(i=0;i<8;i++){
     console.log(Deck[m_hands[i]]);
@@ -163,19 +195,20 @@ function bahudaseisaku(){
     while (field.length < 8) {
         n = img_Deck.length;
         k = Math.floor(Math.random() * n);
-    
+        console.log("k確認",k);
+        console.log(field.length);
         field.push(img_Deck[k]);
         img_Deck.splice(k, 1);
     }
-    tuki_check=[0,0,0,0,0,0,0,0,0,0,0,0];
+    tuki_check=[0,0,0,0,0,0,0,0,0,0,0,0,0];
     for(i=0;i<8;i++){
-        x=Deck[field[i]]/10
-        tuki_check[x]++;
+        x = Deck[field[i]]/10|0;
+        tuki_check[x] += 1;
         if(tuki_check[x]==3){
             for(j=0;j<8;j++){
                 img_Deck.push(field[j]);
-                field.splice(0,1);
             }
+            field.splice(0,8);
             console.log("場札再制作！");
             bahudaseisaku();
         }
@@ -187,31 +220,34 @@ for(i=0;i<8;i++){
     console.log(Deck[field[i]]);
 }
 chara[field[0]].onload = ()=>{
-    ctx.drawImage(chara[field[0]], 200, 210, 80, 130);
+    ctx.drawImage(chara[field[0]], 520, 210, 80, 130);
 };
 chara[field[1]].onload = ()=>{
-    ctx.drawImage(chara[field[1]], 360, 210, 80, 130);
+    ctx.drawImage(chara[field[1]], 520, 380, 80, 130);
 };
 chara[field[2]].onload = ()=>{
-    ctx.drawImage(chara[field[2]], 520, 210, 80, 130);
+    ctx.drawImage(chara[field[2]], 680, 210, 80, 130);
 };
 chara[field[3]].onload = ()=>{
-    ctx.drawImage(chara[field[3]], 680, 210, 80, 130);
+    ctx.drawImage(chara[field[3]], 680, 380, 80, 130);
 };
 chara[field[4]].onload = ()=>{
-    ctx.drawImage(chara[field[4]], 840, 210, 80, 130);
+    ctx.drawImage(chara[field[4]], 360, 210, 80, 130);
 };
 chara[field[5]].onload = ()=>{
-    ctx.drawImage(chara[field[5]], 1000, 210, 80, 130);
+    ctx.drawImage(chara[field[5]], 360, 380, 80, 130);
 };
 chara[field[6]].onload = ()=>{
-    ctx.drawImage(chara[field[6]], 200, 380, 80, 130);
+    ctx.drawImage(chara[field[6]], 840, 210, 80, 130);
 };
 chara[field[7]].onload = ()=>{
-    ctx.drawImage(chara[field[7]], 360, 380, 80, 130);
+    ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
 };
 
-console.log("山札再確認", Deck[img_Deck[0]], Deck[img_Deck[1]], Deck[img_Deck[2]], Deck[img_Deck[3]]);
+console.log("山札再確認");
+for(i=0;i<img_Deck.length;i++){
+    console.log(img_Deck[i]);
+}
 function m_turn(){
     //出す手札の番号をもらう処理を書く(pに入れる)
     pick=Deck[m_hands[p]];
@@ -591,4 +627,3 @@ while(c==0&&l<8){
     l++;
 }
 console.log(m_point,e_point);
-
