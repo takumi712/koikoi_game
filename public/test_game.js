@@ -656,30 +656,37 @@ function e_yaku_check(){
 }
 function kakikaki(){
 	ctx.clearRect(0,0,1280,720);
-    ctx.drawImage(chara[m_hands[0]], 250, 590, 80, 130);
-    ctx.drawImage(chara[m_hands[1]], 350, 590, 80, 130);
-    ctx.drawImage(chara[m_hands[2]], 450, 590, 80, 130);
-    ctx.drawImage(chara[m_hands[3]], 550, 590, 80, 130);
-    ctx.drawImage(chara[m_hands[4]], 650, 590, 80, 130);
-    ctx.drawImage(chara[m_hands[5]], 750, 590, 80, 130);
-    ctx.drawImage(chara[m_hands[6]], 850, 590, 80, 130);
-    ctx.drawImage(chara[m_hands[7]], 950, 590, 80, 130);
-    ctx.drawImage(chara[e_hands[0]], 250, 0, 80, 130);
-    ctx.drawImage(chara[e_hands[1]], 350, 0, 80, 130);
-    ctx.drawImage(chara[e_hands[2]], 450, 0, 80, 130);
-    ctx.drawImage(chara[e_hands[3]], 550, 0, 80, 130);
-    ctx.drawImage(chara[e_hands[4]], 650, 0, 80, 130);
-    ctx.drawImage(chara[e_hands[5]], 750, 0, 80, 130);
-    ctx.drawImage(chara[e_hands[6]], 850, 0, 80, 130);
-    ctx.drawImage(chara[e_hands[7]], 950, 0, 80, 130);
-    ctx.drawImage(chara[field[0]], 520, 210, 80, 130);
-    ctx.drawImage(chara[field[1]], 520, 380, 80, 130);
-    ctx.drawImage(chara[field[2]], 680, 210, 80, 130);
-    ctx.drawImage(chara[field[3]], 680, 380, 80, 130);
-    ctx.drawImage(chara[field[4]], 360, 210, 80, 130);
-    ctx.drawImage(chara[field[5]], 360, 380, 80, 130);
-    ctx.drawImage(chara[field[6]], 840, 210, 80, 130);
-    ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
+    for(i=0;i<m_hands.length;i++){
+        ctx.drawImage(chara[m_hands[i]], 250+100*i, 590, 80, 130);
+    }
+    for(i=0;i<e_hands.length;i++){
+        ctx.drawImage(chara[e_hands[i]], 250+100*i, 0, 80, 130);
+    }
+    if(field[0]!=null){
+        ctx.drawImage(chara[field[0]], 520, 210, 80, 130);
+    }
+    if(field[1]!=null){
+        ctx.drawImage(chara[field[1]], 520, 380, 80, 130);
+    }
+    if(field[2]!=null){
+        ctx.drawImage(chara[field[2]], 680, 210, 80, 130);
+    }
+    if(field[3]!=null){
+        ctx.drawImage(chara[field[3]], 680, 380, 80, 130);
+    }
+    if(field[4]!=null){
+        ctx.drawImage(chara[field[4]], 360, 210, 80, 130);
+    }
+    if(field[5]!=null){
+        ctx.drawImage(chara[field[5]], 360, 380, 80, 130);
+    }
+    if(field[6]!=null){
+        ctx.drawImage(chara[field[6]], 840, 210, 80, 130);
+    }
+    if(field[7]!=null){
+        ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
+    }
+    ctx.drawImage(chara[48], 1180, 295, 80, 130);
 }
 while(c==0&&l<8){
     m_turn();
