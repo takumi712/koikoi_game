@@ -286,7 +286,6 @@ for(i=0;i<img_Deck.length;i++){
 function m_turn(){
     //p = game.keyboard
     pick=Deck[m_hands[p]];
-    m_hands.splice(p, 1);
 
     f=field.length;
     check=0;
@@ -296,7 +295,8 @@ function m_turn(){
 
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
-        if(Deck[field[step]]/10==pick/10){
+        a=field[step];
+        if(Deck[a]/10==pick/10){
             check_card[check]=step;
             check++;
         }
@@ -304,20 +304,22 @@ function m_turn(){
 
     //0だったら場札を増やすのみ
     if(check==0){
-        field.push(pick);
+        field.push(m_hands[p]);
     }
     //1だったらとる
     else if(check==1){
         m_yaku.push(field[check_card[0]]);
-        m_yaku.push(pick);
+        m_yaku.push(m_hands[p]);
         field.splice(check_card[0], 1);
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(pに入れる)
         m_yaku.push(field[check_card[p]]);
-        m_yaku.push(pick);
+        m_yaku.push(m_hands[p]);
         field.splice(check_card[p], 1);
     }
+    
+    m_hands.splice(p, 1);
     //山札処理
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
     img_Deck.splice(k, 1);//山札から減らす
@@ -329,7 +331,8 @@ function m_turn(){
 
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
-        if(Deck[field[step]]/10==k/10){
+        a=field[step];
+        if(Deck[a]/10==k/10){
             check_card[check]=step;
             check++;
         }
