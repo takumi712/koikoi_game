@@ -295,9 +295,7 @@ function m_turn(){
 
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
-        a=Deck[field[step]];
-        console.log(a,pick);
-        if(a/10==pick/10){
+        if(Deck[field[step]]/10|0==pick/10|0){
             console.log("toreta");
             check_card[check]=step;
             check++;
@@ -333,8 +331,7 @@ function m_turn(){
 
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
-        a=field[step];
-        if(Deck[a]/10==k/10){
+        if(Deck[field[step]]/10|0==k/10|0){
             console.log("toreta");
             check_card[check]=step;
             check++;
