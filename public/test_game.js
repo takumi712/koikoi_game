@@ -314,7 +314,7 @@ function m_turn(){
         field.splice(check_card[0], 1);
     }
     else if(check==2){
-        //出す手札の番号をもらう処理を書く(pに入れる)
+        //出す手札の番号をもらう処理を書く(p2に入れる)
         m_yaku.push(Deck[field[check_card[p]]]);
         m_yaku.push(Deck[m_hands[p]]);
         field.splice(check_card[p2], 1);
@@ -390,7 +390,7 @@ function e_turn(){
         field.splice(check_card[0], 1);
     }
     else if(check==2){
-        //出す手札の番号をもらう処理を書く(pに入れる)
+        //出す手札の番号をもらう処理を書く(p2に入れる)
         e_yaku.push(Deck[field[check_card[0]]]);
         e_yaku.push(Deck[e_hands[p]]);
         field.splice(check_card[p2], 1);
@@ -698,6 +698,18 @@ function kakikaki(){
     }
     if(field[7]!=null){
         ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
+    }
+    if(field[8]!=null){
+        ctx.drawImage(chara[field[8]], 200, 210, 80, 130);
+    }
+    if(field[9]!=null){
+        ctx.drawImage(chara[field[9]], 200, 380, 80, 130);
+    }
+    if(field[10]!=null){
+        ctx.drawImage(chara[field[10]], 1000, 210, 80, 130);
+    }
+    if(field[11]!=null){
+        ctx.drawImage(chara[field[11]], 1000, 380, 80, 130);
     }
     ctx.drawImage(chara[48], 1180, 295, 80, 130);
 }
