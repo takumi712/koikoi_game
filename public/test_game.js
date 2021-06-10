@@ -22,9 +22,9 @@ function onClick(e) {
     var y = e.clientY - canvas.offsetTop;
     console.log("x:", x, "y:", y);
 }
-document.addEventListener('keydown',e =>{
-    game.keyboard = e.key
-})
+// document.addEventListener('keydown',e =>{
+//     game.keyboard = e.key
+// })
     
 var canvas = document.getElementById("canvas_game");
 var ctx = canvas.getContext("2d");
@@ -205,81 +205,79 @@ for(i=0;i<8;i++){
     console.log(Deck[field[i]]);
 }
 
-function kakikaki(){
-	chara[m_hands[0]].onload = ()=>{
-	    ctx.drawImage(chara[m_hands[0]], 250, 590, 80, 130);
-	};
-	chara[m_hands[1]].onload = ()=>{
-	    ctx.drawImage(chara[m_hands[1]], 350, 590, 80, 130);
-	};
-	chara[m_hands[2]].onload = ()=>{
-	    ctx.drawImage(chara[m_hands[2]], 450, 590, 80, 130);
-	};
-	chara[m_hands[3]].onload = ()=>{
-	    ctx.drawImage(chara[m_hands[3]], 550, 590, 80, 130);
-	};
-	chara[m_hands[4]].onload = ()=>{
-	    ctx.drawImage(chara[m_hands[4]], 650, 590, 80, 130);
-	};
-	chara[m_hands[5]].onload = ()=>{
-	    ctx.drawImage(chara[m_hands[5]], 750, 590, 80, 130);
-	};
-	chara[m_hands[6]].onload = ()=>{
-	    ctx.drawImage(chara[m_hands[6]], 850, 590, 80, 130);
-	};
-	chara[m_hands[7]].onload = ()=>{
-	    ctx.drawImage(chara[m_hands[7]], 950, 590, 80, 130);
-	};
-	chara[e_hands[0]].onload = ()=>{
-	    ctx.drawImage(chara[e_hands[0]], 250, 0, 80, 130);
-	};
-	chara[e_hands[1]].onload = ()=>{
-	    ctx.drawImage(chara[e_hands[1]], 350, 0, 80, 130);
-	};
-	chara[e_hands[2]].onload = ()=>{
-	    ctx.drawImage(chara[e_hands[2]], 450, 0, 80, 130);
-	};
-	chara[e_hands[3]].onload = ()=>{
-	    ctx.drawImage(chara[e_hands[3]], 550, 0, 80, 130);
-	};
-	chara[e_hands[4]].onload = ()=>{
-	    ctx.drawImage(chara[e_hands[4]], 650, 0, 80, 130);
-	};
-	chara[e_hands[5]].onload = ()=>{
-	    ctx.drawImage(chara[e_hands[5]], 750, 0, 80, 130);
-	};
-	chara[e_hands[6]].onload = ()=>{
-	    ctx.drawImage(chara[e_hands[6]], 850, 0, 80, 130);
-	};
-	chara[e_hands[7]].onload = ()=>{
-	    ctx.drawImage(chara[e_hands[7]], 950, 0, 80, 130);
-	};
-	chara[field[0]].onload = ()=>{
-	    ctx.drawImage(chara[field[0]], 520, 210, 80, 130);
-	};
-	chara[field[1]].onload = ()=>{
-	    ctx.drawImage(chara[field[1]], 520, 380, 80, 130);
-	};
-	chara[field[2]].onload = ()=>{
-	    ctx.drawImage(chara[field[2]], 680, 210, 80, 130);
-	};
-	chara[field[3]].onload = ()=>{
-	    ctx.drawImage(chara[field[3]], 680, 380, 80, 130);
-	};
-	chara[field[4]].onload = ()=>{
-	    ctx.drawImage(chara[field[4]], 360, 210, 80, 130);
-	};
-	chara[field[5]].onload = ()=>{
-	    ctx.drawImage(chara[field[5]], 360, 380, 80, 130);
-	};
-	chara[field[6]].onload = ()=>{
-	    ctx.drawImage(chara[field[6]], 840, 210, 80, 130);
-	};
-	chara[field[7]].onload = ()=>{
-	    ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
-	};
-}
-kakikaki();
+
+chara[m_hands[0]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[0]], 250, 590, 80, 130);
+};
+chara[m_hands[1]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[1]], 350, 590, 80, 130);
+};
+chara[m_hands[2]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[2]], 450, 590, 80, 130);
+};
+chara[m_hands[3]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[3]], 550, 590, 80, 130);
+};
+chara[m_hands[4]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[4]], 650, 590, 80, 130);
+};
+chara[m_hands[5]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[5]], 750, 590, 80, 130);
+};
+chara[m_hands[6]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[6]], 850, 590, 80, 130);
+};
+chara[m_hands[7]].onload = ()=>{
+    ctx.drawImage(chara[m_hands[7]], 950, 590, 80, 130);
+};
+chara[e_hands[0]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[0]], 250, 0, 80, 130);
+};
+chara[e_hands[1]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[1]], 350, 0, 80, 130);
+};
+chara[e_hands[2]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[2]], 450, 0, 80, 130);
+};
+chara[e_hands[3]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[3]], 550, 0, 80, 130);
+};
+chara[e_hands[4]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[4]], 650, 0, 80, 130);
+};
+chara[e_hands[5]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[5]], 750, 0, 80, 130);
+};
+chara[e_hands[6]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[6]], 850, 0, 80, 130);
+};
+chara[e_hands[7]].onload = ()=>{
+    ctx.drawImage(chara[e_hands[7]], 950, 0, 80, 130);
+};
+chara[field[0]].onload = ()=>{
+    ctx.drawImage(chara[field[0]], 520, 210, 80, 130);
+};
+chara[field[1]].onload = ()=>{
+    ctx.drawImage(chara[field[1]], 520, 380, 80, 130);
+};
+chara[field[2]].onload = ()=>{
+    ctx.drawImage(chara[field[2]], 680, 210, 80, 130);
+};
+chara[field[3]].onload = ()=>{
+    ctx.drawImage(chara[field[3]], 680, 380, 80, 130);
+};
+chara[field[4]].onload = ()=>{
+    ctx.drawImage(chara[field[4]], 360, 210, 80, 130);
+};
+chara[field[5]].onload = ()=>{
+    ctx.drawImage(chara[field[5]], 360, 380, 80, 130);
+};
+chara[field[6]].onload = ()=>{
+    ctx.drawImage(chara[field[6]], 840, 210, 80, 130);
+};
+chara[field[7]].onload = ()=>{
+    ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
+};
 
 console.log("山札再確認");
 for(i=0;i<img_Deck.length;i++){
@@ -655,6 +653,33 @@ function e_yaku_check(){
         //koikoi or agari
         //if(koikoi){return 1}else{return 0}
     }
+}
+function kakikaki(){
+	ctx.clearRect(0,0,1280,720);
+    ctx.drawImage(chara[m_hands[0]], 250, 590, 80, 130);
+    ctx.drawImage(chara[m_hands[1]], 350, 590, 80, 130);
+    ctx.drawImage(chara[m_hands[2]], 450, 590, 80, 130);
+    ctx.drawImage(chara[m_hands[3]], 550, 590, 80, 130);
+    ctx.drawImage(chara[m_hands[4]], 650, 590, 80, 130);
+    ctx.drawImage(chara[m_hands[5]], 750, 590, 80, 130);
+    ctx.drawImage(chara[m_hands[6]], 850, 590, 80, 130);
+    ctx.drawImage(chara[m_hands[7]], 950, 590, 80, 130);
+    ctx.drawImage(chara[e_hands[0]], 250, 0, 80, 130);
+    ctx.drawImage(chara[e_hands[1]], 350, 0, 80, 130);
+    ctx.drawImage(chara[e_hands[2]], 450, 0, 80, 130);
+    ctx.drawImage(chara[e_hands[3]], 550, 0, 80, 130);
+    ctx.drawImage(chara[e_hands[4]], 650, 0, 80, 130);
+    ctx.drawImage(chara[e_hands[5]], 750, 0, 80, 130);
+    ctx.drawImage(chara[e_hands[6]], 850, 0, 80, 130);
+    ctx.drawImage(chara[e_hands[7]], 950, 0, 80, 130);
+    ctx.drawImage(chara[field[0]], 520, 210, 80, 130);
+    ctx.drawImage(chara[field[1]], 520, 380, 80, 130);
+    ctx.drawImage(chara[field[2]], 680, 210, 80, 130);
+    ctx.drawImage(chara[field[3]], 680, 380, 80, 130);
+    ctx.drawImage(chara[field[4]], 360, 210, 80, 130);
+    ctx.drawImage(chara[field[5]], 360, 380, 80, 130);
+    ctx.drawImage(chara[field[6]], 840, 210, 80, 130);
+    ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
 }
 while(c==0&&l<8){
     m_turn();
