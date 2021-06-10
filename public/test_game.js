@@ -285,6 +285,7 @@ for(i=0;i<img_Deck.length;i++){
 }
 function m_turn(){
     //p = game.keyboard
+    p2=0;
     pick=Deck[m_hands[p]];
 
     f=field.length;
@@ -320,6 +321,9 @@ function m_turn(){
     }
     
     m_hands.splice(p, 1);
+}
+function m_turn_yama(){
+    p2=0;
     //山札処理
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
     f=field.length;
@@ -358,6 +362,7 @@ function m_turn(){
 }
 function e_turn(){
     //出す手札の番号をもらう処理を書く(pに入れる)
+    p2=0;
     pick=Deck[e_hands[p]];
 
     f=field.length;
@@ -391,6 +396,9 @@ function e_turn(){
         field.splice(check_card[p2], 1);
     }
     e_hands.splice(p, 1);
+}
+function e_turn_yama(){
+    p2=0;
     //山札処理
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
     f=field.length;
@@ -695,8 +703,10 @@ function kakikaki(){
 }
 while(c==0&&l<8){
     m_turn();
+    m_turn_yama();
     c=m_yaku_check();
     e_turn();
+    e_turn_yama();
     c=e_yaku_check();
     l++;
 }
