@@ -308,21 +308,20 @@ function m_turn(){
     }
     //1だったらとる
     else if(check==1){
-        m_yaku.push(field[check_card[0]]);
-        m_yaku.push(m_hands[p]);
+        m_yaku.push(Deck[field[check_card[0]]]);
+        m_yaku.push(Deck[m_hands[p]]);
         field.splice(check_card[0], 1);
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(pに入れる)
-        m_yaku.push(field[check_card[p]]);
-        m_yaku.push(m_hands[p]);
-        field.splice(check_card[p], 1);
+        m_yaku.push(Deck[field[check_card[p]]]);
+        m_yaku.push(Deck[m_hands[p]]);
+        field.splice(check_card[p2], 1);
     }
     
     m_hands.splice(p, 1);
     //山札処理
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
-    img_Deck.splice(k, 1);//山札から減らす
     f=field.length;
     check=0;
     check_card=[3];
@@ -331,7 +330,7 @@ function m_turn(){
 
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
-        if(Deck[field[step]]/10|0==k/10|0){
+        if((Deck[field[step]] / 10 | 0)==(Deck[img_Deck[k]] / 10 | 0)){
             console.log("toreta");
             check_card[check]=step;
             check++;
@@ -339,91 +338,94 @@ function m_turn(){
     }
 
     //0だったら場札を増やすのみ
-    if(check.length==0){
-        field.push(k);
+    if(check==0){
+        field.push(img_Deck[k]);
     }
     //1だったらとる
-    else if(check.length==1){
-        m_yaku.push(field[check_card[0]]);
-        m_yaku.push(pick);
+    else if(check==1){
+        m_yaku.push(Deck[field[check_card[0]]]);
+        m_yaku.push(Deck[img_Deck[k]]);
         field.splice(check_card[0], 1);
     }
-    else if(check.length>=2){
+    else if(check==2){
         //出す手札の番号をもらう処理を書く(pに入れる)
-        m_yaku.push(field[check_card[p]]);
-        m_yaku.push(pick);
+        m_yaku.push(Deck[field[check_card[p]]]);
+        m_yaku.push(Deck[img_Deck[k]]);
         field.splice(check_card[p], 1);
     }
+    img_Deck.splice(k, 1);
 
 }
 function e_turn(){
     //出す手札の番号をもらう処理を書く(pに入れる)
     pick=Deck[e_hands[p]];
-    e_hands.splice(p, 1);
 
     f=field.length;
-    check=[];
+    check=0;
     check_card=[3];
     //場札の数だけ繰り返す
     step=0;
 
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
-        if(field[step]/10==pick/10){
-            check_card[check.length]=field[step];
-            check[check.length]=step;
+        if((Deck[field[step]] / 10 | 0)==(pick / 10 | 0)){
+            check_card[check]=step;
+            check++;
         }
     }
 
     //0だったら場札を増やすのみ
-    if(check.length==0){
-        field.push(pick);
+    if(check==0){
+        field.push(e_hands[p]);
     }
     //1だったらとる
-    else if(check.length==1){
-        e_yaku.push(check_card[0]);
-        e_yaku.push(pick);
-        field.splice(check[0], 1);
+    else if(check==1){
+        e_yaku.push(Deck[field[check_card[0]]]);
+        e_yaku.push(Deck[e_hands[p]]);
+        field.splice(check_card[0], 1);
     }
-    else if(check.length>=2){
+    else if(check==2){
         //出す手札の番号をもらう処理を書く(pに入れる)
-        e_yaku.push(check_card[p]);
-        e_yaku.push(pick);
-        field.splice(check[p],1)
+        e_yaku.push(Deck[field[check_card[0]]]);
+        e_yaku.push(Deck[e_hands[p]]);
+        field.splice(check_card[p2], 1);
     }
+    e_hands.splice(p, 1);
     //山札処理
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
-    img_Deck.splice(k, 1);//山札から減らす
     f=field.length;
-    check=[];
+    check=0;
     check_card=[3];
     //場札の数だけ繰り返す
     step=0;
 
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
-        if(field[step]/10==k/10){
-            check_card[check.length]=field[step];
-            check[check.length]=step;
+        if((Deck[field[step]] / 10 | 0)==(Deck[img_Deck[k]] / 10 | 0)){
+            console.log("toreta");
+            check_card[check]=step;
+            check++;
         }
     }
 
     //0だったら場札を増やすのみ
-    if(check.length==0){
-        field.push(k);
+    if(check==0){
+        field.push(img_Deck[k]);
     }
     //1だったらとる
-    else if(check.length==1){
-        e_yaku.push(check_card[0]);
-        e_yaku.push(k);
-        field.splice(check[0], 1);
+    else if(check==1){
+        e_yaku.push(Deck[field[check_card[0]]]);
+        e_yaku.push(Deck[img_Deck[k]]);
+        field.splice(check_card[0], 1);
     }
-    else if(check.length>=2){
+    else if(check==2){
         //出す手札の番号をもらう処理を書く(pに入れる)
-        e_yaku.push(check_card[p]);
-        e_yaku.push(k);
-        field.splice(check[p],1)
-    } 
+        e_yaku.push(Deck[field[check_card[p]]]);
+        e_yaku.push(Deck[img_Deck[k]]);
+        field.splice(check_card[p], 1);
+    }
+    img_Deck.splice(k, 1);
+
 }
 function m_yaku_check(){
     gokou=[]
