@@ -22,6 +22,9 @@ function onClick(e) {
     var y = e.clientY - canvas.offsetTop;
     console.log("x:", x, "y:", y);
 }
+document.addEventListener('keydown',e =>{
+    game.keyboard = e.key
+})
     
 var canvas = document.getElementById("canvas_game");
 var ctx = canvas.getContext("2d");
@@ -247,7 +250,7 @@ for(i=0;i<img_Deck.length;i++){
     console.log(img_Deck[i]);
 }
 function m_turn(){
-    //出す手札の番号をもらう処理を書く(pに入れる)
+    //p = game.keyboard
     pick=Deck[m_hands[p]];
     m_hands.splice(p, 1);
 
@@ -283,7 +286,7 @@ function m_turn(){
     }
     //山札処理
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
-    newDeck.splice(k, 1);//山札から減らす
+    img_Deck.splice(k, 1);//山札から減らす
     f=field.length;
     check=[];
     check_card=[3];
@@ -353,7 +356,7 @@ function e_turn(){
     }
     //山札処理
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
-    newDeck.splice(k, 1);//山札から減らす
+    img_Deck.splice(k, 1);//山札から減らす
     f=field.length;
     check=[];
     check_card=[3];
