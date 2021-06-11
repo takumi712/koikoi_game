@@ -323,7 +323,7 @@ function m_turn(){
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(p2に入れる)
-        m_yaku.push(Deck[field[check_card[p]]]);
+        m_yaku.push(Deck[field[check_card[p2]]]);
         m_yaku.push(Deck[m_hands[p]]);
         field[check_card[p2]]=null;
     }
@@ -361,7 +361,7 @@ function m_turn_yama(){
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(pに入れる)
-        m_yaku.push(Deck[field[check_card[p]]]);
+        m_yaku.push(Deck[field[check_card[p2]]]);
         m_yaku.push(Deck[img_Deck[k]]);
         field[check_card[p2]]=null;
     }
@@ -399,7 +399,7 @@ function e_turn(){
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(p2に入れる)
-        e_yaku.push(Deck[field[check_card[0]]]);
+        e_yaku.push(Deck[field[check_card[p2]]]);
         e_yaku.push(Deck[e_hands[p]]);
         field[check_card[p2]]=null;
     }
@@ -423,7 +423,6 @@ function e_turn_yama(){
             check++;
         }
     }
-
     //0だったら場札を増やすのみ
     if(check==0){
         field_push(img_Deck[k]);
@@ -436,7 +435,7 @@ function e_turn_yama(){
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(pに入れる)
-        e_yaku.push(Deck[field[check_card[p]]]);
+        e_yaku.push(Deck[field[check_card[p2]]]);
         e_yaku.push(Deck[img_Deck[k]]);
         field[check_card[p2]]=null;
     }
