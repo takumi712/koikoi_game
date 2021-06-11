@@ -329,6 +329,7 @@ function m_turn(){
     }
     
     m_hands.splice(p, 1);
+    kakikaki();
 }
 function m_turn_yama(){
     p2=0;
@@ -366,6 +367,7 @@ function m_turn_yama(){
         field[check_card[p2]]=null;
     }
     img_Deck.splice(k, 1);
+    kakikaki();
 
 }
 function e_turn(){
@@ -404,6 +406,7 @@ function e_turn(){
         field[check_card[p2]]=null;
     }
     e_hands.splice(p, 1);
+    kakikaki();
 }
 function e_turn_yama(){
     p2=0;
@@ -440,7 +443,7 @@ function e_turn_yama(){
         field[check_card[p2]]=null;
     }
     img_Deck.splice(k, 1);
-
+    kakikaki();
 }
 function m_yaku_check(){
     gokou=[]
