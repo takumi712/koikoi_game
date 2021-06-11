@@ -193,7 +193,7 @@ function bahudaseisaku(){
     while (field.length < 8) {
         n = img_Deck.length;
         k = Math.floor(Math.random() * n);
-        field.push(img_Deck[k]);
+        field_push(img_Deck[k]);
         img_Deck.splice(k, 1);
     }
     tuki_check=[0,0,0,0,0,0,0,0,0,0,0,0,0];
