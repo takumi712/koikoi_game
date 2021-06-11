@@ -119,6 +119,7 @@ function jihudaseisaku(){
             m_hands.splice(0,8);
             console.log("手四で自札再制作！");
             jihudaseisaku();
+            break;
         }
         if(tuki_check[x]==2){
             kuttuki=0;
@@ -132,6 +133,7 @@ function jihudaseisaku(){
                         m_hands.splice(0,8);
                         console.log("くっつきで自札再制作！");
                         jihudaseisaku();
+                        break;
                     }
                 }
             }
@@ -163,6 +165,7 @@ function tekihudaseisaku(){
             e_hands.splice(0,8);
             console.log("手四で自札再制作！");
             tekihudaseisaku();
+            break;
         }
         if(tuki_check[x]==2){
             kuttuki=0;
@@ -176,6 +179,7 @@ function tekihudaseisaku(){
                         e_hands.splice(0,8);
                         console.log("くっつきで自札再制作！");
                         tekihudaseisaku();
+                        break;
                     }
                 }
             }
@@ -207,6 +211,7 @@ function bahudaseisaku(){
             field.splice(0,8);
             console.log("場札再制作！");
             bahudaseisaku();
+            break;
         }
     }
 }
