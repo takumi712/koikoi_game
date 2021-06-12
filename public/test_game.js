@@ -208,7 +208,7 @@ function bahudaseisaku(){
             for(j=0;j<8;j++){
                 img_Deck.push(field[j]);
             }
-            field.splice(0,8);
+            field[i]=null;
             console.log("場札再制作！");
             bahudaseisaku();
             break;
