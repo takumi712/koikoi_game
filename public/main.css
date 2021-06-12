@@ -387,7 +387,6 @@ header{
   animation: flip 3s linear infinite;
   transform-style: preserve-3d;
   transform: rotateY(90deg);
-  animation
 }
 .page_select .card2{
   position: absolute;

@@ -330,16 +330,10 @@ function m_turn(){
         field[check_card[0]]=null;
     }
     else if(check==2){
-<<<<<<< HEAD
-<<<<<<< HEAD
         //出す手札の番号をもらう処理を書く(p2に入れる)
         m_yaku.push(Deck[field[check_card[p2]]]);
-=======
-=======
->>>>>>> parent of 63a4233 (Update test_game.js)
         //出す手札の番号をもらう処理を書く(pに入れる)
         m_yaku.push(Deck[field[check_card[p]]]);
->>>>>>> parent of 63a4233 (Update test_game.js)
         m_yaku.push(Deck[m_hands[p]]);
         field[check_card[p2]]=null;
     }
@@ -416,16 +410,10 @@ function e_turn(){
         field[check_card[0]]=null;
     }
     else if(check==2){
-<<<<<<< HEAD
-<<<<<<< HEAD
         //出す手札の番号をもらう処理を書く(p2に入れる)
         e_yaku.push(Deck[field[check_card[p2]]]);
-=======
-=======
->>>>>>> parent of 63a4233 (Update test_game.js)
         //出す手札の番号をもらう処理を書く(pに入れる)
         e_yaku.push(Deck[field[check_card[0]]]);
->>>>>>> parent of 63a4233 (Update test_game.js)
         e_yaku.push(Deck[e_hands[p]]);
         field[check_card[p2]]=null;
     }
