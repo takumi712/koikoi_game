@@ -10,9 +10,6 @@ for(i=0;i<48;i++){
 m_hands = []
 e_hands = []
 field = [];
-for(i=0;i<12;i++){
-    field[i]=null;
-}
 m_yaku=[]
 e_yaku=[]
 m_point=0;
