@@ -207,9 +207,10 @@ function bahudaseisaku(){
         if(tuki_check[x]==3){
             for(j=0;j<8;j++){
                 img_Deck.push(field[j]);
+                field[i]=null;
             }
-            field[i]=null;
             console.log("場札再制作！");
+            field=[];
             bahudaseisaku();
             break;
         }
@@ -720,6 +721,18 @@ function kakikaki(){
     }
     if(field[7]!=null){
         ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
+    }
+    if(field[8]!=null){
+        ctx.drawImage(chara[field[8]], 200, 380, 80, 130);
+    }
+    if(field[9]!=null){
+        ctx.drawImage(chara[field[9]], 200, 210, 80, 130);
+    }
+    if(field[10]!=null){
+        ctx.drawImage(chara[field[10]], 1000, 380, 80, 130);
+    }
+    if(field[11]!=null){
+        ctx.drawImage(chara[field[11]], 1000, 210, 80, 130);
     }
     ctx.drawImage(chara[48], 1180, 295, 80, 130);
 }
