@@ -8,7 +8,7 @@ for(i=0;i<48;i++){
 }
 m_hands = []
 e_hands = []
-field = [null,null,null,null,null,null,null,null,null,null,null,null];
+field = [];
 m_yaku=[]
 e_yaku=[]
 m_point=0;
