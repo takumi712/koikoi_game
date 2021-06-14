@@ -396,7 +396,7 @@ function m_turn_yama(){
         console.log("toreta",Deck[field[check_card[0]]])
         field[check_card[p2]]=null;
     }
-    console.log(img_Deck[k]);
+    console.log(Deck[img_Deck[k]]);
     img_Deck.splice(k, 1);
     console.log(img_Deck.length);
     kakikaki();
@@ -477,7 +477,7 @@ function e_turn_yama(){
         console.log("toreta",Deck[field[check_card[0]]])
         field[check_card[p2]]=null;
     }
-    console.log(img_Deck[k]);
+    console.log(Deck[img_Deck[k]]);
     img_Deck.splice(k, 1);
     console.log(img_Deck.length);
     kakikaki();
@@ -772,4 +772,4 @@ function kakikaki(){
 //     l++;
 // }
 //console.log(m_point,e_point);
-console.log("ver0.0.0.7");
+console.log("ver0.0.0.8");
