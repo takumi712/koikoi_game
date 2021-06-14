@@ -333,7 +333,6 @@ function m_turn(p){
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
         if((Deck[field[step]] / 10 | 0)==(pick / 10 | 0)){
-            console.log("toreta",Deck[field[step]],pick);
             check_card[check]=step;
             check++;
         }
@@ -347,12 +346,14 @@ function m_turn(p){
     else if(check==1){
         m_yaku.push(Deck[field[check_card[0]]]);
         m_yaku.push(Deck[m_hands[p]]);
+        console.log("toreta",Deck[field[check_card[0]]],pick);
         field[check_card[0]]=null;
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(p2に入れる)
         m_yaku.push(Deck[field[check_card[p2]]]);
         m_yaku.push(Deck[m_hands[p]]);
+        console.log("toreta",Deck[field[check_card[0]]],pick);
         field[check_card[p2]]=null;
     }
     
@@ -372,7 +373,6 @@ function m_turn_yama(){
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
         if((Deck[field[step]] / 10 | 0)==(Deck[img_Deck[k]] / 10 | 0)){
-            console.log("toreta");
             check_card[check]=step;
             check++;
         }
@@ -386,15 +386,19 @@ function m_turn_yama(){
     else if(check==1){
         m_yaku.push(Deck[field[check_card[0]]]);
         m_yaku.push(Deck[img_Deck[k]]);
+        console.log("toreta",Deck[field[check_card[0]]]);
         field[check_card[0]]=null;
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(pに入れる)
         m_yaku.push(Deck[field[check_card[p2]]]);
         m_yaku.push(Deck[img_Deck[k]]);
+        console.log("toreta",Deck[field[check_card[0]]])
         field[check_card[p2]]=null;
     }
+    console.log(img_Deck[k]);
     img_Deck.splice(k, 1);
+    console.log(img_Deck.length);
     kakikaki();
 
 }
@@ -425,12 +429,14 @@ function e_turn(p){
     else if(check==1){
         e_yaku.push(Deck[field[check_card[0]]]);
         e_yaku.push(Deck[e_hands[p]]);
+        console.log("toreta",Deck[field[check_card[0]]],pick);
         field[check_card[0]]=null;
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(p2に入れる)
         e_yaku.push(Deck[field[check_card[p2]]]);
         e_yaku.push(Deck[e_hands[p]]);
+        console.log("toreta",Deck[field[check_card[0]]],pick);
         field[check_card[p2]]=null;
     }
     e_hands.splice(p, 1);
@@ -449,7 +455,6 @@ function e_turn_yama(){
     for(step=0;step<f;step++){
         //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
         if((Deck[field[step]] / 10 | 0)==(Deck[img_Deck[k]] / 10 | 0)){
-            console.log("toreta");
             check_card[check]=step;
             check++;
         }
@@ -462,15 +467,19 @@ function e_turn_yama(){
     else if(check==1){
         e_yaku.push(Deck[field[check_card[0]]]);
         e_yaku.push(Deck[img_Deck[k]]);
+        console.log("toreta",Deck[field[check_card[0]]])
         field[check_card[0]]=null;
     }
     else if(check==2){
         //出す手札の番号をもらう処理を書く(pに入れる)
         e_yaku.push(Deck[field[check_card[p2]]]);
         e_yaku.push(Deck[img_Deck[k]]);
+        console.log("toreta",Deck[field[check_card[0]]])
         field[check_card[p2]]=null;
     }
+    console.log(img_Deck[k]);
     img_Deck.splice(k, 1);
+    console.log(img_Deck.length);
     kakikaki();
 }
 function m_yaku_check(){
