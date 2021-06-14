@@ -576,6 +576,7 @@ function m_yaku_check(){
         //koikoi or agari
         //if(koikoi){return 1}else{return 0}
     }
+    console.log(m_yaku,m_point);
 }
 function e_yaku_check(){
     gokou=[]
@@ -692,6 +693,7 @@ function e_yaku_check(){
         //koikoi or agari
         //if(koikoi){return 1}else{return 0}
     }
+    console.log(e_yaku,e_point);
 }
 function kakikaki(){
 	ctx.clearRect(0,0,1280,720);
