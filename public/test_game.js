@@ -363,6 +363,7 @@ function m_turn(p){
 function m_turn_yama(){
     p2=0;
     //山札処理
+    n = img_Deck.length;
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
     f=field.length;
     check=0;
@@ -445,6 +446,7 @@ function e_turn(p){
 function e_turn_yama(){
     p2=0;
     //山札処理
+    n = img_Deck.length;
     k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
     f=field.length;
     check=0;
@@ -772,4 +774,4 @@ function kakikaki(){
 //     l++;
 // }
 //console.log(m_point,e_point);
-console.log("ver0.0.0.8");
+console.log("ver0.0.0.9");
