@@ -215,10 +215,9 @@ function bahudaseisaku(){
                 if(field[j]!=null){
                     img_Deck.push(field[j]);
                 }
-                field[i]=null;
             }
             console.log("場札再制作！");
-            field=[];
+            field = [null,null,null,null,null,null,null,null,null,null,null,null];
             bahudaseisaku();
             break;
         }
@@ -764,4 +763,4 @@ function kakikaki(){
 //     l++;
 // }
 //console.log(m_point,e_point);
-console.log("ver0.0.0.6");
+console.log("ver0.0.0.7");
