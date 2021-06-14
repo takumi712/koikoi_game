@@ -319,7 +319,7 @@ function full_e_turn(ppp){
     e_turn_yama();
     e_yaku_check();
 }
-function m_turn(){
+function m_turn(p){
     //p = game.keyboard
     p2=0;
     pick=Deck[m_hands[p]];
@@ -398,7 +398,7 @@ function m_turn_yama(){
     kakikaki();
 
 }
-function e_turn(){
+function e_turn(p){
     //出す手札の番号をもらう処理を書く(pに入れる)
     p2=0;
     pick=Deck[e_hands[p]];
