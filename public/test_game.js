@@ -212,7 +212,9 @@ function bahudaseisaku(){
         tuki_check[x] += 1;
         if(tuki_check[x]==3){
             for(j=0;j<8;j++){
-                img_Deck.push(field[j]);
+                if(field[j]!=null){
+                    img_Deck.push(field[j]);
+                }
                 field[i]=null;
             }
             console.log("場札再制作！");
@@ -762,4 +764,4 @@ function kakikaki(){
 //     l++;
 // }
 //console.log(m_point,e_point);
-console.log("ver0.0.0.5");
+console.log("ver0.0.0.6");
