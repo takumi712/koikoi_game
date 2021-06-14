@@ -8,7 +8,7 @@ for(i=0;i<48;i++){
 }
 m_hands = []
 e_hands = []
-field = [];
+field = [null,null,null,null,null,null,null,null,null,null,null,null];
 m_yaku=[]
 e_yaku=[]
 m_point=0;
@@ -762,4 +762,4 @@ function kakikaki(){
 //     l++;
 // }
 //console.log(m_point,e_point);
-console.log("ver0.0.0.4");
+console.log("ver0.0.0.5");
