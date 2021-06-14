@@ -16,22 +16,22 @@ m_point=0;
 e_point=0;
 c=0;
 l=0;
-function onClick(e) {
-    console.log("click");
-    var x = e.clientX - canvas.offsetLeft;
-    var y = e.clientY - canvas.offsetTop;
-    console.log("x:", x, "y:", y);
-    for(i=0;i<8;i++){
-        if(x>165+(65*i) && 230+(65*i)-15>x){
-            if(y>490&&570>y){
-                console.log("あなたが選んだ手札",i);
-                p=i;
-                m_turn();
-                m_turn_yama();
-            }
-        }
-    }
-}
+// function onClick(e) {
+//     console.log("click");
+//     var x = e.clientX - canvas.offsetLeft;
+//     var y = e.clientY - canvas.offsetTop;
+//     console.log("x:", x, "y:", y);
+//     for(i=0;i<8;i++){
+//         if(x>165+(65*i) && 230+(65*i)-15>x){
+//             if(y>490&&570>y){
+//                 console.log("あなたが選んだ手札",i);
+//                 p=i;
+//                 m_turn();
+//                 m_turn_yama();
+//             }
+//         }
+//     }
+// }
 // document.addEventListener('keydown',e =>{
 //     game.keyboard = e.key
 // })
