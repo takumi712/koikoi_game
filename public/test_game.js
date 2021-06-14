@@ -490,7 +490,7 @@ function m_yaku_check(){
         else if(m_yaku[i]%10==2){
             tane.push(m_yaku[i]);
             //猪鹿蝶
-            if(m_yaku[i]/10==6||m_yaku[i]/10==7||m_yaku[i]/10==10){
+            if((m_yaku[i]/10|0)==6||(m_yaku[i]/10|0)==7||(m_yaku[i]/10|0)==10){
                 inosika.push(m_yaku[i]);
             }
         }
@@ -498,11 +498,11 @@ function m_yaku_check(){
         else if(m_yaku[i]%10==3){
             tan.push(m_yaku[i]);
             //赤短
-            if(m_yaku[i]/10==1||m_yaku[i]/10==2||m_yaku[i]/10==3){
+            if((m_yaku[i]/10|0)==1||(m_yaku[i]/10|0)==2||(m_yaku[i]/10|0)==3){
                 aka.push(m_yaku[i]);
             }
             //青短
-            else if(m_yaku[i]/10==6||m_yaku[i]/10==9||m_yaku[i]/10==10){
+            else if((m_yaku[i]/10|0)==6||(m_yaku[i]/10|0)==9||(m_yaku[i]/10|0)==10){
                 ao.push(m_yaku[i]);
             }
         }
@@ -525,7 +525,7 @@ function m_yaku_check(){
     else if(gokou.length==4){
         for(i=0;i<4;i++){
             if(gokou[i]==111){
-                gokou+=10;
+                gokou_p+=10;
             }
             gokou_p++;
         }
@@ -564,15 +564,15 @@ function m_yaku_check(){
     }
     //赤短計算
     if(aka.length==3){
-        aka_p=3;
+        aka_p=5;
     }
     //青短計算
     if(ao.length==3){
-        ao_p=3;
+        ao_p=5;
     }
     //カス計算
     if(kasu.length>=10){
-        kasu_p=tan.length-9;
+        kasu_p=kasu.length-9;
     }
     kei=gokou_p+tane_p+inosika_p+tan_p+aka_p+ao_p+kasu_p;
     if(kei!=m_point){
@@ -606,7 +606,7 @@ function e_yaku_check(){
         else if(e_yaku[i]%10==2){
             tane.push(e_yaku[i]);
             //猪鹿蝶
-            if(e_yaku[i]/10==6||e_yaku[i]/10==7||e_yaku[i]/10==10){
+            if((e_yaku[i]/10|0)==6||(e_yaku[i]/10|0)==7||(e_yaku[i]/10|0)==10){
                 inosika.push(e_yaku[i]);
             }
         }
@@ -614,11 +614,11 @@ function e_yaku_check(){
         else if(e_yaku[i]%10==3){
             tan.push(e_yaku[i]);
             //赤短
-            if(e_yaku[i]/10==1||e_yaku[i]/10==2||e_yaku[i]/10==3){
+            if((e_yaku[i]/10|0)==1||(e_yaku[i]/10|0)==2||(e_yaku[i]/10|0)==3){
                 aka.push(e_yaku[i]);
             }
             //青短
-            else if(e_yaku[i]/10==6||e_yaku[i]/10==9||e_yaku[i]/10==10){
+            else if((e_yaku[i]/10|0)==6||(e_yaku[i]/10|0)==9||(e_yaku[i]/10|0)==10){
                 ao.push(e_yaku[i]);
             }
         }
@@ -641,7 +641,7 @@ function e_yaku_check(){
     else if(gokou.length==4){
         for(i=0;i<4;i++){
             if(gokou[i]==111){
-                gokou+=10;
+                gokou_p+=10;
             }
             gokou_p++;
         }
@@ -680,15 +680,15 @@ function e_yaku_check(){
     }
     //赤短計算
     if(aka.length==3){
-        aka_p=3;
+        aka_p=5;
     }
     //青短計算
     if(ao.length==3){
-        ao_p=3;
+        ao_p=5;
     }
     //カス計算
     if(kasu.length>=10){
-        kasu_p=tan.length-9;
+        kasu_p=kasu.length-9;
     }
     kei=gokou_p+tane_p+inosika_p+tan_p+aka_p+ao_p+kasu_p;
     if(kei!=e_point){
@@ -743,13 +743,13 @@ function kakikaki(){
     }
     ctx.drawImage(chara[48], 1180, 295, 80, 130);
 }
-while(c==0&&l<8){
-    m_turn();
-    m_turn_yama();
-    c=m_yaku_check();
-    e_turn();
-    e_turn_yama();
-    c=e_yaku_check();
-    l++;
-}
-console.log(m_point,e_point);
+// while(c==0&&l<8){
+//     m_turn();
+//     m_turn_yama();
+//     c=m_yaku_check();
+//     e_turn();
+//     e_turn_yama();
+//     c=e_yaku_check();
+//     l++;
+// }
+//console.log(m_point,e_point);
