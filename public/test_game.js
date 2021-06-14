@@ -306,12 +306,14 @@ console.log("山札再確認");
 for(i=0;i<img_Deck.length;i++){
     console.log(img_Deck[i]);
 }
-function full_m_turn(){
+function full_m_turn(ppp){
+    p=ppp;
     m_turn();
     m_turn_yama();
     m_yaku_check();
 }
-function full_e_turn(){
+function full_e_turn(ppp){
+    p=ppp;
     e_turn();
     e_turn_yama();
     e_yaku_check();
@@ -760,4 +762,4 @@ function kakikaki(){
 //     l++;
 // }
 //console.log(m_point,e_point);
-console.log("ver0.0.0.3");
+console.log("ver0.0.0.4");
