@@ -217,7 +217,7 @@ function bahudaseisaku(){
                 }
             }
             console.log("場札再制作！");
-            field = [null,null,null,null,null,null,null,null,null,null,null,null];
+            field = [];
             bahudaseisaku();
             break;
         }
