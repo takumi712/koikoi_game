@@ -306,6 +306,16 @@ console.log("山札再確認");
 for(i=0;i<img_Deck.length;i++){
     console.log(img_Deck[i]);
 }
+function full_m_turn(){
+    m_turn();
+    m_turn_yama();
+    m_yaku_check();
+}
+function full_e_turn(){
+    e_turn();
+    e_turn_yama();
+    e_yaku_check();
+}
 function m_turn(){
     //p = game.keyboard
     p2=0;
@@ -750,4 +760,4 @@ function kakikaki(){
 //     l++;
 // }
 //console.log(m_point,e_point);
-console.log("ver0.0.0.2");
+console.log("ver0.0.0.3");
