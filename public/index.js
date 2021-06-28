@@ -70,6 +70,11 @@ $(function(){
     socketio.on('game_start',function(){
         SelectPage(5);
     });
+    socketio.on('player_disconnect',function(){
+        alert('対戦相手が接続を切りました…');
+        SelectPage(3);
+        socketio.emit('room_leaeve');
+    });
 
 });
 $(function(){

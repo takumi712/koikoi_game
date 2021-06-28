@@ -1,8 +1,10 @@
+const { verify } = require('crypto');
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 const io = require('socket.io')(http);
 const PORT = process.env.PORT || 7000;
+
 
 app.use(express.static('public'));
 
@@ -50,6 +52,29 @@ io.on('connection',function(socket){
     socket.on('message',function(msg){
         console.log('message: ' + msg);
         io.emit('message', msg);
+    });
+    socket.on('room_leaeve',function(){
+        var myArr = Array.from(socket.rooms.values());
+        var room_name = myArr[1];
+        socket.leave(room_name);
+    });
+    socket.on("disconnecting", (reason) => {
+        var find_used_room;
+        var room_name;
+        var myArr = Array.from(socket.rooms.values());
+        if(myArr.length >= 2){
+            room_name = myArr[1];
+            find_used_room = used_room_list.indexOf(room_name);
+            used_room_list.splice(find_used_room,1);
+            socket.leave(room_name);
+            io.to(room_name).emit('player_disconnect');
+            console.log(find_used_room);
+            console.log(room_name);
+            console.log(socket.rooms);
+        }
+    });
+    socket.on("disconnect",function(){
+        console.log(socket.id + ' is disconnect');
     });
 });
 
