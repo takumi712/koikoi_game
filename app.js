@@ -59,18 +59,20 @@ io.on('connection',function(socket){
         socket.leave(room_name);
     });
     socket.on("disconnecting", (reason) => {
+        var find_room;
         var find_used_room;
         var room_name;
         var myArr = Array.from(socket.rooms.values());
         if(myArr.length >= 2){
             room_name = myArr[1];
+            find_room = room_list.indexOf(room_name);
+            if(find_room != -1){
+                room_list.splice(find_room,1);
+            }
             find_used_room = used_room_list.indexOf(room_name);
             used_room_list.splice(find_used_room,1);
             socket.leave(room_name);
             io.to(room_name).emit('player_disconnect');
-            console.log(find_used_room);
-            console.log(room_name);
-            console.log(socket.rooms);
         }
     });
     socket.on("disconnect",function(){
