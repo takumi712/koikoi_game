@@ -50,6 +50,24 @@ $(function(){
         console.log(num);
         return false;
     });
+    // page3
+    socketio.on('create_room_done',function(can_execute){
+        if(can_execute){
+            SelectPage(4)
+        }
+        else{
+            alert('すでに使用されている部屋名です');
+        }
+    });
+    socketio.on('join_room_done',function(can_execute){
+        if(can_execute){
+            SelectPage(4)
+        }
+        else{
+            alert('存在のしない部屋名です');
+        }
+    });
+
 });
 $(function(){
     $('.js-modal-open').on('click',function(){

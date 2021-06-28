@@ -13,7 +13,6 @@ function create_room(){
   if (room_name != ''){
     socketio.emit('create_room',room_name);
     console.log("execute create_room")
-    SelectPage(4)
   }
   else{
     alert('部屋名を入力してください');
@@ -24,7 +23,6 @@ function join_room(){
   if (room_name != ''){
     socketio.emit('join_room',room_name);
     console.log("execute join_room")
-    SelectPage(4)
   }
   else{
     alert('部屋名を入力してください');
