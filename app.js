@@ -11,36 +11,41 @@ app.get('/' , function(req, res){
 });
 
 room_list = [];
+used_room_list = [];
 
 io.on('connection',function(socket){
     socket.on('create_room',function(room_name){
+        var id = socket.id;
         var find_room;
         find_room = room_list.indexOf(room_name);
-        if(find_room == -1){
+        find_used_room = used_room_list.indexOf(room_name);
+        if(find_room == -1 && find_used_room == -1){
             socket.join(room_name);
-            console.log(room_name + " to join")
+            console.log(id + " joined " + room_name)
             room_list.push(room_name);
-            console.log(room_list)
-            io.emit('create_room_done', true);
+            console.log(room_list);
+            io.to(id).emit('create_room_done', true);
         }
         else{
-            io.emit('create_room_done', false);
+            io.to(id).emit('create_room_done', false);
         }
     });
     socket.on('join_room',function(room_name){
+        var id = socket.id;
         var find_room;
         find_room = room_list.indexOf(room_name);
 
         if(find_room == -1){
-            io.emit('join_room_done', false);
+            io.to(id).emit('join_room_done', false);
         }
         else{
             socket.join(room_name);
             room_list.splice(find_room,1);
-            io.emit('join_room_done', true);
-            console.log(room_name + " to join")
+            used_room_list.push(room_name);
+            io.to(id).emit('join_room_done', true);
+            io.to(room_name).emit('game_start');
+            console.log(id + " joined " + room_name)
         }
-
     });
     socket.on('message',function(msg){
         console.log('message: ' + msg);

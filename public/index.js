@@ -53,7 +53,7 @@ $(function(){
     // page3
     socketio.on('create_room_done',function(can_execute){
         if(can_execute){
-            SelectPage(4)
+            SelectPage(4);
         }
         else{
             alert('すでに使用されている部屋名です');
@@ -61,11 +61,14 @@ $(function(){
     });
     socketio.on('join_room_done',function(can_execute){
         if(can_execute){
-            SelectPage(4)
+            SelectPage(4);
         }
         else{
             alert('存在のしない部屋名です');
         }
+    });
+    socketio.on('game_start',function(){
+        SelectPage(5);
     });
 
 });
