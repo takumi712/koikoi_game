@@ -7,6 +7,29 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&display=swap" rel="stylesheet">
 <script type="text/javascript" language="javascript">
+var room_name;
+function create_room(){
+  room_name = $('#room_name').val();
+  if (room_name != ''){
+    socketio.emit('create_room',room_name);
+    console.log("execute create_room")
+    SelectPage(4)
+  }
+  else{
+    alert('部屋名を入力してください');
+  }
+}
+function join_room(){
+  room_name = $('#room_name').val();
+  if (room_name != ''){
+    socketio.emit('join_room',room_name);
+    console.log("execute join_room")
+    SelectPage(4)
+  }
+  else{
+    alert('部屋名を入力してください');
+  }
+}
 function SelectPage( page ) {
     var elementPage1 = document.getElementById( "page_title" );
     var elementPage2 = document.getElementById( "page_mode" );
@@ -65,16 +88,6 @@ function SelectPage( page ) {
         break;
     }
 };
-$(function(){
-    $('.js-modal-open').on('click',function(){
-        $('.js-modal').fadeIn();
-        return false;
-    });
-    $('.js-modal-close').on('click',function(){
-        $('.js-modal').fadeOut();
-        return false;
-    });
-});
 </script>
 </head>
 <body>
@@ -154,14 +167,14 @@ $(function(){
                 <div class="textm">
                     <label>部屋名</label>
                 </div>
-                <input type="text">
+                <input type="text" id="room_name">
             </div>
             <div class="select_button">
               <div class="button_create">
-                <button type='button'onclick="SelectPage(4)">作る</button>
+                <button type='button'onclick="create_room()">作る</button>
               </div>
               <div class="button_enter">
-                <button type='button'onclick="SelectPage(4)">入る</button>
+                <button type='button'onclick="join_room()">入る</button>
               </div>
             </div>
             <div class="card">
