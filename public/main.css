@@ -158,14 +158,14 @@ header{
     font-family: "游ゴシック";
     font-weight: bold;
     font-size: 10vmax;
-    top: 0vmax;
+    top: 2vmax;
     right: 2vmax;
     color: #C73226;
 }
   
 .page_title .user_name{
     position: absolute;
-    top:13vmax;
+    top:15vmax;
     right: 3vmax; 
     font-size:2vmax;
     color: #C73226;
@@ -179,7 +179,7 @@ header{
 }
 .page_title .start_button{
     position: absolute;
-    top:18vmax;
+    top:20vmax;
     right: 3vmax;
 }
 .page_title .start_button button{
