@@ -433,12 +433,94 @@ header{
 
 
 
-
+@keyframes poyon {
+0% {transform: translateY(0vmax);}
+10% {transform: translateY(-3vmax);}
+20% {transform: translateY(0vmax);}
+100% { transform: translateY(0vmax);}
+}
 .page_maching {
     display:none;
 }
+.page_maching #sikaku{
+    background-color: #FFAB5E;
+}
+.page_maching .maru{
+    position: absolute;
+    top: 11vmax;
+    left: 2vmax;
+    width: 35vmax;
+    height:20vmax ;
+    background-color: #f55;
+    border-radius: 37% 63% 54% 46% / 38% 58% 42% 62% ;
+}
+.page_maching .maching_title{
+    position: absolute;
+    font-size: 4vmax;
+    font-weight: bold;
+    top: 18vmax;
+    left: 5vmax;
+    color: white;
+}
+.page_maching .maching_title .t1{
+    position: absolute;
+    left: 0vmax;
+    animation: poyon 2s linear infinite;
+    animation-delay: 0s;
+}
+.page_maching .maching_title .t2{
+    position: absolute;
+    left: 4vmax;
+    animation: poyon 2s linear infinite;
+    animation-delay: 0.3s;
+}
+.page_maching .maching_title .t3{
+    position: absolute;
+    left: 8vmax;
+    animation: poyon 2s linear infinite;
+    animation-delay: 0.6s;
+}
+.page_maching .maching_title .t4{
+    position: absolute;
+    left: 12vmax;
+    animation: poyon 2s linear infinite;
+    animation-delay: 0.9s;
+}
+.page_maching .maching_title .t5{
+    position: absolute;
+    left: 16vmax;
+    animation: poyon 2s linear infinite;
+    animation-delay: 1.2s;
+}
+.page_maching .maching_title .t6{
+    position: absolute;
+    left: 20vmax;
+    animation: poyon 2s linear infinite;
+    animation-delay: 1.5s;
+}
+.page_maching .maching_title .t7{
+    position: absolute;
+    left: 24vmax;
+    animation: poyon 2s linear infinite;
+    animation-delay: 1.8s;
+}
+.page_maching .maching_title .t8{
+    position: absolute;
+    left: 26vmax;
+    animation: poyon 2s linear infinite;
+    animation-delay: 2.1s;
+}
+.page_maching .maching_title .t9{
+    position: absolute;
+    left: 28vmax;
+    animation: poyon 2s linear infinite;
+    animation-delay: 2.4s;
+}
 
-
+.page_maching button{
+    position: absolute;
+    top: 42.2vmax;
+}
 
 
 
