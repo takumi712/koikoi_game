@@ -7,6 +7,25 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&display=swap" rel="stylesheet">
 <script type="text/javascript" language="javascript">
+var room_name;
+function create_room(){
+    room_name = $('#room_name').val();
+    if (room_name != ''){
+        socketio.emit('create_room',room_name);
+    }
+    else{
+        alert('部屋名を入力してください');
+    }
+    }
+    function join_room(){
+    room_name = $('#room_name').val();
+    if (room_name != ''){
+        socketio.emit('join_room',room_name);
+    }
+    else{
+        alert('部屋名を入力してください');
+    }
+}
 function SelectPage( page ) {
     var elementPage1 = document.getElementById( "page_title" );
     var elementPage2 = document.getElementById( "page_mode" );

@@ -1,7 +1,6 @@
 var socketio = io();
 
 $(function(){
-    var room_name;
     var name = 'nonename';
     var month = 0;
     var canvas = document.getElementById("canvas_game");
@@ -65,24 +64,6 @@ $(function(){
         ctx.drawImage(chara[48], 1180, 295, 80, 130);
     };
     
-    function create_room(){
-    room_name = $('#room_name').val();
-    if (room_name != ''){
-        socketio.emit('create_room',room_name);
-    }
-    else{
-        alert('部屋名を入力してください');
-    }
-    }
-    function join_room(){
-    room_name = $('#room_name').val();
-    if (room_name != ''){
-        socketio.emit('join_room',room_name);
-    }
-    else{
-        alert('部屋名を入力してください');
-    }
-    }
 
     $('#name_form').submit(function(){
         name = $('#input_name').val();
@@ -133,7 +114,6 @@ $(function(){
     // page3
     socketio.on('create_room_done',function(can_execute){
         if(can_execute){
-            socketio.emit('create_game', name, month);
             SelectPage(4);
         }
         else{
