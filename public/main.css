@@ -547,7 +547,7 @@ header{
 .page_result .maru{
     position: absolute;
     top: 2vmax;
-    left: 13vmax;
+    left: 8vmax;
     width: 20vmax;
     height:20vmax ;
     background-color: #f55;
@@ -556,7 +556,7 @@ header{
 .page_result .game_result{
     position: absolute;
     top: 3vmax;
-    left: 45vmax;
+    left: 40vmax;
     color: #DE481F;
     font-size: 4vmax;
     font-weight: bold;
@@ -580,7 +580,7 @@ header{
 .page_result .sc_py1_final{
     position: absolute;
     top: 23vmax;
-    left: 15vmax;
+    left: 10vmax;
     color: #DE481F;
     font-size: 3.5vmax;
     font-weight: bold;
@@ -588,7 +588,7 @@ header{
 .page_result .sc_py2_final{
     position: absolute;
     top: 28vmax;
-    left: 15vmax;
+    left: 10vmax;
     color: #DE481F;
     font-size: 3.5vmax;
     font-weight: bold;
@@ -596,7 +596,7 @@ header{
 .page_result ul{
     position: absolute;
     top: 9vmax;
-    left: 40vmax;
+    left: 43vmax;
     width: 20vmax;
     height: 25vmax;
     display: flex;
