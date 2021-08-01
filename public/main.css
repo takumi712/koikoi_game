@@ -364,7 +364,9 @@ header{
   color: #AA00AA;
   font-weight: bold;
   top: 13vmax;
-  text-align: center;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
   font-size:5vmax;  
 }
 .page_select .room_name_area input{
