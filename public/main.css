@@ -40,6 +40,9 @@ header{
     z-index:97;
     box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.1);
 }
+.asdf{
+    background-image: url(image/tatami01.png);
+}
 .h_left{
     font-size: 30px;
     color: rgb(199, 50, 38);
@@ -148,7 +151,6 @@ header{
     display:block;
 }
 .title_img{
-    background-color: #FFAB5E;
     position: relative;
     width: 100%;
     height: 100%;
@@ -160,7 +162,7 @@ header{
     font-size: 10vmax;
     top: 2vmax;
     right: 2vmax;
-    color: #C73226;
+    color: #DE481F;
 }
   
 .page_title .user_name{
@@ -168,7 +170,7 @@ header{
     top:15vmax;
     right: 3vmax; 
     font-size:2vmax;
-    color: #C73226;
+    color: #DE481F;
 }
 .page_title .user_name input{
   font-size:2.5vmax;
@@ -183,11 +185,11 @@ header{
     right: 3vmax;
 }
 .page_title .start_button button{
-    background:#C73226;
+    background:#DE481F;
     font-size:2.5vmax;
     color:#FFFFFF;
     padding: 0.8vmax;
-    border:0.5vmax solid #C73226;
+    border:0.5vmax solid #DE481F;
     border-radius:3vmax;
     -webkit-border-radius:3vmax;
     -moz-border-radius:3vmax;
@@ -196,7 +198,7 @@ header{
   
 .page_title .start_button button:hover{
     background:#FFFFFF;
-    color:#C73226;
+    color:#DE481F;
     box-shadow:none;
 }
 
@@ -229,9 +231,6 @@ header{
   transform: rotateY(180deg);
 }
 
-.page_mode #sikaku{
-  background-color: #FFAB5E;
-}
 .page_mode .mode_title{
   position: absolute;
   font-family: "游ゴシック";
@@ -239,11 +238,11 @@ header{
   font-size: 5vmax;
   top: 2vmax;
   left: 1vmax;
-  color: #C73226;
+  color: #DE481F;
 }
 .page_mode button{
   position: absolute;
-  background:#C73226;
+  background:#DE481F;
   top: 2vmax;
   right: 2vmax;
   font-size:2.5vmax;
@@ -251,7 +250,7 @@ header{
   padding: 1vmax;
   padding-right:1.7vmax; 
   padding-left:1.7vmax;
-  border:0.5vmax solid #C73226;
+  border:0.5vmax solid #DE481F;
   border-radius:5vmax;
   -webkit-border-radius:5vmax;
   -moz-border-radius:5vmax;
@@ -259,7 +258,7 @@ header{
 }
 .page_mode button:hover{
   background:#FFFFFF;
-  color:#C73226;
+  color:#DE481F;
   box-shadow:none;
 }
 .page_mode .mode_kaisu{
@@ -268,24 +267,24 @@ header{
   left: 30vmax;
   font-size:4vmax;
   font-weight: bold;
-  color:#C73226;
+  color:#DE481F;
 }
 .page_mode .mode_kaisu select{
   font-size:4vmax;
   font-weight: bold;
-  border-color: #C73226;
+  border-color: #DE481F;
   border-width: 0.5vmax;
   -webkit-border-radius:3vmax;
   -moz-border-radius:3vmax;
 }
 
 .page_mode .mode_button input{
-  background:#C73226;
+  background:#DE481F;
   font-size:2.5vmax;
   width: 20vmax;
   color:#FFFFFF;
   padding: 1vmax;
-  border:0.5vmax solid #C73226;
+  border:0.5vmax solid #DE481F;
   border-radius:5vmax;
   -webkit-border-radius:5vmax;
   -moz-border-radius:5vmax;
@@ -293,7 +292,7 @@ header{
 }
 .page_mode .mode_button input:hover{
   background:#FFFFFF;
-  color:#C73226;
+  color:#DE481F;
   box-shadow:none;
 }
 
@@ -315,9 +314,7 @@ header{
 .page_select {
     display:none;
 }
-.page_select #sikaku{
-    background-color: #FFAB5E;
-}
+
 .page_select .mode_title{
   position: absolute;
   font-family: "游ゴシック";
@@ -325,13 +322,13 @@ header{
   font-size: 5vmax;
   top: 2vmax;
   left: 1vmax;
-  color: #C73226;
+  color: #DE481F;
 }
 .page_select button{
-  background:#C73226;
+  background:#DE481F;
   font-size:2.5vmax;
   color:#FFFFFF;
-  border:0.5vmax solid #C73226;
+  border:0.5vmax solid #DE481F;
   border-radius:5vmax;
   -webkit-border-radius:5vmax;
   -moz-border-radius:5vmax;
@@ -339,7 +336,7 @@ header{
 }
 .page_select button:hover{
   background:#FFFFFF;
-  color:#C73226;
+  color:#DE481F;
   box-shadow:none;
 }
 .back_button button{
@@ -442,9 +439,7 @@ header{
 .page_maching {
     display:none;
 }
-.page_maching #sikaku{
-    background-color: #FFAB5E;
-}
+
 .page_maching .maru{
     position: absolute;
     top: 14vmax;
@@ -527,7 +522,7 @@ header{
     left: 2vmax;
     font-size: 4vmax;
     font-weight: bold;
-    color: #C73226;
+    color: #DE481F;
 }
 
 
@@ -546,9 +541,7 @@ header{
     display:none;
 }
 
-.page_result #sikaku{
-    background-color: #FFAB5E;
-}
+
 .page_result .maru{
     position: absolute;
     top: 2vmax;
@@ -562,7 +555,7 @@ header{
     position: absolute;
     top: 3vmax;
     left: 40vmax;
-    color: #C73226;
+    color: #DE481F;
     font-size: 4vmax;
     font-weight: bold;
 }
@@ -586,7 +579,7 @@ header{
     position: absolute;
     top: 23vmax;
     left: 10vmax;
-    color: #C73226;
+    color: #DE481F;
     font-size: 3.5vmax;
     font-weight: bold;
 }
@@ -594,7 +587,7 @@ header{
     position: absolute;
     top: 28vmax;
     left: 10vmax;
-    color: #C73226;
+    color: #DE481F;
     font-size: 3.5vmax;
     font-weight: bold;
 }
@@ -613,17 +606,17 @@ header{
     font-size: 2.5vmax;
     font-weight: bold;
     margin-right: 2vmax;
-    color: #C73226;
+    color: #DE481F;
 }
 .page_result .rusult_button_continue button{
     position: absolute;
     top: 35.5vmax;
     left: 20vmax;
-    background:#C73226;
+    background:#DE481F;
     font-size:2.5vmax;
     color:#FFFFFF;
     padding: 0.6vmax 1.5vmax;
-    border:0.5vmax solid #C73226;
+    border:0.5vmax solid #DE481F;
     border-radius:3vmax;
     -webkit-border-radius:3vmax;
     -moz-border-radius:3vmax;
@@ -631,18 +624,18 @@ header{
 }
 .page_result .rusult_button_continue button:hover{
   background:#FFFFFF;
-  color:#C73226;
+  color:#DE481F;
   box-shadow:none;
 }
 .page_result .rusult_button_title button{
     position: absolute;
     top: 35.5vmax;
     right: 20vmax;
-    background:#C73226;
+    background:#DE481F;
     font-size:2.5vmax;
     color:#FFFFFF;
     padding: 0.6vmax 1.5vmax;
-    border:0.5vmax solid #C73226;
+    border:0.5vmax solid #DE481F;
     border-radius:3vmax;
     -webkit-border-radius:3vmax;
     -moz-border-radius:3vmax;
@@ -650,7 +643,7 @@ header{
 }
 .page_result .rusult_button_title button:hover{
   background:#FFFFFF;
-  color:#C73226;
+  color:#DE481F;
   box-shadow:none;
 }
 
@@ -658,7 +651,6 @@ header{
 
 canvas{
     display: block;
-    background-color: #FFAB5E;
     width:100%;
     height:100%;
 }
@@ -667,7 +659,7 @@ canvas{
     position: absolute;
     display: block;
     margin-top: 50px;
-    background-color: rgb(255,255,255);
+    background-color: #f4f3ef;
     width: 80vmax;
     height: 45vmax;
     border: solid 2px blue;
@@ -676,6 +668,6 @@ canvas{
 }
 
 #show_name{
-    color: #C73226;
+    color: #DE481F;
     margin-right: 20px;
 }
