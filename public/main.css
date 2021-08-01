@@ -372,7 +372,6 @@ header{
 .page_select .room_name_area input{
   position: absolute;
   top: 23vmax;
-  left: 15vmax;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
