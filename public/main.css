@@ -556,7 +556,7 @@ header{
 .page_result .game_result{
     position: absolute;
     top: 3vmax;
-    left: 40vmax;
+    left: 50vmax;
     color: #DE481F;
     font-size: 4vmax;
     font-weight: bold;
@@ -564,7 +564,7 @@ header{
 .page_result .result_title{
     position: absolute;
     top: 7vmax;
-    left: 17vmax;
+    left: 12vmax;
     color: white;
     font-size: 3vmax;
     font-weight: bold;
@@ -572,7 +572,7 @@ header{
 .page_result .result_kaisu{
     position: absolute;
     top: 11vmax;
-    left: 15vmax;
+    left: 10vmax;
     color: white;
     font-size: 3.5vmax;
     font-weight: bold;
