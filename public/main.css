@@ -371,7 +371,7 @@ header{
 }
 .page_select .room_name_area input{
   position: absolute;
-  top: 23vmax;
+  top: 20vmax;
   left: 20vmax;
   font-size:4vmax;
   -webkit-border-radius:5vmax;
