@@ -658,13 +658,13 @@ canvas{
 #sikaku{
     position: absolute;
     display: block;
-    margin-top: 50px;
+    margin-top: 10.5vmax;
     background-color: #f4f3e0;
     width: 80vmax;
     height: 45vmax;
-    border: solid 2px blue;
-    margin-left: auto;
-    margin-right: auto;
+    /* border: solid 2px blue; */
+    margin-left: 5vmax;
+    margin-right: 5vmax;
 }
 
 #show_name{
