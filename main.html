@@ -215,15 +215,6 @@ function SelectPage( page ) {
           <label id="maching_roomname">roomName</label>
           <label>」</label>
         </div>
-        <div class='name1'>
-          <label id="player1">player1</label>
-        </div>
-        <div class='versus'>
-          <label>VS</label>
-        </div>
-        <div class='name2'>
-          <label id="player2">player2</label>
-        </div>
         <button type='button'onclick="SelectPage(5)">gameへ</button>
       </div>
     </div>
@@ -239,53 +230,43 @@ function SelectPage( page ) {
 
     <div id='page_result' class='page_result'>
       <div id="sikaku">
+        <div class="maru"></div>
         <div class='result_title'>
           <label>対戦結果</label>
         </div>
+        <div class='result_kaisu'>
+          <label id="kaisu">12</label>
+          <label>ヵ月戦</label>
+        </div>
         <div class='game_result'>
-          <label id="player_win">player</label>
+          <label id="player_win">player2</label>
           <label>の勝ち</label>
         </div>
+        <div class='sc_py1_final'>
+          <label id="player1_name">player1</label>
+          <label>:</label>
+          <label id="player1_score">0</label>
+        </div>
+        <div class='sc_py2_final'>
+          <label id="player2_name">player2</label>
+          <label>:</label>
+          <label id="player2_score">144</label>
+        </div>
         <div class="sc_py1">
-          <ul id="score_py1">
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
-            <li>12</li>
+          <ul id="result_score">
+            <li>01月　0　12</li>
+            <li>02月　0　12</li>
+            <li>03月　0　12</li>
+            <li>04月　0　12</li>
+            <li>05月　0　12</li>
+            <li>06月　0　12</li>
+            <li>07月　0　12</li>
+            <li>08月　0　12</li>
+            <li>09月　0　12</li>
+            <li>10月　0　12</li>
+            <li>11月　0　12</li>
+            <li>12月　0　12</li>
           </ul>
-        </div>
-        <div class="sc_py2">
-          <ul id="score_py2">
-            <li>0</li>
-            <li>0</li>
-            <li>0</li>
-            <li>0</li>
-            <li>0</li>
-            <li>0</li>
-            <li>0</li>
-            <li>0</li>
-            <li>0</li>
-            <li>0</li>
-            <li>0</li>
-          </ul>
-        </div>
-        <div class="line">
-          <hr>
-        </div>
-        <div class="final_score_py1">
-          <label>144</label>
-        </div>
-        <div class="final_score_py2">
-          <label>0</label>
         </div>
         <div class="rusult_button_continue">
           <button type='button'onclick="SelectPage(4)">もう一度</button>

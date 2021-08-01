@@ -447,19 +447,19 @@ header{
 }
 .page_maching .maru{
     position: absolute;
-    top: 11vmax;
-    left: 2vmax;
+    top: 14vmax;
+    left: 22vmax;
     width: 35vmax;
     height:20vmax ;
     background-color: #f55;
-    border-radius: 37% 63% 54% 46% / 38% 58% 42% 62% ;
+    border-radius: 50% ;
 }
 .page_maching .maching_title{
     position: absolute;
     font-size: 4vmax;
     font-weight: bold;
-    top: 18vmax;
-    left: 5vmax;
+    top: 21vmax;
+    left: 25vmax;
     color: white;
 }
 .page_maching .maching_title .t1{
@@ -521,6 +521,15 @@ header{
     position: absolute;
     top: 42.2vmax;
 }
+.page_maching .roomName{
+    position: absolute;
+    top: 3vmax;
+    left: 2vmax;
+    font-size: 4vmax;
+    font-weight: bold;
+    color: #C73226;
+}
+
 
 
 
@@ -537,6 +546,113 @@ header{
     display:none;
 }
 
+.page_result #sikaku{
+    background-color: #FFAB5E;
+}
+.page_result .maru{
+    position: absolute;
+    top: 2vmax;
+    left: 8vmax;
+    width: 20vmax;
+    height:20vmax ;
+    background-color: #f55;
+    border-radius: 50% ;
+}
+.page_result .game_result{
+    position: absolute;
+    top: 3vmax;
+    left: 40vmax;
+    color: #C73226;
+    font-size: 4vmax;
+    font-weight: bold;
+}
+.page_result .result_title{
+    position: absolute;
+    top: 7vmax;
+    left: 12vmax;
+    color: white;
+    font-size: 3vmax;
+    font-weight: bold;
+}
+.page_result .result_kaisu{
+    position: absolute;
+    top: 11vmax;
+    left: 10vmax;
+    color: white;
+    font-size: 3.5vmax;
+    font-weight: bold;
+}
+.page_result .sc_py1_final{
+    position: absolute;
+    top: 23vmax;
+    left: 10vmax;
+    color: #C73226;
+    font-size: 3.5vmax;
+    font-weight: bold;
+}
+.page_result .sc_py2_final{
+    position: absolute;
+    top: 28vmax;
+    left: 10vmax;
+    color: #C73226;
+    font-size: 3.5vmax;
+    font-weight: bold;
+}
+.page_result ul{
+    position: absolute;
+    top: 9vmax;
+    left: 35vmax;
+    width: 20vmax;
+    height: 25vmax;
+    display: flex;
+    flex-flow: column wrap;
+    
+}
+.page_result li{
+    list-style-type: none;
+    font-size: 2.5vmax;
+    font-weight: bold;
+    margin-right: 2vmax;
+    color: #C73226;
+}
+.page_result .rusult_button_continue button{
+    position: absolute;
+    top: 35.5vmax;
+    left: 20vmax;
+    background:#C73226;
+    font-size:2.5vmax;
+    color:#FFFFFF;
+    padding: 0.6vmax 1.5vmax;
+    border:0.5vmax solid #C73226;
+    border-radius:3vmax;
+    -webkit-border-radius:3vmax;
+    -moz-border-radius:3vmax;
+    transition: all 0.5s ease;
+}
+.page_result .rusult_button_continue button:hover{
+  background:#FFFFFF;
+  color:#C73226;
+  box-shadow:none;
+}
+.page_result .rusult_button_title button{
+    position: absolute;
+    top: 35.5vmax;
+    right: 20vmax;
+    background:#C73226;
+    font-size:2.5vmax;
+    color:#FFFFFF;
+    padding: 0.6vmax 1.5vmax;
+    border:0.5vmax solid #C73226;
+    border-radius:3vmax;
+    -webkit-border-radius:3vmax;
+    -moz-border-radius:3vmax;
+    transition: all 0.5s ease;
+}
+.page_result .rusult_button_title button:hover{
+  background:#FFFFFF;
+  color:#C73226;
+  box-shadow:none;
+}
 
 
 
