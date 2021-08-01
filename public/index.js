@@ -112,6 +112,25 @@ $(function(){
         return false;
     });
     // page3
+    var room_name;
+    document.getElementById("create_room_btn").onclick = function(){
+    room_name = $('#room_name').val();
+        if (room_name != ''){
+            socketio.emit('create_room',room_name,name,month);
+        }
+        else{
+            alert('部屋名を入力してください');
+        }
+    };
+    document.getElementById("join_room_btn").onclick = function() {
+    room_name = $('#room_name').val();
+    if (room_name != ''){
+        socketio.emit('join_room',room_name);
+    }
+    else{
+        alert('部屋名を入力してください');
+    }
+}
     socketio.on('create_room_done',function(can_execute){
         if(can_execute){
             SelectPage(4);

@@ -19,14 +19,9 @@ used_room_list = [];
 Deck = [11,13,14,15,22,23,24,25,31,33,34,35,42,43,44,45,52,53,54,55,62,63,64,65,72,73,74,75,81,82,84,85,92,93,94,95,102,103,104,105,111,112,114,115,121,124,125,126];
 
 const koikoiGame = class {
-    constructor(name, month){
+    constructor(room_name, name, month){
         this.month = month;
         hostName = name;
-        img_Deck = []
-        var i;
-        for(i=0;i<48;i++){
-            img_Deck[i] = i;
-        }
         m_hands = []
         e_hands = []
         field = [];
@@ -36,9 +31,14 @@ const koikoiGame = class {
         e_point=0;
         c=0;
         l=0;
+        img_Deck = []
+        var i;
+        for(i=0;i<48;i++){
+            img_Deck[i] = i;
+        }
         m_hands = hudaseisaku();
         e_hands = hudaseisaku();
-        game_list.append(this);
+        game_list.append([this,room_name]);
     }
     field_push(fp){
         for(i=0;i<12;i++){
@@ -117,7 +117,7 @@ const koikoiGame = class {
 }
 
 io.on('connection',function(socket){
-    socket.on('create_room',function(room_name){
+    socket.on('create_room',function(room_name,name,month){
         var id = socket.id;
         var find_room;
         find_room = room_list.indexOf(room_name);
@@ -128,6 +128,7 @@ io.on('connection',function(socket){
             room_list.push(room_name);
             console.log(room_list);
             io.to(id).emit('create_room_done', true);
+            koikoiGame(room_name,name,month);
         }
         else{
             io.to(id).emit('create_room_done', false);
