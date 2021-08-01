@@ -374,7 +374,6 @@ header{
   top: 23vmax;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%);
   -webkit-border-radius:5vmax;
   -moz-border-radius:5vmax;  
 }
