@@ -22,6 +22,7 @@ const koikoiGame = class {
     constructor(room_name, name, month){
         this.month = month;
         hostName = name;
+        guestName;
         m_hands = []
         e_hands = []
         field = [];
