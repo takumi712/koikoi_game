@@ -12,7 +12,7 @@ app.get('/' , function(req, res){
     res.sendFile(__dirname+'/main.html');
 });
 
-game_list = [];
+var game_list = [];
 room_list = [];
 used_room_list = [];
 
@@ -39,7 +39,6 @@ const koikoiGame = class {
         }
         m_hands = hudaseisaku();
         e_hands = hudaseisaku();
-        game_list.append([this,room_name]);
     }
     field_push(fp){
         for(i=0;i<12;i++){
@@ -129,7 +128,6 @@ io.on('connection',function(socket){
             room_list.push(room_name);
             console.log(room_list);
             io.to(id).emit('create_room_done', true);
-            koikoiGame(room_name,name,month);
         }
         else{
             io.to(id).emit('create_room_done', false);
