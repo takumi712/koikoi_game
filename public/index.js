@@ -125,7 +125,7 @@ $(function(){
     document.getElementById("join_room_btn").onclick = function() {
     room_name = $('#room_name').val();
     if (room_name != ''){
-        socketio.emit('join_room',room_name);
+        socketio.emit('join_room',room_name,name);
     }
     else{
         alert('部屋名を入力してください');
@@ -147,9 +147,8 @@ $(function(){
             alert('存在のしない部屋名です');
         }
     });
-    socketio.on('game_start',function(hands){
+    socketio.on('game_start',function(){
         SelectPage(5);
-        m_hands = hands
         firstDraw();
     });
     socketio.on('player_disconnect',function(){
