@@ -117,6 +117,7 @@ $(function(){
     room_name = $('#room_name').val();
         if (room_name != ''){
             socketio.emit('create_room',room_name,name,month);
+            document.getElementById("maching_roomname").textContent = room_name;
         }
         else{
             alert('部屋名を入力してください');
@@ -147,7 +148,8 @@ $(function(){
             alert('存在のしない部屋名です');
         }
     });
-    socketio.on('game_start',function(){
+    socketio.on('game_start',function(hostName,guestName){
+        document.getElementById("show_name").textContent = hostName + " VS " + guestName;
         SelectPage(5);
         firstDraw();
     });
@@ -208,6 +210,52 @@ $(function(){
         chara[field[7]].onload = ()=>{
             ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
         };
+    }
+    function UpdateDraw(){
+        ctx.clearRect(0,0,1280,720);
+        for(i=0;i<m_hands.length;i++){
+            ctx.drawImage(chara[m_hands[i]], 250+100*i, 590, 80, 130);
+        }
+        for(i=0;i<e_hands.length;i++){
+            ctx.drawImage(chara[e_hands[i]], 250+100*i, 0, 80, 130);
+        }
+        if(field[0]!=null){
+            ctx.drawImage(chara[field[0]], 520, 210, 80, 130);
+        }
+        if(field[1]!=null){
+            ctx.drawImage(chara[field[1]], 520, 380, 80, 130);
+        }
+        if(field[2]!=null){
+            ctx.drawImage(chara[field[2]], 680, 210, 80, 130);
+        }
+        if(field[3]!=null){
+            ctx.drawImage(chara[field[3]], 680, 380, 80, 130);
+        }
+        if(field[4]!=null){
+            ctx.drawImage(chara[field[4]], 360, 210, 80, 130);
+        }
+        if(field[5]!=null){
+            ctx.drawImage(chara[field[5]], 360, 380, 80, 130);
+        }
+        if(field[6]!=null){
+            ctx.drawImage(chara[field[6]], 840, 210, 80, 130);
+        }
+        if(field[7]!=null){
+            ctx.drawImage(chara[field[7]], 840, 380, 80, 130);
+        }
+        if(field[8]!=null){
+            ctx.drawImage(chara[field[8]], 200, 380, 80, 130);
+        }
+        if(field[9]!=null){
+            ctx.drawImage(chara[field[9]], 200, 210, 80, 130);
+        }
+        if(field[10]!=null){
+            ctx.drawImage(chara[field[10]], 1000, 380, 80, 130);
+        }
+        if(field[11]!=null){
+            ctx.drawImage(chara[field[11]], 1000, 210, 80, 130);
+        }
+        ctx.drawImage(chara[48], 1180, 295, 80, 130);
     }
     
 
