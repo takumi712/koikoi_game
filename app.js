@@ -40,7 +40,7 @@ io.on('connection',function(socket){
         }
         tuki_check=[0,0,0,0,0,0,0,0,0,0,0,0,0];
         for(i=0;i<8;i++){
-            x = Deck[game_object[room_name][hands][i]]/10|0;
+            x = Deck_yaku[game_object[room_name][hands][i]]/10|0;
             tuki_check[x] += 1;
             if(tuki_check[x]==4){
                 for(j=0;j<8;j++){
@@ -49,7 +49,7 @@ io.on('connection',function(socket){
                 game_object[room_name][hands].splice(0,8);
                 console.log("手四で自札再制作！");
                 tehudaseisaku(room_name,isHost);
-                break;
+                return;
             }
             if(tuki_check[x]==2){
                 kuttuki=0;
@@ -63,7 +63,7 @@ io.on('connection',function(socket){
                             game_object[room_name][hands].splice(0,8);
                             console.log("くっつきで自札再制作！");
                             tehudaseisaku(room_name,isHost);
-                            break;
+                            return;
                         }
                     }
                 }
@@ -79,7 +79,7 @@ io.on('connection',function(socket){
         }
         tuki_check=[0,0,0,0,0,0,0,0,0,0,0,0,0];
         for(i=0;i<8;i++){
-            x = Deck[game_object[room_name].field[i]]/10|0;
+            x = Deck_yaku[game_object[room_name].field[i]]/10|0;
             tuki_check[x] += 1;
             if(tuki_check[x]==3){
                 for(j=0;j<8;j++){
@@ -90,7 +90,7 @@ io.on('connection',function(socket){
                 console.log("場札再制作！");
                 game_object[room_name].field = [];
                 bahudaseisaku(room_name);
-                break;
+                return;
             }
         }
     };
@@ -98,10 +98,26 @@ io.on('connection',function(socket){
         for(i=0;i<12;i++){
             if(game_object[room_name].field[i]==null){
                 game_object[room_name].field[i]=fp;
-                break;
+                return;
             }
         }
     };
+    function initGame(room_name){
+        //変数初期化
+        game_object[room_name].deck = Deck;
+        game_object[room_name].field = [];
+        game_object[room_name].hostHands = [];
+        game_object[room_name].guestHands = [];
+        game_object[room_name].hostYaku = [];
+        game_object[room_name].guestYaku = [];
+
+        //ホスト側の手札作成
+        tehudaseisaku(room_name,true);
+        //ゲスト側の手札作成
+        tehudaseisaku(room_name,false);
+        //場札作成
+        bahudaseisaku(room_name);
+    }
     socket.on('create_room',function(room_name,name,month){
         var id = socket.id;
         var find_room;
@@ -135,18 +151,14 @@ io.on('connection',function(socket){
                 field:[],
                 hostHands:[],
                 guestHands:[],
-                hostYaku:null,
-                guestYaku:null,
+                hostYaku:[],
+                guestYaku:[],
                 hostPoint:0,
                 guestPoint:0
             });
 
-            //ホスト側の手札作成
-            tehudaseisaku(room_name,true);
-            //ゲスト側の手札作成
-            tehudaseisaku(room_name,false);
-            //場札作成
-            bahudaseisaku(room_name);
+
+            initGame(room_name);
         }
         else{
             io.to(id).emit('create_room_done', false);
@@ -169,6 +181,9 @@ io.on('connection',function(socket){
             console.log(id + " joined " + room_name);
             game_object[room_name].guestId = (id);
             game_object[room_name].guestName = (name);
+            io.to(id).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field);
+            io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field);
+
             console.log(game_object)
         }
     });
@@ -196,8 +211,8 @@ io.on('connection',function(socket){
             used_room_list.splice(find_used_room,1);
             socket.leave(room_name);
             io.to(room_name).emit('player_disconnect');
+            delete game_object[room_name];
         }
-        delete game_object[room_name];
     });
     socket.on("disconnect",function(){
         console.log(socket.id + ' is disconnect');
