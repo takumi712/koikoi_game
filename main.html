@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>こいこい</title>
-	<link rel="stylesheet" type="text/css" href="main.css">
+  <title>こいこい</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&display=swap" rel="stylesheet">
@@ -10,57 +10,57 @@
 function SelectPage( page ) {
     var elementPage1 = document.getElementById( "page_title" );
     var elementPage2 = document.getElementById( "page_mode" );
-	var elementPage3 = document.getElementById( "page_select" );
-	var elementPage4 = document.getElementById( "page_maching" );
-	var elementPage5 = document.getElementById( "page_game" );
-	var elementPage6 = document.getElementById( "page_result" );
+  var elementPage3 = document.getElementById( "page_select" );
+  var elementPage4 = document.getElementById( "page_maching" );
+  var elementPage5 = document.getElementById( "page_game" );
+  var elementPage6 = document.getElementById( "page_result" );
     switch( page ) {
     case 1:
         elementPage1.style.display = 'block';
         elementPage2.style.display = 'none';
-		    elementPage3.style.display = 'none';
+        elementPage3.style.display = 'none';
         elementPage4.style.display = 'none';
-		    elementPage5.style.display = 'none';
+        elementPage5.style.display = 'none';
         elementPage6.style.display = 'none';
         break;
-	case 2:
+  case 2:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'block';
-		    elementPage3.style.display = 'none';
+        elementPage3.style.display = 'none';
         elementPage4.style.display = 'none';
-		    elementPage5.style.display = 'none';
+        elementPage5.style.display = 'none';
         elementPage6.style.display = 'none';
         break;
-	case 3:
+  case 3:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'none';
-		    elementPage3.style.display = 'block';
+        elementPage3.style.display = 'block';
         elementPage4.style.display = 'none';
-		    elementPage5.style.display = 'none';
+        elementPage5.style.display = 'none';
         elementPage6.style.display = 'none';
         break;
-	case 4:
+  case 4:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'none';
-		    elementPage3.style.display = 'none';
+        elementPage3.style.display = 'none';
         elementPage4.style.display = 'block';
-		    elementPage5.style.display = 'none';
+        elementPage5.style.display = 'none';
         elementPage6.style.display = 'none';
         break;
-	case 5:
+  case 5:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'none';
-		    elementPage3.style.display = 'none';
+        elementPage3.style.display = 'none';
         elementPage4.style.display = 'none';
-		    elementPage5.style.display = 'block';
+        elementPage5.style.display = 'block';
         elementPage6.style.display = 'none';
         break;
-	case 6:
+  case 6:
         elementPage1.style.display = 'none';
         elementPage2.style.display = 'none';
-		    elementPage3.style.display = 'none';
+        elementPage3.style.display = 'none';
         elementPage4.style.display = 'none';
-		    elementPage5.style.display = 'none';
+        elementPage5.style.display = 'none';
         elementPage6.style.display = 'block';
         break;
     }
@@ -68,7 +68,7 @@ function SelectPage( page ) {
 </script>
 </head>
 <body>
-	<header>
+  <header>
     <div class="header">
       <div class="h_left">
         こいこい
@@ -79,7 +79,7 @@ function SelectPage( page ) {
       </div>
     </div>
   </header>
-	<div id='page_title' class='page_title'>
+  <div id='page_title' class='page_title'>
     <div id="sikaku">
         <img src="image/koikoi_home.png" class="title_img">
         <div class="mode_title">
@@ -95,7 +95,7 @@ function SelectPage( page ) {
   </div>
 
 
-	<div id='page_mode' class='page_mode'>
+  <div id='page_mode' class='page_mode'>
     <div id="sikaku">
       <div class='back_button'>
         <button type='button'onclick="SelectPage(1)">↺</button>
@@ -130,7 +130,7 @@ function SelectPage( page ) {
   </div>
 
 
-	<div id="page_select" class='page_select'>
+  <div id="page_select" class='page_select'>
         <div id="sikaku">
           <div class='back_button'>
             <button type='button'onclick="SelectPage(2)">↺</button>
