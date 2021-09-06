@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600&display=swap" rel="stylesheet">
 <script type="text/javascript" language="javascript">
 function SelectPage( page ) {
-    var elementPage1 = document.getElementById( "page_title" );
-    var elementPage2 = document.getElementById( "page_mode" );
+  var elementPage1 = document.getElementById( "page_title" );
+  var elementPage2 = document.getElementById( "page_mode" );
   var elementPage3 = document.getElementById( "page_select" );
   var elementPage4 = document.getElementById( "page_maching" );
   var elementPage5 = document.getElementById( "page_game" );
@@ -203,9 +203,21 @@ function SelectPage( page ) {
 
         <div id="sikaku">
             <canvas id="canvas_game" width="1280" height="720"></canvas>
+            <div class="tuki">
+              <label id="game_tuki">12月</label>
+            </div>
+            <div class="turn">
+              <label id="game_turn">自分の</label>
+            </div>
+            <div class="turn2">
+              <label >ターン</label>
+            </div>
+            
+
         </div>
         <button type='button'onclick="SelectPage(6)">resultへ</button>
     </div>
+
 
     <div id='page_result' class='page_result'>
       <div id="sikaku">

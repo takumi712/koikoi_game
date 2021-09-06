@@ -20,8 +20,15 @@ function onClick(e) {
     let rect = e.target.getBoundingClientRect();
     var x = e.clientX - rect.left;
     var y = e.clientY - rect.top;
+<<<<<<< HEAD
     var w = rect.right - rect.left;
     var h = rect.bottom - rect.top;
+=======
+    console.log(e.clientX);
+    console.log(e.clientY);
+    console.log(rect.left);
+    console.log(canvas.top);
+>>>>>>> 7e56dd2e5abf08120bd5650f04082e6cd727adf2
     console.log("x:", x, "y:", y);
     x=x/w;
     y=y/h;
