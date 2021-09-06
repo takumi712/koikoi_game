@@ -537,7 +537,7 @@ header{
 .page_game .tuki{
     position: absolute;
     font-weight: bold;
-    color: red;
+    color: darkred;
     font-size: 5vmax;
     top: 1.5vmax;
     right: 2vmax;
@@ -547,8 +547,16 @@ header{
     font-weight: bold;
     color: brown;
     font-size: 3vmax;
-    top: 23vmax;
+    top: 22.5vmax;
     left: 0.3vmax;
+}
+.page_game .turn2{
+    position: absolute;
+    font-weight: bold;
+    color: brown;
+    font-size: 3vmax;
+    top: 26vmax;
+    left: 1.8vmax;
 }
 
 
