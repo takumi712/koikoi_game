@@ -47,9 +47,9 @@ io.on('connection',function(socket){
                     game_object[room_name].deck.push(game_object[room_name][hands][j]);
                 }
                 game_object[room_name][hands].splice(0,8);
-                console.log("手四で自札再制作！");
+                // console.log("手四で自札再制作！");
                 tehudaseisaku(room_name,isHost);
-                return;
+                break;
             }
             if(tuki_check[x]==2){
                 kuttuki=0;
@@ -63,7 +63,7 @@ io.on('connection',function(socket){
                             game_object[room_name][hands].splice(0,8);
                             console.log("くっつきで自札再制作！");
                             tehudaseisaku(room_name,isHost);
-                            return;
+                            break;
                         }
                     }
                 }
@@ -90,7 +90,7 @@ io.on('connection',function(socket){
                 console.log("場札再制作！");
                 game_object[room_name].field = [];
                 bahudaseisaku(room_name);
-                return;
+                break;
             }
         }
     };
@@ -98,12 +98,16 @@ io.on('connection',function(socket){
         for(i=0;i<12;i++){
             if(game_object[room_name].field[i]==null){
                 game_object[room_name].field[i]=fp;
-                return;
+                break;
             }
         }
     };
     function initGame(room_name){
         //変数初期化
+        var Deck = [];
+        for(i=0;i<48;i++){
+            Deck[i] = i;
+        }
         game_object[room_name].deck = Deck;
         game_object[room_name].field = [];
         game_object[room_name].hostHands = [];
@@ -122,6 +126,10 @@ io.on('connection',function(socket){
         var id = socket.id;
         var find_room;
         var turn;
+        var Deck = [];
+        for(i=0;i<48;i++){
+            Deck[i] = i;
+        }
         find_room = room_list.indexOf(room_name);
         find_used_room = used_room_list.indexOf(room_name);
         if(find_room == -1 && find_used_room == -1){
@@ -157,7 +165,7 @@ io.on('connection',function(socket){
                 guestPoint:0
             });
 
-
+            console.log(game_object);
             initGame(room_name);
         }
         else{

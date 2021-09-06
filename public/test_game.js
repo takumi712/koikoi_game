@@ -32,9 +32,9 @@ function onClick(e) {
     }
 }
     
-// var canvas = document.getElementById("canvas_game");
-// var ctx = canvas.getContext("2d");
-// canvas.addEventListener('click', onClick, false);
+var canvas = document.getElementById("canvas_game");
+var ctx = canvas.getContext("2d");
+canvas.addEventListener('click', onClick, false);
 
 // chara = [];
 // for(i=0;i<49;i++){
