@@ -17,8 +17,13 @@ c=0;
 l=0;
 function onClick(e) {
     console.log("click");
-    var x = e.clientX - canvas.offsetLeft;
-    var y = e.clientY - canvas.offsetTop;
+    let rect = e.target.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    console.log(e.clientX);
+    console.log(e.clientY);
+    console.log(rect.left);
+    console.log(canvas.top);
     console.log("x:", x, "y:", y);
     for(i=0;i<8;i++){
         if(x>165+(65*i) && 230+(65*i)-15>x){
