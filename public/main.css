@@ -534,8 +534,22 @@ header{
 .page_game {
     display:none;
 }
-
-
+.page_game .tuki{
+    position: absolute;
+    font-weight: bold;
+    color: red;
+    font-size: 5vmax;
+    top: 1.5vmax;
+    right: 2vmax;
+}
+.page_game .turn{
+    position: absolute;
+    font-weight: bold;
+    color: brown;
+    font-size: 3vmax;
+    top: 23vmax;
+    left: 0.3vmax;
+}
 
 
 
@@ -663,7 +677,7 @@ canvas{
     margin-top: 1.5vmax;
     background-color: #f4f3e0;
     width: 90vmax;
-    height: 45vmax;
+    height: 50.625vmax;
     /* border: solid 2px blue; */
     margin-left: 5vmax;
     margin-right: 5vmax;
