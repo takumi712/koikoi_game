@@ -17,12 +17,19 @@ c=0;
 l=0;
 function onClick(e) {
     console.log("click");
-    var x = e.clientX - canvas.offsetLeft;
-    var y = e.clientY - canvas.offsetTop;
+    let rect = e.target.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    var w = rect.right - rect.left;
+    var h = rect.bottom - rect.top;
     console.log("x:", x, "y:", y);
+    x=x/w;
+    y=y/h;
+    x=x*1280;
+    y=y*720;
     for(i=0;i<8;i++){
-        if(x>165+(65*i) && 230+(65*i)-15>x){
-            if(y>490&&570>y){
+        if(x>330+(100*i) && 250+(100*i)>x){
+            if(y>590&&720>y){
                 console.log("あなたが選んだ手札",i);
                 p=i;
                 m_turn();
