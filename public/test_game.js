@@ -19,12 +19,11 @@ function onClick(e) {
     console.log("click");
     let rect = e.target.getBoundingClientRect();
     var x = e.clientX - rect.left;
+    var x2 = rect.right - rect.left;
     var y = e.clientY - rect.top;
-    console.log(e.clientX);
-    console.log(e.clientY);
-    console.log(rect.left);
-    console.log(canvas.top);
+    var y2 = rect.bottom - rect.top;
     console.log("x:", x, "y:", y);
+    console.log("x:", x2, "y:", y2);
     for(i=0;i<8;i++){
         if(x>165+(65*i) && 230+(65*i)-15>x){
             if(y>490&&570>y){
