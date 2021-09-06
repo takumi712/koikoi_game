@@ -19,7 +19,9 @@ function onClick(e) {
     console.log("click");
     let rect = e.target.getBoundingClientRect();
     var x = e.clientX - rect.left;
+    var x2 = rect.right - rect.left;
     var y = e.clientY - rect.top;
+<<<<<<< HEAD
 <<<<<<< HEAD
     var w = rect.right - rect.left;
     var h = rect.bottom - rect.top;
@@ -34,6 +36,11 @@ function onClick(e) {
     y=y/h;
     x=x*1280;
     y=y*720;
+=======
+    var y2 = rect.bottom - rect.top;
+    console.log("x:", x, "y:", y);
+    console.log("x:", x2, "y:", y2);
+>>>>>>> 1c7bfc020a9ccf5ea2cff288ef99064f0656d81f
     for(i=0;i<8;i++){
         if(x>330+(100*i) && 250+(100*i)>x){
             if(y>590&&720>y){

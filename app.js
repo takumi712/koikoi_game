@@ -153,7 +153,7 @@ io.on('connection',function(socket){
                 guestName:null,
                 guestId:null,
                 month:month,
-                countMonth:0,
+                countMonth:1,
                 isHostTurn:turn,
                 deck:Deck,
                 field:[],
@@ -192,7 +192,7 @@ io.on('connection',function(socket){
             io.to(id).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field);
             io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field);
 
-            console.log(game_object)
+            console.log(game_object);
         }
     });
     socket.on('message',function(msg){
