@@ -36,12 +36,10 @@ function onClick(e) {
     console.log("x:", x, "y:", y);
     console.log("x:", x2, "y:", y2);
     for(i=0;i<8;i++){
-        if(x>330+(100*i) && 250+(100*i)>x){
+        if(x<330+(100*i) && 250+(100*i)<x){
             if(y>590&&720>y){
                 console.log("あなたが選んだ手札",i);
-                p=i;
-                m_turn();
-                m_turn_yama();
+                full_m_turn(i);
             }
         }
     }
@@ -321,7 +319,7 @@ for(i=0;i<img_Deck.length;i++){
 }
 function full_m_turn(ppp){
     p=ppp;
-    m_turn();
+    m_turn(p);
     m_turn_yama();
     m_yaku_check();
 }
@@ -332,7 +330,6 @@ function full_e_turn(ppp){
     e_yaku_check();
 }
 function m_turn(p){
-    //p = game.keyboard
     p2=0;
     pick=Deck[m_hands[p]];
 
