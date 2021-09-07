@@ -122,6 +122,43 @@ io.on('connection',function(socket){
         //場札作成
         bahudaseisaku(room_name);
     }
+    function turn(hand,hands,yaku,room_name){
+        p2=0;
+        pick=Deck_yaku[m_hands[hand]];
+    
+        f=game_object[room_name].field.length;
+        check=0;
+        check_card=[3];
+        //場札の数だけ繰り返す
+        step=0;
+    
+        for(step=0;step<f;step++){
+            //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
+            if((Deck_yaku[game_object[room_name].field[step]] / 10 | 0)==(pick / 10 | 0)){
+                check_card[check]=step;
+                check++;
+            }
+        }
+    
+        //0だったら場札を増やすのみ
+        if(check==0){
+            field_push(game_object[room_name][hands][hand],room_name);
+        }
+        //1だったらとる
+        else if(check==1){
+            game_object[room_name][yaku].push(Deck_yaku[game_object[room_name].field[check_card[0]]]);
+            game_object[room_name][yaku].push(Deck_yaku[game_object[room_name][hands][hand]]);
+            game_object[room_name].field[check_card[0]]=null;
+        }
+        else if(check==2){
+            //出す手札の番号をもらう処理を書く(p2に入れる)
+            game_object[room_name][yaku].push(Deck_yaku[game_object[room_name].field[check_card[p2]]]);
+            game_object[room_name][yaku].push(Deck_yaku[game_object[room_name][hands][hand]]);
+            game_object[room_name].field[check_card[p2]]=null;
+        }
+        
+        game_object[room_name][hands].splice(hand, 1);
+    }
     socket.on('create_room',function(room_name,name,month){
         var id = socket.id;
         var find_room;
@@ -153,7 +190,7 @@ io.on('connection',function(socket){
                 guestName:null,
                 guestId:null,
                 month:month,
-                countMonth:1,
+                currentMonth:1,
                 isHostTurn:turn,
                 deck:Deck,
                 field:[],
@@ -161,8 +198,8 @@ io.on('connection',function(socket){
                 guestHands:[],
                 hostYaku:[],
                 guestYaku:[],
-                hostPoint:0,
-                guestPoint:0
+                hostPoint:[],
+                guestPoint:[]
             });
 
             console.log(game_object);
@@ -189,10 +226,38 @@ io.on('connection',function(socket){
             console.log(id + " joined " + room_name);
             game_object[room_name].guestId = (id);
             game_object[room_name].guestName = (name);
-            io.to(id).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field);
-            io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field);
+            io.to(id).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
+            io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
 
             console.log(game_object);
+        }
+    });
+    socket.on('pullOutHands',function(hand){
+        var id = socket.id;
+        var isHost;
+        var hands;
+        var yaku;
+        var myArr = Array.from(socket.rooms.values());
+        room_name = myArr[1];
+
+        if(id == game_object[room_name].hostId){
+            isHost = true;
+            hands = "hostHands";
+            yaku = "hostYaku";
+        }
+        else{
+            isHost = false;
+            hands = "guestHands";
+            yaku = "guestYaku";
+        }
+        
+        if(isHost == game_object[room_name].isHostTurn){
+            game_object[room_name].isHostTurn = !game_object[room_name].isHostTurn
+            console.log("hand = " + hand);
+            console.log("hands = " + hands);
+            console.log("yaku = " + yaku);
+            io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
+            io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
         }
     });
     socket.on('message',function(msg){

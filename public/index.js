@@ -2,6 +2,7 @@ var socketio = io();
 
 var canvas = document.getElementById("canvas_game");
 var ctx = canvas.getContext("2d");
+canvas.addEventListener('click', onClick, false);
 
 chara = [];
 for(i=0;i<49;i++){
@@ -61,10 +62,30 @@ chara[48].onload = ()=>{
     ctx.drawImage(chara[48], 1180, 295, 80, 130);
 };
 
+function onClick(e) {
+    console.log("click");
+    let rect = e.target.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    var w = rect.right - rect.left;
+    var h = rect.bottom - rect.top;
+    x=x/w;
+    y=y/h;
+    x=x*1280;
+    y=y*720;
+    for(i=0;i<8;i++){
+        if(x<330+(100*i) && 250+(100*i)<x){
+            if(y>590&&720>y){
+                console.log("あなたが選んだ手札",i);
+                socketio.emit('pullOutHands', i);
+            }
+        }
+    }
+}
+
 $(function(){
     var name = 'nonename';
     var month = 0;
-    
     
 
     $('#name_form').submit(function(){
@@ -160,7 +181,16 @@ $(function(){
         socketio.emit('room_leaeve');
     });
     
-    socketio.on('updateDraw',function(m_hands,e_hands,field){
+    socketio.on('updateDraw',function(m_hands,e_hands,field,turn,month){
+        var turnPlayer;
+        if(turn){
+            turnPlayer = "自分の";
+        }
+        else{
+            turnPlayer = "相手の";
+        }
+        document.getElementById("game_turn").textContent = turnPlayer;
+        document.getElementById("game_tuki").textContent = month + "月";
         ctx.clearRect(0,0,1280,720);
         for(i=0;i<m_hands.length;i++){
             ctx.drawImage(chara[m_hands[i]], 250+100*i, 590, 80, 130);
