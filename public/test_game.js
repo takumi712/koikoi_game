@@ -32,7 +32,6 @@ function onClick(e) {
     x=x*1280;
     y=y*720;
     console.log("x:", x, "y:", y);
-    console.log("x:", x2, "y:", y2);
     for(i=0;i<8;i++){
         if(x<330+(100*i) && 250+(100*i)<x){
             if(y>590&&720>y){
