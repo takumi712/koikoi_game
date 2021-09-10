@@ -124,7 +124,7 @@ io.on('connection',function(socket){
     }
     function turn(hand,hands,yaku,room_name){
         p2=0;
-        pick=Deck_yaku[m_hands[hand]];
+        pick=Deck_yaku[game_object[room_name][hands][hand]];
     
         f=game_object[room_name].field.length;
         check=0;
@@ -159,6 +159,159 @@ io.on('connection',function(socket){
         
         game_object[room_name][hands].splice(hand, 1);
     }
+    function　turn_yama(yaku,room_name){
+        p2=0;
+        //山札処理
+        n = game_object[room_name].deck.length;
+        k = Math.floor(Math.random() * n);//山札の枚数をもとに乱数生成
+        f=　game_object[room_name].field.length;
+        check=0;
+        check_card=[3];
+        //場札の数だけ繰り返す
+        step=0;
+    
+        for(step=0;step<f;step++){
+            //指定中の場札が選択された手札と10で割ったときの商が同じかどうか
+            if((Deck_yaku[game_object[room_name].field[step]] / 10 | 0)==(Deck_yaku[game_object[room_name].deck[k]] / 10 | 0)){
+                check_card[check]=step;
+                check++;
+            }
+        }
+    
+        //0だったら場札を増やすのみ
+        if(check==0){
+            field_push(game_object[room_name].deck[k],room_name);
+        }
+        //1だったらとる
+        else if(check==1){
+            game_object[room_name][yaku].push(Deck_yaku[game_object[room_name].field[check_card[0]]]);
+            game_object[room_name][yaku].push(Deck_yaku[game_object[room_name].deck[k]]);
+            game_object[room_name].field[check_card[0]]=null;
+        }
+        else if(check==2){
+            //出す手札の番号をもらう処理を書く(pに入れる)
+            game_object[room_name][yaku].push(Deck_yaku[game_object[room_name].field[check_card[p2]]]);
+            game_object[room_name][yaku].push(Deck_yaku[game_object[room_name].deck[k]]);
+            game_object[room_name].field[check_card[p2]]=null;
+        }
+        game_object[room_name].deck.splice(k, 1);
+    
+    }
+    function yaku_check(yaku,point,room_name){
+        gokou=[]
+        gokou_p=0;
+        tane=[]
+        tane_p=0;
+        inosika=[]
+        inosika_p=0;
+        tan=[]
+        tan_p=0;
+        aka=[]
+        aka_p=0;
+        ao=[]
+        ao_p=0;
+        kasu=[]
+        kasu_p=0;
+        //札分け
+        for(i=0;i<game_object[room_name][yaku].length;i++){
+            //20点札
+            if(game_object[room_name][yaku][i]%10==1){
+                gokou.push(game_object[room_name][yaku][i]);
+            }
+            //10点札
+            else if(game_object[room_name][yaku][i]%10==2){
+                tane.push(game_object[room_name][yaku][i]);
+                //猪鹿蝶
+                if((game_object[room_name][yaku][i]/10|0)==6||(game_object[room_name][yaku][i]/10|0)==7||(game_object[room_name][yaku][i]/10|0)==10){
+                    inosika.push(game_object[room_name][yaku][i]);
+                }
+            }
+            //5点札
+            else if(game_object[room_name][yaku][i]%10==3){
+                tan.push(game_object[room_name][yaku][i]);
+                //赤短
+                if((game_object[room_name][yaku][i]/10|0)==1||(game_object[room_name][yaku][i]/10|0)==2||(game_object[room_name][yaku][i]/10|0)==3){
+                    aka.push(game_object[room_name][yaku][i]);
+                }
+                //青短
+                else if((game_object[room_name][yaku][i]/10|0)==6||(game_object[room_name][yaku][i]/10|0)==9||(game_object[room_name][yaku][i]/10|0)==10){
+                    ao.push(game_object[room_name][yaku][i]);
+                }
+            }
+            //カス
+            else{
+                kasu.push(game_object[room_name][yaku][i]);
+            }
+        }
+        //チェック
+        //三光、雨入りチェック
+        if(gokou.length==3){
+            for(i=0;i<3;i++){
+                if(gokou[i]==111){
+                    break;
+                }
+                gokou_p++;
+            }
+        }
+        //四光、雨入りチェック
+        else if(gokou.length==4){
+            for(i=0;i<4;i++){
+                if(gokou[i]==111){
+                    gokou_p+=10;
+                }
+                gokou_p++;
+            }
+        }
+        //五光確定
+        else if(gokou.length==5){
+            gokou_p=5;
+        }
+        //五光計算
+        if(gokou_p<3){
+            gokou_p=0;
+        }
+        else if(gokou_p==3){
+            gokou_p=5;
+        }
+        else if(gokou_p==14){
+            gokou_p=7;
+        }
+        else if(gokou_p==4){
+            gokou_p=8;
+        }
+        else if(gokou_p==5){
+            gokou_p=10;
+        }
+        //タネ計算
+        if(tane.length>=5){
+            tane_p=tane.length-4;
+        }
+        //猪鹿蝶計算
+        if(inosika.length==3){
+            inosika_p=5;
+        }
+        //短冊計算
+        if(tan.length>=5){
+            tan_p=tan.length-4;
+        }
+        //赤短計算
+        if(aka.length==3){
+            aka_p=5;
+        }
+        //青短計算
+        if(ao.length==3){
+            ao_p=5;
+        }
+        //カス計算
+        if(kasu.length>=10){
+            kasu_p=kasu.length-9;
+        }
+        kei=gokou_p+tane_p+inosika_p+tan_p+aka_p+ao_p+kasu_p;
+        if(kei!=game_object[room_name][point]){
+            game_object[room_name][point]=kei;
+        }
+    }
+
     socket.on('create_room',function(room_name,name,month){
         var id = socket.id;
         var find_room;
@@ -229,14 +382,16 @@ io.on('connection',function(socket){
             io.to(id).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
             io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
 
+
             console.log(game_object);
         }
     });
     socket.on('pullOutHands',function(hand){
         var id = socket.id;
-        var isHost;
+        var isHost = true;
         var hands;
         var yaku;
+        var point;
         var myArr = Array.from(socket.rooms.values());
         room_name = myArr[1];
 
@@ -244,20 +399,26 @@ io.on('connection',function(socket){
             isHost = true;
             hands = "hostHands";
             yaku = "hostYaku";
+            point = "hostPoint";
         }
         else{
             isHost = false;
             hands = "guestHands";
             yaku = "guestYaku";
+            point = "guestPoint";
         }
         
         if(isHost == game_object[room_name].isHostTurn){
-            game_object[room_name].isHostTurn = !game_object[room_name].isHostTurn
             console.log("hand = " + hand);
             console.log("hands = " + hands);
             console.log("yaku = " + yaku);
-            io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
-            io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
+            
+            turn(hand,hands,yaku,room_name);
+            turn_yama(yaku,room_name);
+            yaku_check(yaku,point,room_name);
+            io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
+            io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
+            game_object[room_name].isHostTurn = !game_object[room_name].isHostTurn
         }
     });
     socket.on('message',function(msg){

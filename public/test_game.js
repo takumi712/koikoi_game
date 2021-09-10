@@ -15,36 +15,36 @@ m_point=0;
 e_point=0;
 c=0;
 l=0;
-function onClick(e) {
-    console.log("click");
-    let rect = e.target.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-    var w = rect.right - rect.left;
-    var h = rect.bottom - rect.top;
-    console.log(e.clientX);
-    console.log(e.clientY);
-    console.log(rect.left);
-    console.log(canvas.top);
-    console.log("x:", x, "y:", y);
-    x=x/w;
-    y=y/h;
-    x=x*1280;
-    y=y*720;
-    console.log("x:", x, "y:", y);
-    for(i=0;i<8;i++){
-        if(x<330+(100*i) && 250+(100*i)<x){
-            if(y>590&&720>y){
-                console.log("あなたが選んだ手札",i);
-                full_m_turn(i);
-            }
-        }
-    }
-}
+// function onClick(e) {
+//     console.log("click");
+//     let rect = e.target.getBoundingClientRect();
+//     var x = e.clientX - rect.left;
+//     var y = e.clientY - rect.top;
+//     var w = rect.right - rect.left;
+//     var h = rect.bottom - rect.top;
+//     console.log(e.clientX);
+//     console.log(e.clientY);
+//     console.log(rect.left);
+//     console.log(canvas.top);
+//     console.log("x:", x, "y:", y);
+//     x=x/w;
+//     y=y/h;
+//     x=x*1280;
+//     y=y*720;
+//     console.log("x:", x, "y:", y);
+//     for(i=0;i<8;i++){
+//         if(x<330+(100*i) && 250+(100*i)<x){
+//             if(y>590&&720>y){
+//                 console.log("あなたが選んだ手札",i);
+//                 full_m_turn(i);
+//             }
+//         }
+//     }
+// }
     
-var canvas = document.getElementById("canvas_game");
-var ctx = canvas.getContext("2d");
-canvas.addEventListener('click', onClick, false);
+// var canvas = document.getElementById("canvas_game");
+// var ctx = canvas.getContext("2d");
+// canvas.addEventListener('click', onClick, false);
 
 // chara = [];
 // for(i=0;i<49;i++){
