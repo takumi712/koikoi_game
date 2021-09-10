@@ -558,7 +558,65 @@ header{
     top: 26vmax;
     left: 1.8vmax;
 }
-
+.page_game #game_popup{
+    display:none;
+}
+.page_game .pp{
+    width:48%;
+    line-height:100px;
+    background:lightsalmon;
+    padding:0 4%;
+    box-sizing:border-box;
+    position:fixed;
+    border:1vmax darkred;
+    border-style:double;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.page_game .game_popup{
+    display:block;
+}
+.page_game .game_pp{
+    display:block;
+    position: absolute;
+}
+.page_game .game_koi_mas{
+    font-weight: bold;
+    color: brown;
+    font-size: 4vmax;
+    text-align: center;
+    margin-top: 5%;
+}
+.page_game .game_button{
+    text-align: center;
+}
+.page_game .game_bt_ag{
+    position: relative;
+    margin-right: 8%;
+    padding: 1vmax 2.25vmax 1vmax 2.25vmax;
+}
+.page_game .game_bt_ko{
+    position: relative;
+    margin-left: 8%;
+    padding: 1vmax 1vmax 1vmax 1vmax;
+}
+.page_game .game_button button{
+  background:#DE481F;
+  font-size:2.5vmax;
+  color:#FFFFFF;
+  border:0.5vmax solid #DE481F;
+  border-radius:5vmax;
+  -webkit-border-radius:5vmax;
+  -moz-border-radius:5vmax;
+  transition: all 0.5s ease;
+}
+.page_game .game_button button:hover{
+  background:#FFFFFF;
+  color:#DE481F;
+  box-shadow:none;
+}
 
 
   .page_result {

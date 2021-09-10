@@ -202,18 +202,25 @@ function SelectPage( page ) {
     <div id='page_game' class='page_game'>
 
         <div id="sikaku">
-            <canvas id="canvas_game" width="1280" height="720"></canvas>
-            <div class="tuki">
-              <label id="game_tuki">12月</label>
+          <canvas id="canvas_game" width="1280" height="720"></canvas>
+          <div class="tuki">
+            <label id="game_tuki">12月</label>
+          </div>
+          <div class="turn">
+            <label id="game_turn">自分の</label>
+          </div>
+          <div class="turn2">
+            <label >ターン</label>
+          </div>
+          <div id="game_popup">
+            <div class="pp">
+              <div class="game_koi_mas">こいこいしますか？</div>
+              <div class="game_button">
+                <button id="game_agari" class="game_bt_ag">あがり</button>
+                <button id="game_koikoi" class="game_bt_ko">こいこい</button>
+              </div>
             </div>
-            <div class="turn">
-              <label id="game_turn">自分の</label>
-            </div>
-            <div class="turn2">
-              <label >ターン</label>
-            </div>
-            
-
+          </div>
         </div>
         <button type='button'onclick="SelectPage(6)">resultへ</button>
     </div>
