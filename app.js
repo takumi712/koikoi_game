@@ -549,6 +549,8 @@ io.on('connection',function(socket){
         game_object[room_name].currentMonth = 1;
         game_object[room_name].hostTotalPoint = [];
         game_object[room_name].guestTotalPoint = [];
+        io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
+        io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
         io.to(room_name).emit('restart');
     });
 
