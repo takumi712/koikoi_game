@@ -320,6 +320,9 @@ io.on('connection',function(socket){
         return addYaku;
     }
     function interimResult(isHost,agari,room_name){
+        var hostTotalPoint = 0;
+        var guestTotalPoint = 0;
+        
         if(agari){
             if(isHost){
                 if(game_object[room_name].hostKoikoi){
@@ -348,22 +351,27 @@ io.on('connection',function(socket){
         }
         game_object[room_name].hostTotalPoint.push(game_object[room_name].hostPoint);
         game_object[room_name].guestTotalPoint.push(game_object[room_name].guestPoint);
+        
+        for(var i=0;i<game_object[room_name].hostTotalPoint.length;i++){
+            hostTotalPoint += game_object[room_name].hostTotalPoint[i];
+        }
+        for(var i=0;i<game_object[room_name].guestTotalPoint.length;i++){
+            guestTotalPoint += game_object[room_name].guestTotalPoint[i];
+        }
 
         io.to(game_object[room_name].hostId).emit('interimResult',
-        true,
         game_object[room_name].hostPoint,
         game_object[room_name].guestPoint,
-        game_object[room_name].hostTotalPoint,
-        game_object[room_name].guestTotalPoint,
+        hostTotalPoint,
+        guestTotalPoint,
         game_object[room_name].currentMonth       
 
         )
         io.to(game_object[room_name].guestId).emit('interimResult',
-        false,
         game_object[room_name].guestPoint,
         game_object[room_name].hostPoint,
-        game_object[room_name].guestTotalPoint,
-        game_object[room_name].hostTotalPoint,
+        guestTotalPoint,
+        hostTotalPoint,
         game_object[room_name].currentMonth       
 
         )
@@ -524,10 +532,16 @@ io.on('connection',function(socket){
         var myArr = Array.from(socket.rooms.values());
         room_name = myArr[1];
         game_object[room_name].currentMonth += 1;
-        if(game_object[room_name].Math < game_object[room_name].currentMonth){
-            console.log("リザルトへいどう");
-        }
         io.to(room_name).emit('hidePopUp');
+        if(game_object[room_name].month < game_object[room_name].currentMonth){
+            console.log("リザルトへいどう");
+            io.emit('result',
+            game_object[room_name].month,
+            game_object[room_name].hostName,
+            game_object[room_name].guestName,
+            game_object[room_name].hostTotalPoint,
+            game_object[room_name].guestTotalPoint);
+        }
         initGame(room_name);
         io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
         io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);

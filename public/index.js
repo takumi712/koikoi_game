@@ -196,6 +196,7 @@ $(function(){
     });
     socketio.on('player_disconnect',function(){
         alert('対戦相手が接続を切りました…');
+        document.getElementById("show_name").textContent = name;
         SelectPage(3);
         document.getElementById("game_popup").style.display = "none";
         document.getElementById("game_popup2").style.display = "none";
@@ -206,18 +207,59 @@ $(function(){
         document.getElementById("game_popup").style.display = "block";
     });
 
-    socketio.on('interimResult',function(isHost,myPoint,enemyPoint,myTotalPoint,enemyTotalPoint,month){
+    socketio.on('interimResult',function(myPoint,enemyPoint,myTotalPoint,enemyTotalPoint,month){
         document.getElementById("game_popup2").style.display = "block";
-        if(isHost){
-            document.getElementById("game_tugi").style.display = "block";
-        }
         document.getElementById("game_pp_title_tuki").textContent = month;
         document.getElementById("my_get").textContent = myPoint;
         document.getElementById("my_point").textContent = myTotalPoint;
         document.getElementById("en_get").textContent = enemyPoint;
         document.getElementById("en_point").textContent = enemyTotalPoint;
-
+        
     });
+    
+    socketio.on('result', function(month,hostName,guestName,hostTotalPoint,guestTotalPoint){
+        document.getElementById( "page_title" ).style.display = 'none';
+        document.getElementById( "page_mode" ).style.display = 'none';
+        document.getElementById( "page_select" ).style.display = 'none';
+        document.getElementById( "page_maching" ).style.display = 'none';
+        document.getElementById( "page_game" ).style.display = 'none';
+        document.getElementById( "page_result" ).style.display = 'block';
+        var hostScore = 0;
+        var guestScore = 0;
+        for(var i=0;i<hostTotalPoint.length;i++){
+            hostScore += hostTotalPoint[i];
+        }
+        for(var i=0;i<guestTotalPoint.length;i++){
+            guestScore += guestTotalPoint[i];
+        }
+
+        for(var i=1;i<=hostTotalPoint.length;i++){
+            if(i<10){
+                $('#result_score').append($('<li>').text(" "+i+"月　"+hostTotalPoint[i-1]+"　"+guestTotalPoint[i-1]));
+            }
+            else{
+                $('#result_score').append($('<li>').text(i+"月　"+hostTotalPoint[i-1]+"　"+guestTotalPoint[i-1]));
+            }
+        }
+
+        document.getElementById("kaisu").textContent = month;
+        document.getElementById("player1_name").textContent = hostName;
+        document.getElementById("player2_name").textContent = guestName;
+        document.getElementById("player1_score").textContent = hostScore;
+        document.getElementById("player2_score").textContent = guestScore;
+        if(hostScore > guestScore){
+            document.getElementById("player_win").textContent = hostName+" の勝ち！";
+        }
+        else if(guestScore > hostScore){
+            document.getElementById("player_win").textContent = guestName+" の勝ち！";
+        }
+        else{
+            document.getElementById("player_win").textContent = "ひきわけ！";
+
+        }
+
+        
+    })
     
     socketio.on('updateDraw',function(m_hands,e_hands,field,turn,month){
         var turnPlayer;

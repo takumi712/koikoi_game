@@ -621,9 +621,6 @@ header{
 .page_game #game_popup2{
     display:none;
 }
-.game_tugi{
-    display: none;
-}
 .page_game .pp2{
     width:60%;
     line-height:2vmax;
