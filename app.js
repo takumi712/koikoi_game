@@ -478,9 +478,6 @@ io.on('connection',function(socket){
         }
         
         if(isHost == game_object[room_name].isHostTurn){
-            console.log("hand = " + hand);
-            console.log("hands = " + hands);
-            console.log("yaku = " + yaku);
             
             turn(hand,hands,yaku,room_name);
             turn_yama(yaku,room_name);
@@ -535,7 +532,7 @@ io.on('connection',function(socket){
         io.to(room_name).emit('hidePopUp');
         if(game_object[room_name].month < game_object[room_name].currentMonth){
             console.log("リザルトへいどう");
-            io.emit('result',
+            io.to(room_name).emit('result',
             game_object[room_name].month,
             game_object[room_name].hostName,
             game_object[room_name].guestName,
@@ -545,7 +542,14 @@ io.on('connection',function(socket){
         initGame(room_name);
         io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
         io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
-        console.log(game_object);
+    });
+    socket.on('restart',function(){
+        var myArr = Array.from(socket.rooms.values());
+        room_name = myArr[1];
+        game_object[room_name].currentMonth = 1;
+        game_object[room_name].hostTotalPoint = [];
+        game_object[room_name].guestTotalPoint = [];
+        io.to(room_name).emit('restart');
     });
 
     socket.on('message',function(msg){

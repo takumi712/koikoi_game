@@ -168,6 +168,15 @@ $(function(){
     document.getElementById("game_tugi").onclick = function() {
         socketio.emit('startNextGame');
     }
+    document.getElementById("go_title").onclick = function() {
+        window.location.reload();
+    }
+    document.getElementById("one_more").onclick = function() {
+        socketio.emit('restart');
+    }
+    socketio.on('restart',function(){
+        SelectPage(5);
+    });
     
     socketio.on('hidePopUp',function(){
         document.getElementById("game_popup").style.display = "none";
