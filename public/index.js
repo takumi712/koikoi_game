@@ -147,14 +147,21 @@ $(function(){
         }
     };
     document.getElementById("join_room_btn").onclick = function() {
-    room_name = $('#room_name').val();
-    if (room_name != ''){
-        socketio.emit('join_room',room_name,name);
+        room_name = $('#room_name').val();
+        if (room_name != ''){
+            socketio.emit('join_room',room_name,name);
+        }
+        else{
+            alert('部屋名を入力してください');
+        }
     }
-    else{
-        alert('部屋名を入力してください');
+    document.getElementById("game_agari").onclick = function() {
+        socketio.emit('agari');
     }
-}
+    document.getElementById("game_koikoi").onclick = function() {
+        document.getElementById("game_popup").style.display = "none";
+        socketio.emit('koikoi');
+    }
     socketio.on('create_room_done',function(can_execute){
         if(can_execute){
             SelectPage(4);
@@ -180,6 +187,12 @@ $(function(){
         SelectPage(3);
         socketio.emit('room_leaeve');
     });
+
+    socketio.on('koikoiOrAgari',function(){
+        document.getElementById("game_popup").style.display = "block";
+    });
+
+
     
     socketio.on('updateDraw',function(m_hands,e_hands,field,turn,month){
         var turnPlayer;

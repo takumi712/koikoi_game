@@ -212,6 +212,7 @@ io.on('connection',function(socket){
         ao_p=0;
         kasu=[]
         kasu_p=0;
+        addYaku = false;
         //札分け
         for(i=0;i<game_object[room_name][yaku].length;i++){
             //20点札
@@ -308,8 +309,10 @@ io.on('connection',function(socket){
         }
         kei=gokou_p+tane_p+inosika_p+tan_p+aka_p+ao_p+kasu_p;
         if(kei!=game_object[room_name][point]){
+            addYaku = true;
             game_object[room_name][point]=kei;
         }
+        return addYaku;
     }
 
     socket.on('create_room',function(room_name,name,month){
@@ -392,6 +395,7 @@ io.on('connection',function(socket){
         var hands;
         var yaku;
         var point;
+        var addYaku;
         var myArr = Array.from(socket.rooms.values());
         room_name = myArr[1];
 
@@ -415,11 +419,23 @@ io.on('connection',function(socket){
             
             turn(hand,hands,yaku,room_name);
             turn_yama(yaku,room_name);
-            yaku_check(yaku,point,room_name);
+            addYaku = yaku_check(yaku,point,room_name);
             io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
             io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
-            game_object[room_name].isHostTurn = !game_object[room_name].isHostTurn
+            if(addYaku){
+                io.to(id).emit('koikoiOrAgari');
+            }
+            else{
+                game_object[room_name].isHostTurn = !game_object[room_name].isHostTurn
+            }
         }
+    });
+    socket.on('agari',function(){
+    });
+    socket.on('koikoi',function(){
+        var myArr = Array.from(socket.rooms.values());
+        room_name = myArr[1];
+        game_object[room_name].isHostTurn = !game_object[room_name].isHostTurn
     });
     socket.on('message',function(msg){
         console.log('message: ' + msg);
