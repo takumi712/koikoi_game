@@ -156,6 +156,7 @@ $(function(){
         }
     }
     document.getElementById("game_agari").onclick = function() {
+        document.getElementById("game_popup").style.display = "none";
         socketio.emit('agari');
     }
     document.getElementById("game_koikoi").onclick = function() {

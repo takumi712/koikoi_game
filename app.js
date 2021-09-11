@@ -114,6 +114,10 @@ io.on('connection',function(socket){
         game_object[room_name].guestHands = [];
         game_object[room_name].hostYaku = [];
         game_object[room_name].guestYaku = [];
+        game_object[room_name].hostKoikoi = false;
+        game_object[room_name].guestKoikoi = false;
+        game_object[room_name].hostPoint = 0;
+        game_object[room_name].guestPoint = 0;
 
         //ホスト側の手札作成
         tehudaseisaku(room_name,true);
@@ -354,8 +358,12 @@ io.on('connection',function(socket){
                 guestHands:[],
                 hostYaku:[],
                 guestYaku:[],
-                hostPoint:[],
-                guestPoint:[]
+                hostPoint:0,
+                guestPoint:0,
+                hostTotalPoint:[],
+                guestTotalPoint:[],
+                hostKoikoi:false,
+                guestKoikoi:false
             });
 
             console.log(game_object);
@@ -422,6 +430,9 @@ io.on('connection',function(socket){
             addYaku = yaku_check(yaku,point,room_name);
             io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
             io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
+            if(game_object[room_name].guestHands.length + game_object[room_name].hostHands.length == 0){
+                console.log("tehudanai");
+            }
             if(addYaku){
                 io.to(id).emit('koikoiOrAgari');
             }
@@ -431,12 +442,26 @@ io.on('connection',function(socket){
         }
     });
     socket.on('agari',function(){
+        var myArr = Array.from(socket.rooms.values());
+        room_name = myArr[1];
+        game_object[room_name].currentMonth += 1;
+        initGame(room_name);
     });
     socket.on('koikoi',function(){
         var myArr = Array.from(socket.rooms.values());
+        var id = socket.id;
+        if(id == game_object[room_name].hostId){
+            game_object[room_name].hostKoikoi = true;
+        }
+        else{
+            game_object[room_name].guestKoikoi = true;
+
+        }
+
         room_name = myArr[1];
         game_object[room_name].isHostTurn = !game_object[room_name].isHostTurn
     });
+
     socket.on('message',function(msg){
         console.log('message: ' + msg);
         io.emit('message', msg);
