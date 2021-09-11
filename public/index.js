@@ -155,6 +155,7 @@ $(function(){
             alert('部屋名を入力してください');
         }
     }
+    // page4
     document.getElementById("game_agari").onclick = function() {
         document.getElementById("game_popup").style.display = "none";
         socketio.emit('agari');
@@ -163,6 +164,16 @@ $(function(){
         document.getElementById("game_popup").style.display = "none";
         socketio.emit('koikoi');
     }
+
+    document.getElementById("game_tugi").onclick = function() {
+        socketio.emit('startNextGame');
+    }
+    
+    socketio.on('hidePopUp',function(){
+        document.getElementById("game_popup").style.display = "none";
+        document.getElementById("game_popup2").style.display = "none";
+    });
+
     socketio.on('create_room_done',function(can_execute){
         if(can_execute){
             SelectPage(4);
@@ -186,6 +197,8 @@ $(function(){
     socketio.on('player_disconnect',function(){
         alert('対戦相手が接続を切りました…');
         SelectPage(3);
+        document.getElementById("game_popup").style.display = "none";
+        document.getElementById("game_popup2").style.display = "none";
         socketio.emit('room_leaeve');
     });
 
@@ -193,7 +206,18 @@ $(function(){
         document.getElementById("game_popup").style.display = "block";
     });
 
+    socketio.on('interimResult',function(isHost,myPoint,enemyPoint,myTotalPoint,enemyTotalPoint,month){
+        document.getElementById("game_popup2").style.display = "block";
+        if(isHost){
+            document.getElementById("game_tugi").style.display = "block";
+        }
+        document.getElementById("game_pp_title_tuki").textContent = month;
+        document.getElementById("my_get").textContent = myPoint;
+        document.getElementById("my_point").textContent = myTotalPoint;
+        document.getElementById("en_get").textContent = enemyPoint;
+        document.getElementById("en_point").textContent = enemyTotalPoint;
 
+    });
     
     socketio.on('updateDraw',function(m_hands,e_hands,field,turn,month){
         var turnPlayer;

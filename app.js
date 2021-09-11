@@ -1,4 +1,5 @@
 const { verify } = require('crypto');
+const { text } = require('express');
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
@@ -318,7 +319,55 @@ io.on('connection',function(socket){
         }
         return addYaku;
     }
+    function interimResult(isHost,agari,room_name){
+        if(agari){
+            if(isHost){
+                if(game_object[room_name].hostKoikoi){
+                    game_object[room_name].hostPoint*=2;
+                }
+                game_object[room_name].guestPoint = 0;
+            }
+            else{
+                if(game_object[room_name].guestKoikoi){
+                    game_object[room_name].guestPoint*=2;
+                }
+                game_object[room_name].hostPoint = 0;    
+            }
+        }
+        else{
+            if(game_object[room_name].hostKoikoi){
+                game_object[room_name].guestPoint = 0;
+            }
+            if(game_object[room_name].guestKoikoi){
+                game_object[room_name].hostPoint = 0;
+            }
+            if(game_object[room_name].hostKoikoi == false && game_object[room_name].guestKoikoi == false){
+                game_object[room_name].hostPoint = 0;
+                game_object[room_name].guestPoint = 0;
+            }
+        }
+        game_object[room_name].hostTotalPoint.push(game_object[room_name].hostPoint);
+        game_object[room_name].guestTotalPoint.push(game_object[room_name].guestPoint);
 
+        io.to(game_object[room_name].hostId).emit('interimResult',
+        true,
+        game_object[room_name].hostPoint,
+        game_object[room_name].guestPoint,
+        game_object[room_name].hostTotalPoint,
+        game_object[room_name].guestTotalPoint,
+        game_object[room_name].currentMonth       
+
+        )
+        io.to(game_object[room_name].guestId).emit('interimResult',
+        false,
+        game_object[room_name].guestPoint,
+        game_object[room_name].hostPoint,
+        game_object[room_name].guestTotalPoint,
+        game_object[room_name].hostTotalPoint,
+        game_object[room_name].currentMonth       
+
+        )
+    }
     socket.on('create_room',function(room_name,name,month){
         var id = socket.id;
         var find_room;
@@ -431,7 +480,7 @@ io.on('connection',function(socket){
             io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
             io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
             if(game_object[room_name].guestHands.length + game_object[room_name].hostHands.length == 0){
-                console.log("tehudanai");
+                interimResult(game_object[room_name].isHost,false,room_name);
             }
             if(addYaku){
                 io.to(id).emit('koikoiOrAgari');
@@ -444,22 +493,45 @@ io.on('connection',function(socket){
     socket.on('agari',function(){
         var myArr = Array.from(socket.rooms.values());
         room_name = myArr[1];
-        game_object[room_name].currentMonth += 1;
-        initGame(room_name);
+        var id = socket.id;
+        var isHost;
+        if(id == game_object[room_name].hostId){
+            isHost = true;
+        }
+        else{
+            isHost = false;
+        }
+        interimResult(isHost,true,room_name);
     });
     socket.on('koikoi',function(){
         var myArr = Array.from(socket.rooms.values());
         var id = socket.id;
         if(id == game_object[room_name].hostId){
             game_object[room_name].hostKoikoi = true;
+            game_object[room_name].guestKoikoi = false;
         }
         else{
             game_object[room_name].guestKoikoi = true;
+            game_object[room_name].hostKoikoi = false;
+
 
         }
 
         room_name = myArr[1];
         game_object[room_name].isHostTurn = !game_object[room_name].isHostTurn
+    });
+    socket.on('startNextGame',function(){
+        var myArr = Array.from(socket.rooms.values());
+        room_name = myArr[1];
+        game_object[room_name].currentMonth += 1;
+        if(game_object[room_name].Math < game_object[room_name].currentMonth){
+            console.log("リザルトへいどう");
+        }
+        io.to(room_name).emit('hidePopUp');
+        initGame(room_name);
+        io.to(game_object[room_name].guestId).emit('updateDraw', game_object[room_name].guestHands,game_object[room_name].hostHands,game_object[room_name].field,!game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
+        io.to(game_object[room_name].hostId).emit('updateDraw', game_object[room_name].hostHands,game_object[room_name].guestHands,game_object[room_name].field,game_object[room_name].isHostTurn,game_object[room_name].currentMonth);
+        console.log(game_object);
     });
 
     socket.on('message',function(msg){
