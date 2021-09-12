@@ -244,7 +244,7 @@ $(function(){
 
         for(var i=1;i<=hostTotalPoint.length;i++){
             if(i<10){
-                $('#result_score').append($('<li>').text(" "+i+"月　"+hostTotalPoint[i-1]+"　"+guestTotalPoint[i-1]));
+                $('#result_score').append($('<li>').text("&nbsp;"+i+"月　"+hostTotalPoint[i-1]+"　"+guestTotalPoint[i-1]));
             }
             else{
                 $('#result_score').append($('<li>').text(i+"月　"+hostTotalPoint[i-1]+"　"+guestTotalPoint[i-1]));
