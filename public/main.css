@@ -296,18 +296,18 @@ header{
   box-shadow:none;
 }
 
-.page_mode .mode_button .mode_button_cpu{
+/* .page_mode .mode_button .mode_button_cpu{
   position: absolute;
   padding-right: 3vmax;
   top: 33vmax;
   left: 54vmax;
-}
+} */
 .page_mode .mode_button .mode_button_pc{
   position: absolute;
-  padding-right: 3vmax;
+  padding-right: 2vmax;
   top: 33vmax;
   left: 29vmax;
-  width:auto;
+  width: 35vmax;
 }
 
 
